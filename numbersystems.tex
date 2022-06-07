@@ -9,7 +9,8 @@
     It is \emph{commutative} if $a\cdot b=b\cdot a$ for any $a,\ b$ in $A$.
   \end{defn}
   \begin{defn}
-    A \emph{monoid} is an ordered pair $(A,\cdot)$ of a set $A$ and a binary
+    A \emph{monoid} is an ordered pair $(A,\cdot)$ of a set $A$ and an
+    associative binary
     operation $\cdot$ on $A$ such that there exists an element $1$, called the
     \emph{identity}, such that $a\cdot 1=1\cdot a=a$ for all $a$.
   \end{defn}
@@ -62,8 +63,8 @@
     An \emph{ordered field} is a field that is also an ordered ring.
   \end{defn}
   \begin{defn}
-    In an ordered field $\Ff$, the \emph{absolute value} $|a|$ of an element $a$
-    of $\Ff$ is $a$ if $0\le a$, otherwise $-a$.
+    In an ordered ring $R$, the \emph{absolute value} $|a|$ of an element $a$
+    of $R$ is $a$ if $0\le a$, otherwise $-a$.
   \end{defn}
   \begin{prop}
     $|a+b|\le|a|+|b|$.
@@ -89,7 +90,12 @@
   \end{prop}
   \begin{rem}
     We don't say that isomorphism is an equivalence relation, since it would
-    imply there exists a set of all Xs.
+    imply there exists a set of all well-ordered sets of this type.
+
+    Such a set does not exist because if it did it would contain
+    $(S,\mathrm{Id}_S)$ for each set $S$. Then we could use specification to
+    extract the set containing exactly those elements, and
+    Proposition~\ref{prop:1:orderedpairsinprod} to extract a set of all sets.
   \end{rem}
   \begin{thm}
     There exists a unique ordered ring $\Zz$ (up to isomorphism) such that $\{x\in
