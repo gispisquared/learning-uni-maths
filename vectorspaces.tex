@@ -1,0 +1,110 @@
+%chktex-file 3
+\chapter{Vector Spaces}
+\begin{defn}
+  Let $\Ff$ be a field. A \emph{vector space over} $\Ff$ is an abelian group
+  $V$ (of \emph{vectors})
+  together with a function $\cdot:\Ff\times V\to V$ (\emph{scalar
+    multiplication}) such that
+  \begin{itemize}
+    \item $a(b\mathbf v)=(ab)\mathbf v$ (compatible),
+    \item $1\mathbf v=\mathbf v$ (identity), and
+    \item $a(\mathbf u+\mathbf v)=a\mathbf u+a\mathbf v$ and $(a+b)\mathbf
+      v=a\mathbf v+b\mathbf v$ (distributive).
+  \end{itemize}
+\end{defn}
+\begin{defn}
+  Let $S$ be a subset of $V$. A \emph{linear combination} of elements of $S$ is
+  a vector of the form \[\sum_{i=1}^n a_i\mathbf s_i,\] where each $s_i$ is a
+  distinct element of $S$.
+\end{defn}
+\begin{defn}
+  A subset $S$ of $V$ is \emph{linearly independent} if any linear combination
+  of elements of $S$ that produces $\mathbf 0$ has all coefficients equal to $0$.
+  Otherwise, it is \emph{linearly dependent}.
+\end{defn}
+\begin{defn}
+  A \emph{subspace} $W$ of $V$ is a nonempty subset of $V$ which is also a
+  vector space over $\Ff$.
+\end{defn}
+\begin{prop}
+  A subset $W$ of $V$ is a subspace iff the following conditions hold:
+  \begin{itemize}
+    \item $W$ is nonempty;
+    \item $W$ is closed under addition; and
+    \item $W$ is closed under scalar multiplication.
+  \end{itemize}
+\end{prop}
+\begin{defn}
+  The \emph{span} of a subset $S$ of $V$ is the intersection of all linear
+  subspaces of $V$ that contain $S$.  
+\end{defn}
+\begin{prop}
+  The span of $S$ is the set of linear combinations of elements of $S$.
+\end{prop}
+\begin{defn}
+  A subset $S$ of $V$ is a \emph{basis} if it is linearly independent and its
+  span is $V$.
+\end{defn}
+\begin{thm}
+  Assume $V$ has a finite basis. Then, any two bases of $V$ have the same
+  cardinality.
+\end{thm}
+\begin{thm}
+  If we take the Axiom of Choice, then
+  \begin{itemize}
+    \item Every vector space $V$ has a basis.
+    \item Any two bases of $V$ have the same cardinality.
+  \end{itemize}
+\end{thm}
+\begin{defn}
+  The \emph{dimension} of $V$ is the cardinality of a basis of $V$.
+\end{defn}
+\begin{defn}
+  An \emph{inner product space} is a vector space $V$ over a field $\Ff$ which
+  is either $\Rr$ or $\Cc$, together with a function
+  $\langle\cdot,\cdot\rangle:V\times V\to\Ff$ satisfying
+  \begin{itemize}
+    \item $\langle \mathbf x,\mathbf y\rangle=\overline{\langle \mathbf
+      y,\mathbf x\rangle}$ (conjugate
+      symmetry)
+    \item $\langle a\mathbf x+b\mathbf y,\mathbf z\rangle=a\langle\mathbf
+      x,\mathbf z\rangle+b\langle\mathbf y,\mathbf z\rangle$ (linearity in the
+      first argument), and
+    \item $\langle\mathbf x,\mathbf x\rangle=0\implies\mathbf x=\mathbf 0$.
+  \end{itemize}
+\end{defn}
+\begin{defn}
+  Let $S$ be a set, and let $n\in\Zz^+$. An \emph{ordered $n$-tuple} 
+  $\{a_i\}_1^n$
+  of elements of $S$ is a function $f:\{x\in\Zz^+:x\le n\}\to S$. We write
+  $a_i=f(i)$ for each positive integer $i$ which is at most $n$.
+\end{defn}
+\begin{defn}
+  For any $n\in\Zz^+$, we define $\Rr^n$ and $\Cc^n$ to be the set of ordered
+  $n$-tuples of real and complex numbers respectively, with addition and
+  scalar multiplication defined componentwise.
+\end{defn}
+\begin{prop}
+  $\Cc^n$ is an inner product space over $\Cc$ with the inner product
+  \[\langle a,b\rangle=\sum_{i=1}^n a_i\overline{b_i}.\] 
+
+  $\Rr^n$ is an inner product space over $\Rr$ with the inner product
+  \[\langle a,b\rangle=\sum_{i=1}^n a_i b_i.\]
+\end{prop}
+\begin{defn}
+  A \emph{normed vector space} is a vector space $V$ over $\Rr$ or $\Cc$
+  on which there is a \emph{norm}: a function $\|\cdot\|:V\to\Cc$ satisfying
+  \begin{itemize}
+    \item $\|\mathbf x\|\ge 0$,
+    \item $\|\mathbf x\|=0$ implies $\mathbf x=\mathbf 0$,
+    \item $\|a\mathbf x\|=|a|\|\mathbf x\|$, and
+    \item $\|\mathbf x+\mathbf y\|\le\|\mathbf x\|+\|\mathbf y\|$ (the triangle
+      inequality).
+  \end{itemize}
+\end{defn}
+\begin{prop}
+  If $V$ is an inner product space, then $\langle\mathbf x,\mathbf x\rangle$ is
+  real for all $\mathbf x$.
+  Moreover, $\|\mathbf x\|=\sqrt{\langle\mathbf x,\mathbf x\rangle}$ is a norm
+  on $V$.
+\end{prop}

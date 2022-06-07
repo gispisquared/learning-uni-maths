@@ -1,0 +1,204 @@
+\chapter{Set Theory}
+\begin{axiom}[Existence]
+  There exists a set.
+\end{axiom}
+\begin{rem}
+  This is implied by the Axiom of Infinity; however, we include it here so that
+  we may define the empty set.
+\end{rem}
+\begin{defn}
+  A \emph{sentence} is made by combining assertions of belonging (eg $x\in A$)
+  and/or assertions of equality (eg $A=B$) using the usual logical operators:
+  \emph{and, or, not, implies, if and only if, there exists, for all}.
+\end{defn}
+\begin{defn}
+  Let $A$ and $B$ be sets.
+  If every element of $A$ is an element of $B$, we say that $A$ is a
+  \emph{subset} of $B$, denoted $A\subseteq B$.
+\end{defn}
+\begin{prop}
+  If $A\subseteq B$ and $B\subseteq C$ then $A\subseteq C$.
+\end{prop}
+\begin{axiom}[Extensionality]
+  $A=B$ iff $A\subseteq B$ and $B\subseteq A$.
+\end{axiom}
+\begin{axiom}[Specification]
+  For every set $A$ and every sentence $S(x)$ there is a set $B$ whose elements
+  are exactly those elements $x$ of $A$ for which $S(x)$ holds.
+\end{axiom}
+\begin{defn}
+  We notate this set $B$ by $\{x\in A: S(x)\}$.
+\end{defn}
+\begin{prop}
+  There exists a unique set $X$ such that for any $x$, the sentence
+  $x\in X$ is false.
+\end{prop}
+\begin{defn}
+  We call this set the \emph{empty set}, notated $\emptyset$.
+\end{defn}
+\begin{prop}
+  For every set $A$ there is a set $B$ such that $B\not\in A$.
+\end{prop}
+\begin{axiom}[Pairing]
+  For any two sets $A$ and $B$ there is a set $X$ with $A\in X$ and $B\in X$.
+\end{axiom}
+\begin{prop}
+  There is a unique set $Y$ such that for any $a$, $a$ is in $Y$ iff $a=A$ or $a=B$.
+\end{prop}
+\begin{defn}
+  This set is called the \emph{unordered pair} formed by $A$ and $B$, denoted
+  $\{A,B\}$.
+\end{defn}
+\begin{defn}
+  The set $\{A,A\}$ is denoted $\{A\}$, and called the \emph{singleton} of
+  $\{A\}$.
+\end{defn}
+\begin{axiom}[Union]
+  For any set $X$ of sets there exists a set $Y$ such that for any $A$ in $X$,
+  and any $a$ in $A$, $a$ is in $Y$.
+\end{axiom}
+\begin{prop}
+  For a nonempty set $X$ of sets there is a unique set $Z$ such that $a$ is in $Z$ if and
+  only if there exists an $A$ in $X$ such that $a$ is in $A$.
+\end{prop}
+\begin{defn}
+  This set is called the \emph{union} of $X$, denoted
+  $\bigcup X$.
+
+  For two sets $A$ and $B$ we define $A\cup B=\bigcup \{A,B\}$.
+\end{defn}
+\begin{defn}
+  Let $A$ and $B$ be sets.
+  The \emph{intersection} of $A$ and $B$, notated $A\cap B$, is $\{x\in A:x\in
+    B\}$.
+
+  If $A\cap B=\emptyset$ then $A$ and $B$ are called \emph{disjoint}.
+\end{defn}
+\begin{prop}
+  We have
+  \begin{itemize}
+    \item $A\cup\emptyset=A$,
+    \item $A\cup B=B\cup A$ (commutative),
+    \item $A\cup (B\cup C)=(A\cup B)\cup C$ (associative),
+    \item $A\cup A=A$ (idempotent),
+    \item $A\cup (B\cap C)=(A\cup B)\cap(A\cup C)$ (distributive),
+    \item $A\subseteq B$ iff $A\cup B=B$,
+    \item $A\cap\emptyset=A$,
+    \item $A\cap B=B\cap A$ (commutative),
+    \item $A\cap (B\cap C)=(A\cap B)\cap C$ (associative),
+    \item $A\cap A=A$ (idempotent),
+    \item $A\cap (B\cup C)=(A\cap B)\cup(A\cap C)$ (distributive),
+    \item $A\subseteq B$ iff $A\cap B=A$.
+  \end{itemize}
+\end{prop}
+\begin{prop}
+  For every nonempty set $C$ of sets, there is a unique set $Y$ such that $x\in Y$ iff
+  $x\in X$ for each $X$ in $C$.
+\end{prop}
+\begin{defn}
+  This set $Y$ is called the \emph{intersection} of $C$, denoted $\bigcap C$.
+\end{defn}
+\begin{axiom}[Powers]
+  For each set $X$ there is a set that contains all subsets of
+  $X$.
+\end{axiom}
+\begin{prop}
+  There is a unique set $Y$ such that $x\in Y$ iff $x\subseteq X$.
+\end{prop}
+\begin{defn}
+  This set $Y$ is called the \emph{power set} of $X$, denoted $\mathcal P(X)$.
+\end{defn}
+\begin{defn}
+  The \emph{ordered pair} of $a$ and $b$ is the set defined as
+  \[(a,b)=\{\{a\},\{a,b\}\}.\]
+\end{defn}
+\begin{prop}
+  For any $a,b,c,d$, we have $(a,b)=(c,d)$ iff $a=c$ and $b=d$.
+\end{prop}
+\begin{defn}
+  Let $A$ and $B$ be sets. The \emph{Cartesian product} $A\times B$ is
+  \[\{(x,y): x\in A,\ y\in B\}.\]
+\end{defn}
+\begin{prop}
+  For any set $R$ of ordered pairs there are sets $A$ and $B$ such that
+  $R\subseteq A\times B$.
+\end{prop}
+\begin{defn}
+  A \emph{binary relation} $R$ over sets $A$ and $B$ is a subset of $A\times
+  B$. If $(a,b)$ is in $R$ we write $aRb$.
+
+  If $A=B$ then we call it a \emph{binary relation over} $A$.
+\end{defn}
+\begin{defn}
+  An \emph{equivalence relation} is a binary relation $\sim$ over $A$ such
+  that
+  \begin{itemize}
+    \item $a\sim a$ (reflexive),
+    \item $a\sim b\iff b\sim a$ (symmetric), and
+    \item if $a\sim b$ and $b\sim c$ then $a\sim c$ (transitive).
+  \end{itemize}
+  The \emph{equivalence class} of $a$ under $\sim$ is
+  \[[a]=\{x\in A:x\sim a\}.\]
+\end{defn}
+\begin{defn}
+  A \emph{partition} of a set $A$ is a disjoint set of subsets of $A$ whose
+  union is $A$.
+
+  A partition $X$ of $A$ \emph{induces} a relation $\sim$, where $a\sim b$ iff
+  $a$ and $b$ belong to the same element of $X$.
+\end{defn}
+\begin{prop}
+  The set of equivalence classes of an equivalence relation exists and 
+  is a partition.
+\end{prop}
+\begin{defn}
+  This partition is called the partition \emph{induced} by the equivalence
+  relation $\sim$.
+\end{defn}
+\begin{prop}
+  The equivalence relation induced by a partition induces that partition; the
+  partition induced by an equivalence relation induces that relation.
+\end{prop}
+\begin{defn}
+  For any set $X$ we define $X^+=X\cup\{X\}$.
+\end{defn}
+\begin{axiom}[Infinity]
+  There exists a set $S$ containing $\emptyset$ and containing $X^+$ for
+  every $X$ in $S$.
+\end{axiom}
+\begin{prop}
+  There exists a unique set $\omega$ which is a subset of all such sets $S$.
+\end{prop}
+\begin{prop}
+  For any $a,b\in\omega$, exactly one of $a\in b,\ a=b,\ b\in a$ is true.
+\end{prop}
+\begin{prop}
+  For any $a\in\omega$ and any $b\in a$, $b\subseteq a$.
+\end{prop}
+\begin{defn}
+  A \emph{function} $f:A\to B$ is a relation $f$ over $A$ and $B$ such that
+  for each $a\in A$ there is exactly one $b\in B$ such that $afb$. We usually
+  write this as $f(a)=b$.
+
+  A function $f$ is \emph{injective} if for each $b$ in $B$, there is at most one
+  $a$ in $A$ such that $f(a)=b$. It is \emph{surjective} if for each $b$ in
+  $B$ there is at least one $a$ in $A$ such that $f(a)=b$. A function which is
+  both injective and surjective is \emph{bijective}.
+\end{defn}
+\begin{thm}[Recursion theorem]
+  If $a$ is an element of a set $X$, and if $f:X\to X$ is a function, then there
+  is a function $g:\omega\to X$ such that $u(0)=a$ and $u(n^+)=f(u(n))$ for all
+  $n$ in $\omega$.
+\end{thm}
+\begin{axiom}[Substitution]
+  If $S(a,b)$ is a sentence such that for each $a$ in a set $A$ there exists a
+  set $B_a$ such that $b\in B_a\iff S(a,b)$, then there exists a function $F$ with
+  domain $A$ such that $F(a)=B_a$ for each $a$ in $A$.
+\end{axiom}
+\begin{axiom}[Foundation]
+  Every set $X$ contains a set $Y$ such that $X$ and $Y$ are disjoint.
+\end{axiom}
+\begin{axiom}[Choice]
+  Let $X$ be a set of sets whose members are all nonempty. Then there exists a
+  function $f:X\to\bigcup X$ such that $f(Y)\in Y$ for all $Y\in X$.
+\end{axiom}

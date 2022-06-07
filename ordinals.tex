@@ -1,0 +1,78 @@
+\chapter{Ordinals}
+\begin{defn}
+  A \emph{partial order} is a binary relation $\le$ on a a set $A$ such that
+  \begin{itemize}
+    \item $a\le a$ (reflexive),
+    \item if $a\le b$ and $b\le a$ then $a=b$ (antisymmetric), and
+    \item if $a\le b$ and $b\le c$ then $a\le c$ (transitive).
+  \end{itemize}
+  We define $a<b$ if $a\le b$ and $a\ne b$.
+
+  If for all $a$ and $b$ we have $a\le b$ or $b\le a$ (strongly connected),
+  then $\le$ is a \emph{total order}. 
+
+  A \emph{chain} is a totally ordered subset of a partially ordered set.
+\end{defn}
+\begin{defn}
+  If $X$ is a partially ordered set, and if $a\in X$, the set $s(a)=\{x\in
+    X:x<a\}$ is called the \emph{initial segment} determined by $a$.
+\end{defn}
+\begin{defn}
+  Two partially ordered sets $X$ and $Y$ are \emph{similar} if there is a
+  bijection $f:X\to Y$ such that $a\le b\iff f(a)\le f(b)$. This bijection is
+  called a \emph{similarity}.
+\end{defn}
+\begin{defn}
+  Let $S$ be a subset of a partially ordered set $A$, and let $a$ be an element
+  of $A$. If $s\le a$ for every $s$ in $S$, then we call $a$ an \emph{upper
+    bound} of $S$. If $a\le s$ for every $s$ in $S$, then we call $a$ a
+    \emph{lower bound} of $S$. If $a$ is an upper bound of $S$ and a lower
+    bound of the set of upper bounds of $S$, then we call $a$ a \emph{least
+      upper bound} of $S$.
+\end{defn}
+\begin{defn}
+  A \emph{well-order} on $A$ is a total order $\le$ on $A$ such that every
+  nonempty subset $S$ of $A$ has an element $a$ which is a lower bound for $S$.
+  The set $A$ together with the relation $\le$ is then called \emph{well-ordered}.
+\end{defn}
+\begin{prop}
+  If two well-ordered sets are similar, then the similarity is unique.
+\end{prop}
+\begin{thm}
+  If $X$ and $Y$ are well-ordered, then either $X$ and $Y$ are similar, or one
+  is similar to an initial segment of the other.
+\end{thm}
+\begin{defn}
+  An \emph{ordinal number} is a well-ordered set $\alpha$ such that for any
+  $\xi\in\alpha$ we have $s(\xi)=\xi$.
+\end{defn}
+\begin{prop}
+  $\omega$ is an ordinal number.
+\end{prop}
+\begin{prop}
+  If $\alpha$ is an ordinal number then so is $\alpha^+$, and so is any element
+  of $\alpha$.
+\end{prop}
+\begin{thm}
+  If two ordinal numbers are similar, then they are equal.
+
+  Otherwise, one is an element of the other.
+\end{thm}
+\begin{prop}
+  If a set $\alpha$ can be well-ordered such that it is an ordinal, then the
+  ordering is unique.
+\end{prop}
+\begin{prop}
+  Every well-ordered set is similar to a unique ordinal number.
+\end{prop}
+\begin{prop}
+  There is no set of all ordinal numbers.
+\end{prop}
+\begin{thm}[Zorn's Lemma]
+  Suppose a partially ordered set $P$ has the property that every chain in $P$
+  has an upper bound in $P$. Then there is an element $a\in P$ such that the
+  only upper bound for $\{a\}$ is $a$.
+\end{thm}
+\begin{thm}[Well-Ordering Theorem]
+  Every set has a well-ordering.
+\end{thm}

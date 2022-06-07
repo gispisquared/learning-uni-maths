@@ -1,0 +1,39 @@
+\documentclass{amsbook}
+\usepackage{amsmath,amssymb,amsthm,tcolorbox,hyperref,booktabs}
+\hypersetup{colorlinks=true}
+\theoremstyle{plain}
+  \newtheorem{thm}{Theorem}
+  \newtheorem{lem}[thm]{Lemma}
+  \newtheorem{prop}[thm]{Proposition}
+  \newtheorem{cor}[thm]{Corollary}
+  \newtheorem{axiom}[thm]{Axiom}
+\theoremstyle{definition}
+  \newtheorem{defn}[thm]{Definition}
+  \newtheorem{eg}[thm]{Example}
+\theoremstyle{remark}
+  \newtheorem{rem}[thm]{Remark}
+  \newtheorem{note}[thm]{Note}
+  \newtheorem{case}[thm]{Case}
+  \newtheorem{claim}[thm]{Claim}
+\newcommand{\LHS}{\text{LHS}}
+\newcommand{\RHS}{\text{RHS}}
+\newcommand{\Zz}{\mathbb{Z}}
+\newcommand{\Qq}{\mathbb{Q}}
+\newcommand{\Rr}{\mathbb{R}}
+\newcommand{\Cc}{\mathbb{C}}
+\newcommand{\Ff}{\mathbb{F}}
+\newcommand{\lcm}{\mathrm{lcm}}
+\title{Learning Uni Maths}
+\author{gispisquared}
+\begin{document}
+\maketitle
+\tableofcontents
+\input{settheory.tex}
+\input{ordinals.tex}
+\input{cardinality.tex}
+\input{numbersystems.tex}
+\input{vectorspaces.tex}
+\input{metricspaces.tex}
+\appendix
+\input{proofs/main.tex}
+\end{document}

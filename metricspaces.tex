@@ -1,0 +1,23 @@
+\chapter{Metric Spaces}
+\begin{defn}
+  A \emph{metric space} is a nonempty set $M$ together with a function
+  $d:M\times M\to\Rr$ such that
+  \begin{itemize}
+    \item $d(x,y)=0\iff x=y$,
+    \item $d(x,y)=d(y,x)$ (symmetry), 
+    \item $d(x,z)\le d(x,y)+d(y,z)$ (triangle inequality).
+  \end{itemize}
+\end{defn}
+\begin{prop}
+  If $(M,d)$ is a metric space then $d(x,y)>0$ for any $x\ne y$.
+\end{prop}
+\begin{defn}
+  A norm induces a distance, called the \emph{induced metric}, by
+  $d(x,y)=\|y-x\|$.
+\end{defn}
+\begin{prop}
+  Every normed vector space is a metric space with the induced metric.
+\end{prop}
+\begin{cor}
+  $\Rr^n$ and $\Cc^n$ are metric spaces.
+\end{cor}
