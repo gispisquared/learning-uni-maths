@@ -1,5 +1,5 @@
 %chktex-file 3
-\chapter{Vector Spaces}
+\chapter{Linear Algebra}
 \begin{defn}
   Let $\Ff$ be a field. A \emph{vector space over} $\Ff$ is an abelian group
   $V$ (of \emph{vectors})
@@ -18,11 +18,6 @@
   distinct element of $S$.
 \end{defn}
 \begin{defn}
-  A subset $S$ of $V$ is \emph{linearly independent} if any linear combination
-  of elements of $S$ that produces $\mathbf 0$ has all coefficients equal to $0$.
-  Otherwise, it is \emph{linearly dependent}.
-\end{defn}
-\begin{defn}
   A \emph{subspace} $W$ of $V$ is a nonempty subset of $V$ which is also a
   vector space over $\Ff$.
 \end{defn}
@@ -30,8 +25,9 @@
   A subset $W$ of $V$ is a subspace iff the following conditions hold:
   \begin{itemize}
     \item $W$ is nonempty;
-    \item $W$ is closed under addition; and
-    \item $W$ is closed under scalar multiplication.
+    \item $u,v\in W$ implies $u+v\in W$ (closed under addition); and
+    \item if $a\in\Ff$ and $u\in W$ then $au\in W$ (closed under scalar
+      multiplication).
   \end{itemize}
 \end{prop}
 \begin{defn}
@@ -39,26 +35,35 @@
   subspaces of $V$ that contain $S$.  
 \end{defn}
 \begin{prop}
-  The span of $S$ is the set of linear combinations of elements of $S$.
+  The span of $S$ is the set of linear combinations of elements of $S$. It is
+  also the smallest subspace of $V$ that contains $S$.
 \end{prop}
+\begin{defn}
+  A subset $S$ of $V$ is \emph{linearly independent} if any linear combination
+  of elements of $S$ that produces $\mathbf 0$ has all coefficients equal to $0$.
+  Otherwise, it is \emph{linearly dependent}.
+\end{defn}
 \begin{defn}
   A subset $S$ of $V$ is a \emph{basis} if it is linearly independent and its
   span is $V$.
 \end{defn}
 \begin{thm}
-  Assume $V$ has a finite basis. Then, any two bases of $V$ have the same
-  cardinality.
-\end{thm}
-\begin{thm}
-  If we take the Axiom of Choice, then
+  Let $V$ be a vector space.
   \begin{itemize}
-    \item Every vector space $V$ has a basis.
+    \item $V$ has a basis.
     \item Any two bases of $V$ have the same cardinality.
   \end{itemize}
 \end{thm}
 \begin{defn}
-  The \emph{dimension} of $V$ is the cardinality of a basis of $V$.
+  The \emph{dimension} of $V$ is the cardinality of a basis of $V$. If $\dim V$
+  is an integer, $V$ is said to be \emph{finite-dimensional}; otherwise, it is
+  \emph{infinite-dimensional}.
 \end{defn}
+\begin{prop}
+  Let $V$ be finite-dimensional with dimension $d$.
+  Let $S$ be a set of vectors in $V$ with $|S|=d$. Then $S$ is linearly
+  independent iff it spans $V$.
+\end{prop}
 \begin{defn}
   An \emph{inner product space} is a vector space $V$ over a field $\Ff$ which
   is either $\Rr$ or $\Cc$, together with a function
@@ -73,24 +78,6 @@
     \item $\langle\mathbf x,\mathbf x\rangle=0\implies\mathbf x=\mathbf 0$.
   \end{itemize}
 \end{defn}
-\begin{defn}
-  Let $S$ be a set, and let $n\in\Zz^+$. An \emph{ordered $n$-tuple} 
-  $\{a_i\}_1^n$
-  of elements of $S$ is a function $f:\{x\in\Zz^+:x\le n\}\to S$. We write
-  $a_i=f(i)$ for each positive integer $i$ which is at most $n$.
-\end{defn}
-\begin{defn}
-  For any $n\in\Zz^+$, we define $\Rr^n$ and $\Cc^n$ to be the set of ordered
-  $n$-tuples of real and complex numbers respectively, with addition and
-  scalar multiplication defined componentwise.
-\end{defn}
-\begin{prop}
-  $\Cc^n$ is an inner product space over $\Cc$ with the inner product
-  \[\langle a,b\rangle=\sum_{i=1}^n a_i\overline{b_i}.\] 
-
-  $\Rr^n$ is an inner product space over $\Rr$ with the inner product
-  \[\langle a,b\rangle=\sum_{i=1}^n a_i b_i.\]
-\end{prop}
 \begin{defn}
   A \emph{normed vector space} is a vector space $V$ over $\Rr$ or $\Cc$
   on which there is a \emph{norm}: a function $\|\cdot\|:V\to\Cc$ satisfying
@@ -107,4 +94,14 @@
   real for all $\mathbf x$.
   Moreover, $\|\mathbf x\|=\sqrt{\langle\mathbf x,\mathbf x\rangle}$ is a norm
   on $V$.
+\end{prop}
+\begin{defn}
+  Two vectors $\mathbf x$ and $\mathbf y$ are \emph{orthogonal} if $\langle
+  \mathbf x,\mathbf y\rangle=0$.
+
+  A set of vectors is \emph{orthonormal} if each vector in the set has norm 1
+  and is orthogonal to all other vectors in the set.
+\end{defn}
+\begin{prop}
+  Any finite-dimensional vector space has an orthonormal basis.
 \end{prop}
