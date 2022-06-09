@@ -6,16 +6,37 @@
   together with a function $\cdot:\Ff\times V\to V$ (\emph{scalar
     multiplication}) such that
   \begin{itemize}
-    \item $a(b\mathbf v)=(ab)\mathbf v$ (compatible),
-    \item $1\mathbf v=\mathbf v$ (identity), and
-    \item $a(\mathbf u+\mathbf v)=a\mathbf u+a\mathbf v$ and $(a+b)\mathbf
-      v=a\mathbf v+b\mathbf v$ (distributive).
+    \item $a(b v)=(ab) v$ (compatible),
+    \item $1 v= v$ (identity), and
+    \item $a( u+ v)=a u+a v$ and $(a+b)
+      v=a v+b v$ (distributive).
   \end{itemize}
 \end{defn}
 \begin{defn}
   Let $S$ be a subset of $V$. A \emph{linear combination} of elements of $S$ is
-  a vector of the form \[\sum_{i=1}^n a_i\mathbf s_i,\] where each $s_i$ is a
+  a vector of the form \[\sum_{i=1}^n a_i s_i,\] where each $s_i$ is a
   distinct element of $S$.
+\end{defn}
+\begin{defn}
+  A \emph{basis} of a vector space $V$ is a set $S\subseteq V$ such that each
+  element of $V$ can be uniquely represented as a linear combination of elements
+  of $S$.
+\end{defn}
+\begin{rem}
+  For an infinite-dimensional vector space, there are multiple different notions
+  of a basis. This one is usually called a \emph{Hamel basis}.
+\end{rem}
+\begin{thm}
+  Let $V$ be a vector space.
+  \begin{itemize}
+    \item $V$ has a basis.
+    \item Any two bases of $V$ have the same cardinality.
+  \end{itemize}
+\end{thm}
+\begin{defn}
+  The \emph{dimension} of $V$ is the cardinality of a basis of $V$. If $\dim V$
+  is an integer, $V$ is said to be \emph{finite-dimensional}; otherwise, it is
+  \emph{infinite-dimensional}.
 \end{defn}
 \begin{defn}
   A \emph{subspace} $W$ of $V$ is a nonempty subset of $V$ which is also a
@@ -36,68 +57,247 @@
 \end{defn}
 \begin{prop}
   The span of $S$ is the set of linear combinations of elements of $S$. It is
-  also the smallest subspace of $V$ that contains $S$.
+  also a subspace of $V$.
 \end{prop}
 \begin{defn}
   A subset $S$ of $V$ is \emph{linearly independent} if any linear combination
-  of elements of $S$ that produces $\mathbf 0$ has all coefficients equal to $0$.
+  of elements of $S$ that produces $ 0$ has all coefficients equal to $0$.
   Otherwise, it is \emph{linearly dependent}.
 \end{defn}
-\begin{defn}
-  A subset $S$ of $V$ is a \emph{basis} if it is linearly independent and its
+\begin{prop}
+  A subset $S$ of $V$ is a \emph{basis} iff it is linearly independent and its
   span is $V$.
-\end{defn}
-\begin{thm}
-  Let $V$ be a vector space.
-  \begin{itemize}
-    \item $V$ has a basis.
-    \item Any two bases of $V$ have the same cardinality.
-  \end{itemize}
-\end{thm}
-\begin{defn}
-  The \emph{dimension} of $V$ is the cardinality of a basis of $V$. If $\dim V$
-  is an integer, $V$ is said to be \emph{finite-dimensional}; otherwise, it is
-  \emph{infinite-dimensional}.
-\end{defn}
+\end{prop}
 \begin{prop}
   Let $V$ be finite-dimensional with dimension $d$.
   Let $S$ be a set of vectors in $V$ with $|S|=d$. Then $S$ is linearly
   independent iff it spans $V$.
 \end{prop}
 \begin{defn}
+  A \emph{linear map} from $V$ to $W$ is a group homomorphism
+  $T:V\to W$ such that $T(\lambda v)=\lambda T(v)$ for all $\lambda\in\Ff$.
+
+  The \emph{product} of linear maps $S$ and $T$ is $ST=S\circ T$.
+\end{defn}
+\begin{prop}
+  The space of linear maps from $V$ to $W$ is a vector space.
+\end{prop}
+\begin{defn}
+  The \emph{null space} of a linear map $T$ is the subset of its domain that $T$
+  maps to 0.
+\end{defn}
+\begin{prop}
+  Let $V$ be finite-dimensional, and
+  let $T:V\to W$ be a linear transformation. Then the null space of $T$ is a
+  subspace of $V$, the image of $T$ is a subspace of $W$, and the sum of the
+  dimensions of these two subspaces equals $\dim V$.
+\end{prop}
+\begin{defn}
+  A linear map $T:V\to W$ is \emph{invertible} if there is a linear map $S:W\to
+  V$ such that $ST$ is the identity on $V$ and $TS$ is the identity on $W$. In
+  this case, $S$ is called an \emph{inverse} of $T$.
+\end{defn}
+\begin{defn}
+  An \emph{isomorphism} is an invertible linear map.
+\end{defn}
+\begin{prop}
+  Two vector spaces over $\Ff$ are isomorphic iff they have
+  the same dimension.
+\end{prop}
+\begin{prop}
+  Suppose $V$ and $W$ are finite-dimensional and isomorphic,
+  and $T$ is a linear transformation from $V$
+  to $W$. The following are equivalent:
+  \begin{itemize}
+    \item $T$ is invertible.
+    \item $T$ is injective.
+    \item $T$ is surjective.
+  \end{itemize}
+\end{prop}
+\begin{defn}
+  The \emph{product} of vector spaces is the Cartesian product, where addition
+  and scalar multiplication are defined componentwise.
+\end{defn}
+\begin{prop}
+  Suppose $U$ is a subspace of $V$. Define the relation $a\sim b\iff b-a\in V$.
+  Then $\sim$ is an equivalence relation, and addition and scalar multiplication
+  are invariant under it. The partition induced by this relation is a vector
+  space.
+\end{prop}
+\begin{defn}
+  This vector space is called the \emph{quotient space} of $V$ over $U$, denoted
+  $V/U$.
+\end{defn}
+\begin{prop}
+  Suppose $T$ is a linear transformation with domain $V$, and let $U$ be the null space of $T$.
+  Then $T$ is an isomorphism from $V/U$ to the range of $T$.
+\end{prop}
+\begin{defn}
+  A \emph{linear functional} on $V$ is a linear map from $V$ to $\Ff$.
+\end{defn}
+\begin{defn}
+  The space of linear functionals on $V$ is the \emph{dual space} of $V$,
+  denoted $V'$.
+\end{defn}
+\begin{defn}
+  If $v_1,\ldots,v_n$ is a basis of $V$, then the \emph{dual basis} is the list
+  of
+  elements $\varphi_j$ of $V'$, where $\varphi_j v_k$ is $1$ if $j=k$ and $0$
+  otherwise.
+\end{defn}
+\begin{prop}
+  The dual basis of a basis of $V$ is a basis of $V'$.
+\end{prop}
+\begin{defn}
+  The \emph{dual map} of $T$ is the linear map $T':W'\to V'$ defined by
+  $T'\varphi=\varphi T$ for each $\varphi\in W'$.
+\end{defn}
+\begin{prop}
+  $T'$ is a linear map. The dimensions of the range of $T'$ and the range of $T$
+  coincide.
+\end{prop}
+\begin{defn}
+  Suppose $V$ and $W$ have finite bases $\{v_i\}_1^m$ and $\{w_i\}_1^n$
+  respectively. The \emph{matrix} $A$ of $T$ with respect to these bases is
+  defined by
+  \[T_{v_k}=\sum_{i=1}^n A_{i,k}w_i.\]
+
+  We also identify $1\times n$ and $n\times 1$ matrices with elements of
+  $\Ff^n$.
+\end{defn}
+\begin{prop}
+  This defines a bijection between the space of $m\times n$ matrices and the space
+  of linear transformations $\Ff^n\to \Ff^m$.
+\end{prop}
+\begin{defn}
+  Thus, we identify the two, and can therefore talk of the image, null space,
+  etc of a matrix.
+\end{defn}
+\begin{defn}
+  The \emph{rank} of a matrix is the dimension of its image.
+
+  The \emph{transpose} of a matrix is the matrix obtained by reflecting over the
+  diagonal.
+\end{defn}
+\begin{prop}
+  Let $T:V\to W$ be a linear transformation, where $V$ and $W$ are
+  finite-dimensional. Pick bases $\{v_i\}$ and $\{w_i\}$ 
+  of $V$ and $W$. The matrix of $T'$ with respect
+  to the dual bases of $\{v_i\}$ and $\{w_i\}$ 
+  is the transpose of the matrix of $T$ with respect to $\{v_i\}$ and $\{w_i\}$.
+\end{prop}
+\begin{cor}
+  The rank of a matrix equals the rank of its transpose.
+\end{cor}
+\begin{defn}
+  Let $U,V,W$ be finite-dimensional vector spaces, and let $A:U\to W$ and
+  $B:V\to W$ be linear maps. We \emph{augment} $A$ with $B$ to get the linear
+  map
+  \[(A|B):U\times V\to W,\ (A|B)(x,y)=Ax+By.\]
+\end{defn}
+\begin{prop}
+  For any $x:V\to U$ we have $Ax=B\iff (A|B)(x,-I)=0$.
+\end{prop}
+\begin{rem}
+  Thus, to solve the linear system $Ax=B$ it suffices to find the null space of
+  $(A|B)$. Notice also that the matrix of $(A|B)$ is simply the matrix formed by
+  concatenating the matrices of $A$ and $B$.
+\end{rem}
+\begin{prop}
+  Let $T$ and $S$ be linear maps from $V$ to $W$. The following are equivalent:
+  \begin{itemize}
+    \item The null spaces of $T$ and $S$ are the same.
+    \item The images of $T'$ and $S'$ coincide.
+    \item There is an invertible linear map $A:V\to V$ such that $AT=S$.
+  \end{itemize}
+\end{prop}
+\begin{defn}
+  Such linear maps are called \emph{equivalent}.
+\end{defn}
+\begin{defn}
+  A \emph{pivot} is the first nonzero entry in a row of a matrix.
+
+  A matrix is in \emph{row echelon form (REF)} if all rows consisting
+  of only zeroes are at the bottom and the pivot of a nonzero row is strictly to
+  the right of the pivot of the row above it.
+
+  A matrix is in \emph{reduced row echelon form (RREF)} if it is in REF, all
+  pivots are $1$, and each column containing a pivot has zeroes everywhere else
+  in the column.
+\end{defn}
+\begin{prop}
+  Every matrix is equivalent to a unique matrix in RREF\@.
+\end{prop}
+\begin{defn}
+  An \emph{elementary matrix} is a matrix that differs from the identity 
+  in exactly one entry, where that entry is nonzero in the elementary matrix.
+\end{defn}
+\begin{prop}
+  A matrix is invertible iff it is a product of elementary matrices.
+\end{prop}
+\begin{rem}
+  The null space of a matrix in RREF is easy to find.
+  Thus, to find the null space of a matrix, we left-multiply by elementary
+  matrices to find an equivalent matrix in RREF\@. This process is known as
+  \emph{Gaussian elimination}. It is efficient because
+  multiplying by an elementary matrix has simple consequences:
+  \begin{itemize}
+    \item An elementary matrix which has a nonzero entry on the main diagonal
+      multiplies a row by a scalar.
+    \item An elementary matrix which has a nonzero entry off the main diagonal
+      adds a scalar multiple of one row to another. 
+  \end{itemize}
+  Most authors add a third (redundant) type of row operation and elementary
+  matrix: swapping two rows.
+
+  The next proposition shows that Gaussian elimination also helps us find bases
+  for the span of a set of vectors.
+\end{rem}
+\begin{prop}
+  Let $T$ be a matrix which is equivalent to a matrix $S$ in REF\@. Then,
+  \begin{itemize}
+    \item The rows of $S$ with pivots form a basis for the span of the rows of $T$.
+    \item Consider the columns of $S$ with pivots. The corresponding columns of
+      $T$ form a basis for the span of the columns of $T$.
+  \end{itemize}
+\end{prop}
+\begin{defn}
   An \emph{inner product space} is a vector space $V$ over a field $\Ff$ which
   is either $\Rr$ or $\Cc$, together with a function
   $\langle\cdot,\cdot\rangle:V\times V\to\Ff$ satisfying
   \begin{itemize}
-    \item $\langle \mathbf x,\mathbf y\rangle=\overline{\langle \mathbf
-      y,\mathbf x\rangle}$ (conjugate
+    \item $\langle  x, y\rangle=\overline{\langle 
+      y, x\rangle}$ (conjugate
       symmetry)
-    \item $\langle a\mathbf x+b\mathbf y,\mathbf z\rangle=a\langle\mathbf
-      x,\mathbf z\rangle+b\langle\mathbf y,\mathbf z\rangle$ (linearity in the
+    \item $\langle a x+b y, z\rangle=a\langle
+      x, z\rangle+b\langle y, z\rangle$ (linearity in the
       first argument), and
-    \item $\langle\mathbf x,\mathbf x\rangle=0\implies\mathbf x=\mathbf 0$.
+    \item $\langle x, x\rangle=0\implies x= 0$.
   \end{itemize}
 \end{defn}
+\begin{prop}
+  Any linear functional $f$ on a finite-dimensional inner product space can be
+  written as $f(x)=\langle x,v\rangle$ for some fixed vector $v$.
+\end{prop}
 \begin{defn}
   A \emph{normed vector space} is a vector space $V$ over $\Rr$ or $\Cc$
   on which there is a \emph{norm}: a function $\|\cdot\|:V\to\Cc$ satisfying
   \begin{itemize}
-    \item $\|\mathbf x\|\ge 0$,
-    \item $\|\mathbf x\|=0$ implies $\mathbf x=\mathbf 0$,
-    \item $\|a\mathbf x\|=|a|\|\mathbf x\|$, and
-    \item $\|\mathbf x+\mathbf y\|\le\|\mathbf x\|+\|\mathbf y\|$ (the triangle
+    \item $\| x\|\ge 0$, with $\|x\|=0\iff x=0$,
+    \item $\|a x\|=|a|\| x\|$, and
+    \item $\| x+ y\|\le\| x\|+\| y\|$ (the triangle
       inequality).
   \end{itemize}
 \end{defn}
 \begin{prop}
-  If $V$ is an inner product space, then $\langle\mathbf x,\mathbf x\rangle$ is
-  real for all $\mathbf x$.
-  Moreover, $\|\mathbf x\|=\sqrt{\langle\mathbf x,\mathbf x\rangle}$ is a norm
+  If $V$ is an inner product space, then $\langle x, x\rangle$ is
+  real for all $ x$.
+  Moreover, $\| x\|=\sqrt{\langle x, x\rangle}$ is a norm
   on $V$.
 \end{prop}
 \begin{defn}
-  Two vectors $\mathbf x$ and $\mathbf y$ are \emph{orthogonal} if $\langle
-  \mathbf x,\mathbf y\rangle=0$.
+  Two vectors $ x$ and $ y$ are \emph{orthogonal} if $\langle
+   x, y\rangle=0$.
 
   A set of vectors is \emph{orthonormal} if each vector in the set has norm 1
   and is orthogonal to all other vectors in the set.
@@ -105,3 +305,10 @@
 \begin{prop}
   Any finite-dimensional vector space has an orthonormal basis.
 \end{prop}
+
+\subsection*{References}
+\begin{itemize}
+  \item \emph{Linear Algebra Done Wrong}, Treil
+  \item \emph{Linear Algebra Done Right}, Axler
+  \item \emph{Finite-Dimensional Vector Spaces}, Halmos
+\end{itemize}

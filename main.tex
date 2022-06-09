@@ -6,15 +6,11 @@
   \newtheorem{lem}[thm]{Lemma}
   \newtheorem{prop}[thm]{Proposition}
   \newtheorem{cor}[thm]{Corollary}
-  \newtheorem{axiom}[thm]{Axiom}
+  \newtheorem{axiom}{Axiom}
 \theoremstyle{definition}
-  \newtheorem{defn}[thm]{Definition}
-  \newtheorem{eg}[thm]{Example}
+  \newtheorem{defn}[axiom]{Definition}
 \theoremstyle{remark}
-  \newtheorem{rem}[thm]{Remark}
-  \newtheorem{note}[thm]{Note}
-  \newtheorem{case}[thm]{Case}
-  \newtheorem{claim}[thm]{Claim}
+  \newtheorem{rem}[axiom]{Remark}
 \newcommand{\LHS}{\text{LHS}}
 \newcommand{\RHS}{\text{RHS}}
 \newcommand{\Zz}{\mathbb{Z}}
@@ -33,7 +29,7 @@ enough.}{Bernhard Riemann}
 \input{settheory.tex}
 \input{numbersystems.tex}
 \input{linalg.tex}
-\input{metricspaces.tex}
+%\input{metricspaces.tex}
 \appendix
 \input{proofs/main.tex}
 \end{document}
