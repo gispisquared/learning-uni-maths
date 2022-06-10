@@ -1,14 +1,201 @@
 \chapter{Metric Spaces}
 \begin{defn}
   A \emph{metric space} is a nonempty set $M$ together with a function
-  $d:M\times M\to\Rr$ such that
+  $d:M\times M\to\Rr$ (the \emph{metric}) such that
   \begin{itemize}
     \item $d(x,y)=0\iff x=y$,
     \item $d(x,y)=d(y,x)$ (symmetry), 
     \item $d(x,z)\le d(x,y)+d(y,z)$ (triangle inequality).
   \end{itemize}
 \end{defn}
-References:
+\begin{prop}
+  In a normed vector space, the function $d(x,y)=\|x-y\|$ is a metric.
+\end{prop}
+\begin{defn}
+  We call this the \emph{induced metric}.
+\end{defn}
+\begin{defn}
+  In a metric space, the \emph{open ball} $B_r(x)$ with centre $x$ and radius $r$ is the
+  set of all points $y$ with $d(x,y)<r$.
+
+  The \emph{closed ball} $\overline{B_r(x)}$ with centre $x$ and radius $r$ is
+  the set of all points $y$ with $d(x,y)\le r$.
+\end{defn}
+\begin{defn}
+  Let $E$ be a subset of a metric space $M$.
+  \begin{itemize}
+    \item A point $p$ is a \emph{limit point} of $E$ if every open ball centred
+      at $p$ contains a point $q\ne p$ such that $q\in E$.
+    \item A point $p$ is an \emph{interior point} of $E$ if there is an open
+      ball centred at $p$ which is a subset of $E$.
+    \item $E$ is \emph{closed} if every limit point of $E$ is a point of $E$.
+    \item $E$ is \emph{open} if every point of $E$ is an interior point of $E$.
+    \item $E$ is \emph{bounded} if it is contained in some open ball.
+    \item The \emph{complement} $E^c$ of a set $E$ is the set $M\setminus E$.
+    \item The \emph{interior} of $E$ is the set of interior points of $E$.
+    \item The \emph{boundary} $\partial E$ of $E$ is the set of points of $M$
+      that are limit points of both $E$ and $E^c$.
+  \end{itemize}
+\end{defn}
+\begin{prop}
+  The interior and boundary of $E$ are disjoint, and their union is $E$.
+\end{prop}
+\begin{prop}
+  The following are equivalent:
+  \begin{itemize}
+    \item $E$ is open.
+    \item $E\cap\partial E=\emptyset$.
+    \item $E^c$ is closed.
+    \item $\partial E\subseteq E^c$.
+  \end{itemize}
+\end{prop}
+\begin{prop}
+  Every open ball is open; every closed ball is closed.
+\end{prop}
+\begin{prop}
+  If $p$ is a limit point of $E$, then every open ball centred around $p$
+  contains infinitely many points of $E$.
+\end{prop}
+\begin{prop}
+  Any union of open sets is open; a finite intersection of open sets is open.
+
+  Any intersection of closed sets is closed; a finite union of closed sets is
+  closed.
+\end{prop}
+\begin{defn}
+  The \emph{closure} of $E$ is the set $E\cup\partial E$.
+\end{defn}
+\begin{prop}
+  The closure of $E$ is closed; the interior of $E$ is open.
+
+  Any closed set which contains $E$ contains the closure of $E$. Any open set
+  which is contained in $E$ is contained in the interior of $E$.
+\end{prop}
+\begin{prop}
+  Suppose $X\subseteq M$ inherits the metric. A subset $E$ of $X$ is open
+  relative to $X$ iff $E=X\cap Y$ for some open set $Y$.
+\end{prop}
+\begin{defn}
+  An \emph{open cover} of $E$ is a set of open sets whose union contains $E$.
+\end{defn}
+\begin{prop}
+  The following are equivalent:
+  \begin{itemize}
+    \item 
+      Every open cover of $E$ contains a finite
+      subset which is still an open cover of $E$.
+    \item Every infinite subset of $E$ contains a limit point in $E$.
+  \end{itemize}
+\end{prop}
+\begin{defn}
+  Such a set is called \emph{compact}.
+\end{defn}
+\begin{prop}
+  Suppose $X\subseteq M$ inherits the metric. A subset $E$ of $X$ is open
+  relative to $X$ iff $E$ is compact relative to $M$.
+\end{prop}
+\begin{prop}
+  A compact subset of a metric space is closed and bounded; a closed subset of a compact
+  metric space is compact.
+\end{prop}
+\begin{prop}
+  If $S$ is a collection of compact subsets of a metric space such that any
+  finite intersection of elements of $S$ is nonempty, then $\bigcap S$ is
+  nonempty.
+\end{prop}
+\begin{thm}[Heine-Borel]
+  A subset of $\Rr^n$ is compact iff it is closed and bounded.
+\end{thm}
+\begin{thm}[Weierstrass]
+  Every bounded infinite subset of $\Rr^n$ has a limit point.
+\end{thm}
+\begin{defn}
+  Two subsets $A$ and $B$ of a metric space $X$ are \emph{separated} if both
+  $A\cap\overline B$ and $B\cap\overline A$.
+
+  A set $E$ is \emph{disconnected} if it is the union of two nonempty separated
+  sets, and connected otherwise.
+\end{defn}
+\begin{prop}
+  A metric space $M$ is connected iff the only sets which are both open and closed
+  are the empty set and $M$.
+\end{prop}
+\begin{prop}
+  A subset of $\Rr^1$ is connected iff it is an interval.
+\end{prop}
+\begin{defn}
+  A sequence $\{a_n\}$ is \emph{convergent} if there is a point $L$ such that
+  for any $\varepsilon>0$ there is an $N\in\Zz^+$ such that $n\ge N$ implies
+  $d(a_n,L)<\varepsilon$. We write \[\lim_{n\to\infty} a_n=L.\]
+\end{defn}
+\begin{prop}
+  Suppose $\{a_n\}$ and $\{b_n\}$ are sequences of complex numbers which
+  converge to $a$ and $b$ respectively. Then the sequences $\{a_n+b_n\},\
+  \ \{a_n b_n\},\ \{\frac{a_n}{b_n}\}$ converge to $a+b,\ ab,\ \frac ab$
+  respectively (where in the last one we require $b_n\ne 0$ for each $n$).
+\end{prop}
+\begin{prop}
+  A sequence in $\Rr^n$ or $\Cc^n$ converges iff it converges coordinatewise.
+\end{prop}
+\begin{defn}
+  A sequence $\{p_n\}$ is \emph{Cauchy} if for every $\varepsilon>0$ there is an
+  integer $N$ such that $d(p_n,p_m)<\varepsilon$ if $m,n\ge N$.
+
+  A metric space is \emph{complete} if every Cauchy sequence converges.
+\end{defn}
+\begin{prop}
+  Every convergent sequence is Cauchy.
+\end{prop}
+\begin{prop}
+  Every compact metric space is complete.
+\end{prop}
+\begin{prop}
+  $\Rr^n$ and $\Cc^n$ are complete.
+\end{prop}
+\begin{defn}
+  Let $f:X\to Y$ be a function, where $Y$ is a metric space and $X$ is a 
+  subset of a metric space $E$. Let $p$ be a limit point of $X$. We say that
+  \[\lim_{x\to p}f(x)=q\] if for every sequence $\{x_n\}$ in $E$ which converges
+  to $p$ but does not contain $p$, $f(x_n)$ converges to $q$.
+\end{defn}
+\begin{defn}
+  We say that $f$ is \emph{continuous} at $p$
+  if for every sequence $\{x_n\}$ in $E$ which converges
+  to $p$, $f(x_n)$ converges to $f(p)$.
+
+  We say that $f$ is \emph{continuous} on $X$, or simply \emph{continuous},
+  if it is continuous at every point in $X$.
+\end{defn}
+\begin{prop}
+  A function $f$ is continuous iff the inverse image of every open set is open.
+\end{prop}
+\begin{prop}
+  If $f$ is continuous, then
+  \begin{itemize}
+    \item The image of a compact set is compact.
+    \item The image of a connected set is connected.
+  \end{itemize}
+\end{prop}
+\begin{cor}[Intermediate Value Theorem]
+  If the codomain of $f$ is $\Rr$, then it is an interval. If the domain of $f$
+  is a compact set, then the interval is closed.
+\end{cor}
+\begin{defn}
+  A function $f$ is \emph{uniformly continuous} if for every $\varepsilon>0$
+  there exists a $\delta>0$ such that if $d(a,b)<\delta$ then
+  $d(f(a),f(b))<\varepsilon$.
+\end{defn}
+\begin{thm}
+  Every continuous function on a compact set is uniformly continuous.
+\end{thm}
+\begin{thm}
+  Let $S$ be an open subset of $\Rr^n$, and let $f:S\to\Rr^n$ be an injective
+  continuous function. Then the image of $f$ is open.
+\end{thm}
+\begin{thm}[Fundamental Theorem of Algebra]
+  Let $p:\Cc\to\Cc$ be a polynomial. Then the image of $p$ is $\Cc$.
+\end{thm}
+\subsection*{References}
 \begin{itemize}
   \item \emph{Principles of Mathematical Analysis}, Rudin
 \end{itemize}
