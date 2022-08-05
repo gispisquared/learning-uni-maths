@@ -4,13 +4,8 @@
 \end{axiom}
 \begin{rem}
   This is implied by the Axiom of Infinity; however, we include it here so that
-  we may define the empty set.
+  we may define the empty set which is included in the statement of that axiom.
 \end{rem}
-\begin{defn}
-  A \emph{sentence} is made by combining assertions of belonging (eg $x\in A$)
-  and/or assertions of equality (eg $A=B$) using the usual logical operators:
-  \emph{and, or, not, implies, if and only if, there exists, for all}.
-\end{defn}
 \begin{defn}
   Let $A$ and $B$ be sets.
   If every element of $A$ is an element of $B$, we say that $A$ is a
@@ -22,12 +17,18 @@
 \begin{axiom}[Extensionality]
   $A=B$ iff $A\subseteq B$ and $B\subseteq A$.
 \end{axiom}
+\begin{defn}
+  A \emph{sentence} is made by combining assertions of belonging (eg $x\in A$)
+  and/or assertions of equality (eg $A=B$) using the usual logical operators:
+  \emph{and, or, not, implies, if and only if, there exists, for all}.
+\end{defn}
 \begin{axiom}[Specification]
-  For every set $A$ and every sentence $S(x)$ there is a set $B$ whose elements
-  are exactly those elements $x$ of $A$ for which $S(x)$ holds.
+  For every set $A$, every set $p$ and every sentence $S(x,p)$ there is a set
+  $B$ whose elements are exactly those elements $x$ of $A$ for which $S(x,p)$ 
+  holds.
 \end{axiom}
 \begin{defn}
-  We notate this set $B$ by $\{x\in A: S(x)\}$.
+  We notate this set $B$ by $\{x\in A: S(x,p)\}$.
 \end{defn}
 \begin{prop}
   There exists a unique set $X$ such that for any $x$, the sentence
@@ -53,13 +54,17 @@
   The set $\{A,A\}$ is denoted $\{A\}$, and called the \emph{singleton} of
   $A$.
 \end{defn}
+\begin{rem}
+  When speaking of sets of sets, we sometimes call them \emph{collections} ---
+  this is just another name for a set.
+\end{rem}
 \begin{axiom}[Union]
-  For any set $X$ of sets there exists a set $Y$ such that for any $A$ in $X$,
-  and any $a$ in $A$, $a$ is in $Y$.
+  For any collection $X$ of sets there exists a set $Y$ such that for any $A$ in
+  $X$, and any $a$ in $A$, $a$ is in $Y$.
 \end{axiom}
 \begin{prop}
-  For a nonempty set $X$ of sets there is a unique set $Z$ such that $a$ is in $Z$ if and
-  only if there exists an $A$ in $X$ such that $a$ is in $A$.
+  For a nonempty collection $X$ of sets there is a unique set $Z$ such that $a$
+  is in $Z$ if and only if there exists an $A$ in $X$ such that $a$ is in $A$.
 \end{prop}
 \begin{defn}
   This set is called the \emph{union} of $X$, denoted
@@ -67,42 +72,25 @@
 
   For two sets $A$ and $B$ we define $A\cup B=\bigcup \{A,B\}$.
 \end{defn}
-\begin{defn}
-  Let $A$ and $B$ be sets.
-  The \emph{intersection} of $A$ and $B$, notated $A\cap B$, is $\{x\in A:x\in
-    B\}$.
-
-  If $A\cap B=\emptyset$ then $A$ and $B$ are called \emph{disjoint}.
-\end{defn}
 \begin{prop}
-  We have
-  \begin{itemize}
-    \item $A\cup\emptyset=A$,
-    \item $A\cup B=B\cup A$ (commutative),
-    \item $A\cup (B\cup C)=(A\cup B)\cup C$ (associative),
-    \item $A\cup A=A$ (idempotent),
-    \item $A\cup (B\cap C)=(A\cup B)\cap(A\cup C)$ (distributive),
-    \item $A\subseteq B$ iff $A\cup B=B$,
-    \item $A\cap\emptyset=A$,
-    \item $A\cap B=B\cap A$ (commutative),
-    \item $A\cap (B\cap C)=(A\cap B)\cap C$ (associative),
-    \item $A\cap A=A$ (idempotent),
-    \item $A\cap (B\cup C)=(A\cap B)\cup(A\cap C)$ (distributive),
-    \item $A\subseteq B$ iff $A\cap B=A$.
-  \end{itemize}
-\end{prop}
-\begin{prop}
-  For every nonempty set $C$ of sets, there is a unique set $Y$ such that $x\in Y$ iff
-  $x\in X$ for each $X$ in $C$.
+  For every nonempty collection $C$ of sets, there is a unique set $Y$ such that
+  $x\in Y$ iff $x\in X$ for each $X$ in $C$.
 \end{prop}
 \begin{defn}
   This set $Y$ is called the \emph{intersection} of $C$, denoted $\bigcap C$.
 \end{defn}
+\begin{defn}
+  Let $A$ and $B$ be sets.
+  The \emph{intersection} of $A$ and $B$, notated $A\cap B$, is
+  $\bigcap\{A,B\}$.
+
+  If $A\cap B=\emptyset$ then $A$ and $B$ are called \emph{disjoint}.
+\end{defn}
 \begin{axiom}[Powers]
-  For each set $X$ there is a set that contains all subsets of $X$.
+  For each set $X$ there is a collection that contains all subsets of $X$.
 \end{axiom}
 \begin{prop}
-  There is a unique set $Y$ such that $x\in Y$ iff $x\subseteq X$.
+  There is a unique collection $Y$ such that $x\in Y$ iff $x\subseteq X$.
 \end{prop}
 \begin{defn}
   This set $Y$ is called the \emph{power set} of $X$, denoted $\mathcal P(X)$.
@@ -114,16 +102,21 @@
 \begin{prop}
   For any $a,b,c,d$, we have $(a,b)=(c,d)$ iff $a=c$ and $b=d$.
 \end{prop}
+\begin{prop}
+  For any sets $A$ and $B$, the set
+  \[\{(x,y): x\in A,\ y\in B\}\]
+  exists.
+\end{prop}
 \begin{defn}
-  Let $A$ and $B$ be sets. The \emph{Cartesian product} $A\times B$ is
-  \[\{(x,y): x\in A,\ y\in B\}.\]
+  This set is called the \emph{Cartesian product} of $A$ and $B$, denoted
+  $A\times B$.
 \end{defn}
-\begin{prop}\label{prop:1:orderedpairsinprod}
+\begin{prop}
   For any set $R$ of ordered pairs there are sets $A$ and $B$ such that
   $R\subseteq A\times B$.
 \end{prop}
 \begin{defn}
-  A \emph{binary relation} $R$ over sets $A$ and $B$ is a subset of $A\times
+  A \emph{binary relation} $R$ from $A$ to $B$ is a subset of $A\times
   B$. If $(a,b)$ is in $R$ we write $aRb$.
 
   If $A=B$ then we call it a \emph{binary relation over} $A$.
@@ -140,24 +133,56 @@
   \[[a]=\{x\in A:x\sim a\}.\]
 \end{defn}
 \begin{defn}
-  A \emph{partition} of a set $A$ is a disjoint set of subsets of $A$ whose
-  union is $A$.
+  A \emph{partition} of a set $A$ is a disjoint collection of nonempty subsets
+  of $A$ whose union is $A$.
 
-  A partition $X$ of $A$ \emph{induces} a relation $\sim$, where $a\sim b$ iff
+  A partition $X$ of $A$ \emph{induces} a relation $A/X$, where $a\ A/X\ b$ iff
   $a$ and $b$ belong to the same element of $X$.
 \end{defn}
 \begin{prop}
-  The set of equivalence classes of an equivalence relation exists and 
+  The collection of equivalence classes of an equivalence relation exists and 
   is a partition.
 \end{prop}
 \begin{defn}
   This partition is called the partition \emph{induced} by the equivalence
-  relation $\sim$.
+  relation $\sim$, denoted $X/\sim$.
 \end{defn}
 \begin{prop}
   The equivalence relation induced by a partition induces that partition; the
   partition induced by an equivalence relation induces that relation.
 \end{prop}
+\begin{defn}
+  For a relation $R$ from $X$ to $Y$ we define the \emph{inverse} relation
+  $R^{-1}:Y\to X$ by $xRy\iff yR^{-1}x$.
+\end{defn}
+\begin{defn}
+  A \emph{function} $f:A\to B$ is a relation $f$ over $A$ and $B$ such that
+  for each $a\in A$ there is exactly one $b\in B$ such that $afb$. We usually
+  write this as $f(a)=b$.
+\end{defn}
+\begin{defn}
+  For a set $E\subseteq A$, we define the \emph{image} of $E$ under $f$ as
+  $f(E)=\{f(x):x\in E\}$. For a set $E\subseteq B$, we define the \emph{inverse
+    image} of $E$ under $F$ as $f^{-1}(E)=\{x\in A:f(x)\in E\}$.
+\end{defn}
+\begin{defn}
+  A function $f$ is \emph{injective} if for each $b$ in $B$, there is at most one
+  $a$ in $A$ such that $f(a)=b$. It is \emph{surjective} if for each $b$ in
+  $B$ there is at least one $a$ in $A$ such that $f(a)=b$. A function which is
+  both injective and surjective is \emph{bijective}.
+\end{defn}
+\begin{defn}
+  For functions $f:W\to X$ and $g:Y\to Z$, where $Y\subseteq X$, we define the
+  \emph{composite} $f\circ g:W\to Z$ as $(f\circ g)(x)=f(g(x))$ for all $x$.
+\end{defn}
+\begin{defn}
+  A function $x$ from a set $I$ (the \emph{index set}) to a set $X$ is called an
+  \emph{indexed family} of $X$, and its range is an \emph{indexed set}. We
+  notate the indexed set by $\{x_i\}_{i\in I}$.
+\end{defn}
+\begin{defn}
+  The set of families of a set $X$ indexed by a set $I$ is $X^I$.
+\end{defn}
 \begin{defn}
   For any set $X$ we define $X^+=X\cup\{X\}$.
 \end{defn}
@@ -166,45 +191,21 @@
   every $X$ in $S$.
 \end{axiom}
 \begin{prop}
-  There exists a unique set $\omega$ which is a subset of all such sets $S$.
+  There exists a unique set $\omega$ satisfying the Peano axioms:
+  \begin{itemize}
+    \item $\emptyset\in\omega$.
+    \item If $n\in\omega$ then $n^+\in\omega$.
+    \item If $S\subseteq\omega$ such that $\emptyset\in S$ and $n\in S\implies
+      n^+\in S$ then $S=\omega$.
+    \item $n^+\ne 0$ for all $n\in \omega$.
+    \item If $n$ and $m$ are in $\omega$, and if $n^+=m^+$, then $n=m$.
+  \end{itemize}
 \end{prop}
-\begin{prop}
-  For any $a,b\in\omega$, exactly one of $a\in b,\ a=b,\ b\in a$ is true.
-\end{prop}
-\begin{prop}
-  For any $a\in\omega$ and any $b\in a$, $b\subseteq a$.
-\end{prop}
-\begin{defn}
-  A \emph{function} $f:A\to B$ is a relation $f$ over $A$ and $B$ such that
-  for each $a\in A$ there is exactly one $b\in B$ such that $afb$. We usually
-  write this as $f(a)=b$.
-
-  For a set $E\subseteq A$, we define the \emph{image} of $E$ under $f$ as
-  $f(E)=\{f(x):x\in E\}$. For a set $E\subseteq B$, we define the \emph{inverse
-    image} of $E$ under $F$ as $f^{-1}(E)=\{x\in A:f(x)\in E\}$.
-
-  A function $f$ is \emph{injective} if for each $b$ in $B$, there is at most one
-  $a$ in $A$ such that $f(a)=b$. It is \emph{surjective} if for each $b$ in
-  $B$ there is at least one $a$ in $A$ such that $f(a)=b$. A function which is
-  both injective and surjective is \emph{bijective}.
-\end{defn}
-\begin{thm}[Recursion theorem]
+\begin{thm}[Recursion]
   If $a$ is an element of a set $X$, and if $f:X\to X$ is a function, then there
   is a function $g:\omega\to X$ such that $u(0)=a$ and $u(n^+)=f(u(n))$ for all
   $n$ in $\omega$.
 \end{thm}
-\begin{axiom}[Substitution]
-  If $S(a,b)$ is a sentence such that for each $a$ in a set $A$ there exists a
-  set $B_a$ such that $b\in B_a\iff S(a,b)$, then there exists a function $F$ with
-  domain $A$ such that $F(a)=B_a$ for each $a$ in $A$.
-\end{axiom}
-\begin{axiom}[Foundation]
-  Every set $X$ contains a set $Y$ such that $X$ and $Y$ are disjoint.
-\end{axiom}
-\begin{axiom}[Choice]
-  Let $X$ be a set of sets whose members are all nonempty. Then there exists a
-  function $f:X\to\bigcup X$ such that $f(Y)\in Y$ for all $Y\in X$.
-\end{axiom}
 \begin{defn}
   A \emph{partial order} is a binary relation $\le$ on a a set $A$ such that
   \begin{itemize}
@@ -241,6 +242,23 @@
   nonempty subset $S$ of $A$ has an element $a$ which is a lower bound for $S$.
   The set $A$ together with the relation $\le$ is then called \emph{well-ordered}.
 \end{defn}
+\begin{thm}[Transfinite Induction]
+  Let $S$ be a subset of a well-ordered set $A$ such that for any $x\in A$, if
+  $s(x)\subseteq S$ then $x\in S$.
+  Then $S=A$.
+\end{thm}
+\begin{defn}
+  If $a$ is an element of a well-ordered set $A$, and $X$ is an arbitrary set,
+  then a \emph{sequence of type} $a$ is an family of $X$ indexed by $s(a)$.
+
+  A \emph{sequence function} of type $A$ is a function whose domain consists of
+  all sequences of type $a$ for each $a\in A$, and whose codomain is $A$.
+\end{defn}
+\begin{prop}[Transfinite Recursion]
+  If $A$ is a well-ordered set, and if $f$ is a sequence function of type $A$ in
+  $X$, then there is a unique function $U:A\to X$ such that $U(a)=f(U|s(a))$ for
+  each $a$ in $W$.
+\end{prop}
 \begin{prop}
   If two well-ordered sets are similar, then the similarity is unique.
 \end{prop}
@@ -251,7 +269,12 @@
 \begin{defn}
   An \emph{ordinal number} is a well-ordered set $\alpha$ such that for any
   $\xi\in\alpha$ we have $s(\xi)=\xi$.
+
+  We define the ordinals $0=\emptyset$ and $1=0^+$.
 \end{defn}
+\begin{prop}
+  There is no set of all ordinal numbers.
+\end{prop}
 \begin{prop}
   $\omega$ is an ordinal number.
 \end{prop}
@@ -264,15 +287,21 @@
 
   Otherwise, one is an element of the other.
 \end{thm}
+\begin{axiom}[Substitution]
+  If $p$ is a set and 
+  $S(a,b,p)$ is a sentence such that for each $a$ in a set $A$ there exists a
+  set $B_a$ such that $b\in B_a\iff S(a,b,p)$, then there exists a function $F$
+  with domain $A$ such that $F(a)=B_a$ for each $a$ in $A$.
+\end{axiom}
+\begin{axiom}[Foundation]
+  Every set $X$ contains a set $Y$ such that $X$ and $Y$ are disjoint.
+\end{axiom}
+\begin{axiom}[Choice]
+  Let $X$ be a collection of sets whose members are all nonempty. Then there exists a
+  function $f:X\to\bigcup X$ such that $f(Y)\in Y$ for all $Y\in X$.
+\end{axiom}
 \begin{prop}
-  If a set $\alpha$ can be well-ordered such that it is an ordinal, then the
-  ordering is unique.
-\end{prop}
-\begin{prop}
-  Every well-ordered set is similar to a unique ordinal number.
-\end{prop}
-\begin{prop}
-  There is no set of all ordinal numbers.
+  Every relation includes a function with the same domain.
 \end{prop}
 \begin{thm}[Zorn's Lemma]
   Suppose a partially ordered set $P$ has the property that every chain in $P$
@@ -282,6 +311,49 @@
 \begin{thm}[Well-Ordering Theorem]
   Every set has a well-ordering.
 \end{thm}
+\begin{prop}
+  Every well-ordered set is similar to a unique ordinal number.
+\end{prop}
+\begin{prop}
+  If $a$ and $b$ are ordinals, let $A=\{(x,0):x\in a\}$ and $B=\{(y,1):y\in
+  b\}$, retaining the associated orders $\le_A$ and $\le_B$. Then the set $A\cup
+  B$ is well-ordered by $\le_A\cup\le_B\cup(A\times B)$.
+\end{prop}
+\begin{defn}
+  The ordinal corresponding to $A\cup B$ under this well-ordering is the
+  \emph{ordinal sum} of $a$ and $b$, denoted $a+b$.
+\end{defn}
+\begin{prop}
+  If $A$ and $B$ are ordinals, the ordering on $A\times B$ where $(a,b)<(c,d)$
+  if either $b<d$ or $b=d$ and $a<c$ is a well-ordering on $A\times B$.
+\end{prop}
+\begin{defn}
+  The ordinal corresponding to $A\times B$ under this well-ordering is the
+  \emph{ordinal product} of $A$ and $B$, denoted $AB$ or $A\cdot B$.
+\end{defn}
+\begin{prop}
+  For every pair of ordinals $a,b$ there exists an ordinal $c$ and a unique
+  function $f_b:a^+\to c$ such that such that $f_b(\emptyset)=1$ and
+  \[f_b(x)=\begin{cases} f_b(\bigcup x)x&\bigcup x\ne x \\ \bigcup_{y\in
+  x}f_b(y)&\bigcup x=x\end{cases}.\]
+\end{prop}
+\begin{defn}
+  We define $a^b=f_b(a)$.
+\end{defn}
+\begin{prop}
+  With ordinal sums, products and exponents as defined,
+  \begin{align*}
+    a+0=0+a=a \\
+    a+1=a^+ \\
+    a+(b+c)=(a+b)+c \\
+    a(bc)=(ab)c \\
+    a(b+c)=ab+ac \\
+    a^{b+c}=a^b a^c \\
+    a^{bc}=(a^b)^c.
+  \end{align*}
+  However, ordinal addition and multiplication are not commutative and not
+  right-distributive. Also, $(ab)^c$ is generally distinct from $a^c b^c$.
+\end{prop}
 \begin{defn}
   Two sets $A$ and $B$ are said to have the same \emph{cardinality} (written
   $|A|=|B|$) if there is a bijection $f:A\to B$.
@@ -291,17 +363,26 @@
 
   A set $A$ has cardinality less than the cardinality of $B$ ($|A|<|B|$) if
   $|A|\le|B|$ and $|A|\ne|B|$.
+
+  A set $A$ is \emph{countable} if $|A|\le |\omega|$, and \emph{uncountable}
+  otherwise.
 \end{defn}
-\begin{thm}
+\begin{prop}
+  If there exists a surjection $f:A\to B$ then $|B|\le|A|$.
+\end{prop}
+\begin{thm}[Schr\"oder-Bernstein]
   If $|A|\le|B|$ and $|B|\le|A|$ then $|A|=|B|$.
 \end{thm}
-\begin{thm}
+\begin{thm}[Cantor]
   For any set $A$, $|\mathcal P(A)|>|A|$.
 \end{thm}
 \begin{defn}
   A \emph{cardinal number} is an ordinal number $\alpha$ such that for any
   ordinal number $\beta$ with $|\alpha|=|\beta|$ we have $\alpha\subseteq\beta$.
 \end{defn}
+\begin{prop}
+  Every element of $\omega$, as well as $\omega$ itself, is a cardinal number.
+\end{prop}
 \begin{prop}
   For any set $S$, there is a unique cardinal number $\alpha$ with
   $|\alpha|=|S|$.
@@ -317,19 +398,48 @@
   A set is infinite if and only if it has the same cardinality as some proper
   subset.
 \end{prop}
-\begin{defn}
-  An infinite set $A$ is said to be \emph{countable} if $|A|=\omega$, and
-  \emph{uncountable} otherwise.
-\end{defn}
 \begin{prop}
   A countable set does not have any uncountable subsets. An uncountable set has
-  a countable subset.
+  a subset with cardinality equal to $\omega$.
 \end{prop}
 \begin{prop}
   A union of countably many countable sets is countable.
 \end{prop}
+\begin{prop}
+  If $A,B,C,D$ are sets such that $|A|=|B|$, $|C|=|D|$, and $A\cap C=B\cap
+  D=\emptyset$, then $|A\cup B|=|C\cup D|$, $|A\times B|=|C\times D|$ and
+  $|A^B|=|C^D|$.
+\end{prop}
+\begin{defn}
+  We define cardinal addition, multiplication and exponentiation as, for
+  disjoint sets $A$ and $B$,
+  \[|A|+|B|=|A\cup B|,\ |A|\times|B|=|A\times B|,\ |A|^{|B|}=|A^B|.\]
+\end{defn}
+\begin{prop}
+  If $a$ and $b$ are ordinals, then $|a+b|=|a|+|b|$, $|ab|=|a||b|$ and
+  $|a^b|=|a|^{|b|}$. 
+  ordinal operations are used on the left side and the cardinal operations are
+  used on the right.
+\end{prop}
+\begin{prop}
+  If $a$ and $b$ are cardinal numbers such that $a\ge\omega$ and $a\ge b$,
+  then $a+b=a\times b=a$. If $b$ is finite we also have $a^b=a$.
+\end{prop}
+\begin{defn}
+  For each infinite cardinal $a$, consider the set $c(a)$ of all infinite
+  cardinals strictly less than $a$. It is well-ordered, so it has an ordinal
+  number $\alpha$. Then $a=\aleph_{\alpha}$.
+\end{defn}
+\begin{rem}
+  The \emph{Continuum Hypothesis}, proven to be independent from all of the
+  axioms of set theory we've mentioned, is that $\aleph_1=2^{\aleph_0}$.
+
+  The \emph{Generalised Continuum Hypothesis} extends this to 
+  \[\aleph_{\alpha+1}=2^{\aleph_\alpha}\] for all $\alpha$.
+
+  Both of these statements are independent of ZFC\@.
+\end{rem}
 \subsection*{References}
 \begin{itemize}
   \item \emph{Naive Set Theory}, Halmos
-  \item \emph{Set Theory}, Jech
 \end{itemize}

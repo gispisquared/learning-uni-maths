@@ -93,32 +93,30 @@
     imply there exists a set of all well-ordered sets of this type.
 
     Such a set does not exist because if it did it would contain
-    $(S,\mathrm{Id}_S)$ for each set $S$. Then we could use specification to
-    extract the set containing exactly those elements, and
-    Proposition~\ref{prop:1:orderedpairsinprod} to extract a set of all sets.
+    $(S,\mathrm{Id}_S)$ for each set $S$. This would imply the existence of a
+    set of all sets.
   \end{rem}
   \begin{thm}
-    There exists a unique ordered ring $\Zz$ (up to isomorphism) such that $\{x\in
-      \Zz:x\ge 0\}$ is well-ordered.
+    There exists a unique ordered ring $\Zz$ (up to isomorphism) such that
+    $\{x\in\Zz:x\ge 0\}$ is well-ordered.
 
     $\Zz$ is commutative.
   \end{thm}
   \begin{defn}
-    The \emph{integers}, $\Zz$, are a well-ordered ring. The \emph{non-negative
-      integers} $\Zz_{\ge 0}$ are $\{n\in\Zz: n\ge 0\}$. The \emph{positive
-      integers} $\Zz^+$ are $\Zz_{\ge 0}\setminus \{0\}$.
+    We call this set $\Zz$ the \emph{integers}. The \emph{non-negative
+    integers} $\Zz_{\ge 0}$ are $\{n\in\Zz: n\ge 0\}$. The \emph{positive
+    integers} $\Zz^+$ are $\Zz_{\ge 0}\setminus \{0\}$.
   \end{defn}
   \begin{rem}
-    We avoid use of the term \emph{natural numbers}, and the symbol $\mathbb N$, since
+    As a byproduct of our construction, we get a canonical bijection between
+    $\omega$ and $\Zz_{\ge 0}$.
+    In particular, the cardinality of a finite set is a nonnegative integer.
+  \end{rem}
+  \begin{rem}
+    We avoid use of the term \emph{natural numbers}, and the symbol $\mathbb N$,
+    since
     some use them to mean the positive integers and others use them to mean the
     nonnegative integers.
-  \end{rem}
-  \begin{prop}
-    $\Zz_{\ge 0}$ is similar to $\omega$.
-  \end{prop}
-  \begin{rem}
-    Thus, we may identify $\omega$ with $\Zz_{\ge 0}$. In particular, the
-    cardinality of a finite set is a nonnegative integer.
   \end{rem}
   \begin{prop}
     Every ordered ring contains a unique subring isomorphic to $\Zz$.
@@ -135,8 +133,8 @@
   \end{defn}
   \begin{prop}
     The relation $\sim$ is an equivalence relation. Moreover, the operations $+$
-    and $\cdot$ are uniquely defined. With these operations, $\mathbb Q$ is a
-    field.
+    and $\cdot$ are independent of the representatives of each equivalence
+    class. With these operations, $\mathbb Q$ is a field.
   \end{prop}
   \begin{prop}
     Every ordered field contains a unique subfield isomorphic to $\Qq$.
@@ -171,7 +169,7 @@
   \end{prop}
   \begin{prop}
     There are unique homomorphisms $\Zz\to\Qq$, $\Qq\to\Rr$ and $\Qq\to\Cc$.
-    There is also a homomorphism $\Rr\to\Cc$.
+    There is also an isomorphism $\Rr\to\{x\in\Cc: x=\overline x\}$.
   \end{prop}
   \begin{rem}
     Because of this, we usually take $\Zz\subseteq\Qq\subseteq\Rr\subseteq\Cc$.
@@ -195,3 +193,35 @@
     $|\Zz^+|=|\Zz_{\ge 0}|=|\Zz|=|\Qq|=\omega$, but $|\Rr|=|\Cc|=|\mathcal
     P(\omega)|$.
   \end{thm}
+  \begin{defn}
+    A \emph{polynomial} over $S$ is an expression of the form
+    \[p(z)=a_0+a_1z+a_2 z^2+\cdots+a_m z^m,\]
+    for some integer $m$ and coefficients $a_i\in S$.
+
+    We say the \emph{degree} of $p$ is $d$, where $d$ is the largest integer
+    such that $a_d\ne 0$. If no such $d$ exists, the degree is $-\infty$.
+  \end{defn}
+  \begin{prop}[Division Algorithm]
+    Suppose $p$ and $s$ are polynomials over a field $\Ff$
+    with $s\ne 0$. There exist unique
+    polynomials $q,r$ over $\Ff$ such that $p=sq+r$ and $\deg r<\deg s$.
+  \end{prop}
+  \begin{defn}
+    A number $r\in\Ff$ is a root of a polynomial $p$ over $\Ff$ if $p(r)=0$.
+  \end{defn}
+  \begin{prop}
+    A polynomial over a field $\Ff$ has at most as many roots as its degree.
+  \end{prop}
+  \begin{thm}[Fundamental Theorem of Algebra]
+    Every nonconstant polynomial over $\Cc$ has a root.
+  \end{thm}
+  \begin{prop}
+    If $p$ is a polynomial over $\Cc$ then it has a unique factorisation of the
+    form $p(z)=c(z-r_1)\cdots(z-r_m)$, where all constants are complex numbers.
+  \end{prop}
+  \begin{prop}
+    If $p$ is a polynomial over $\Rr$ then it has a unique factorisation of the
+    form
+    \[p(x)=c(x-r_1)\cdots(x-r_m)(x^2+b_1x+c_1)\cdots(x^2+b_n x+c_n),\]
+    where all constants are real numbers such that $b_j^2<4c_j$ for each $j$.
+  \end{prop}

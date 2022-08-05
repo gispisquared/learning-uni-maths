@@ -1,4 +1,3 @@
-%chktex-file 3
 \chapter{Linear Algebra}
 \begin{defn}
   Let $\Ff$ be a field. A \emph{vector space over} $\Ff$ is an abelian group
@@ -52,12 +51,12 @@
   \end{itemize}
 \end{prop}
 \begin{defn}
-  The \emph{span} of a subset $S$ of $V$ is the intersection of all 
-  subspaces of $V$ that contain $S$.  
+  The \emph{span} of a subset $S$ of $V$ is the set of linear combinations of
+  elements of $S$.
 \end{defn}
 \begin{prop}
-  The span of $S$ is the set of linear combinations of elements of $S$. It is
-  also a subspace of $V$.
+  The span of $S$ is the intersection of all subsets of $V$ that contain $S$.
+  It is also a subspace of $V$.
 \end{prop}
 \begin{defn}
   A subset $S$ of $V$ is \emph{linearly independent} if any linear combination
@@ -163,7 +162,7 @@
   Suppose $V$ and $W$ have finite bases $\{v_i\}_1^m$ and $\{w_i\}_1^n$
   respectively. The \emph{matrix} $A$ of $T$ with respect to these bases is
   defined by
-  \[T_{v_k}=\sum_{i=1}^n A_{i,k}w_i.\]
+  \[Tv_k=\sum_{i=1}^n A_{i,k}w_i.\]
 
   We also identify $1\times n$ and $n\times 1$ matrices with elements of
   $\Ff^n$.
@@ -179,8 +178,8 @@
 \begin{defn}
   The \emph{rank} of a matrix is the dimension of its image.
 
-  The \emph{transpose} of a matrix is the matrix obtained by reflecting over the
-  diagonal.
+  The \emph{transpose} of a matrix is the matrix obtained by swapping rows and
+  columns: $A^T_{j,k}=A_{k,j}$.
 \end{defn}
 \begin{prop}
   Let $T:V\to W$ be a linear transformation, where $V$ and $W$ are
@@ -284,7 +283,7 @@
 \end{prop}
 \begin{defn}
   A \emph{normed vector space} is a vector space $V$ over $\Rr$ or $\Cc$
-  on which there is a \emph{norm}: a function $\|\cdot\|:V\to\Cc$ satisfying
+  on which there is a \emph{norm}: a function $\|\cdot\|:V\to\Rr$ satisfying
   \begin{itemize}
     \item $\| x\|\ge 0$, with $\|x\|=0\iff x=0$,
     \item $\|a x\|=|a|\| x\|$, and
@@ -308,7 +307,10 @@
 \begin{prop}
   Any finite-dimensional inner product space has an orthonormal basis.
 \end{prop}
-
+\begin{rem}
+  Thus, we may identify a finite-dimensional inner product space over $\Ff$ with
+  $\Ff^n$.
+\end{rem}
 \subsection*{References}
 \begin{itemize}
   \item \emph{Linear Algebra Done Wrong}, Treil
