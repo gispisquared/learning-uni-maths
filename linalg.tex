@@ -73,8 +73,9 @@
   independent iff it spans $V$.
 \end{prop}
 \begin{defn}
-  A \emph{linear map} from $V$ to $W$ is a group homomorphism
-  $T:V\to W$ such that $T(\lambda v)=\lambda T(v)$ for all $\lambda\in\Ff$.
+  A \emph{linear map}, or \emph{linear transformation}, from $V$ to $W$ is a group homomorphism
+  $T:V\to W$ such that $T(\lambda v)=\lambda T(v)$ for all $\lambda\in\Ff$. A
+  linear map from a vector space to itself is an \emph{operator}.
 
   The \emph{product} of linear maps $S$ and $T$ is $ST=S\circ T$.
 \end{defn}
@@ -98,9 +99,6 @@
   A linear map $T:V\to W$ is \emph{invertible} if there is a linear map $S:W\to
   V$ such that $ST$ is the identity on $V$ and $TS$ is the identity on $W$. In
   this case, $S$ is called an \emph{inverse} of $T$.
-\end{defn}
-\begin{defn}
-  An \emph{isomorphism} is an invertible linear map.
 \end{defn}
 \begin{prop}
   Two vector spaces over $\Ff$ are isomorphic iff they have
@@ -141,15 +139,29 @@
   The space of linear functionals on $V$ is the \emph{dual space} of $V$,
   denoted $V'$.
 \end{defn}
+\begin{prop}
+  If $V$ is infinite-dimensional, $\dim V'>\dim V$.
+\end{prop}
+\begin{prop}
+  If $V$ is finite-dimensional, $\dim V'=\dim V$.
+\end{prop}
+\begin{rem}
+  This construction, applied twice, yields a canonical isomorphism between $V''$
+  and $V$, so they are often identified.
+\end{rem}
 \begin{defn}
-  If $v_1,\ldots,v_n$ is a basis of $V$, then the \emph{dual basis} is the list
-  of
+  For $U\subseteq V$, the \emph{annihilator} of $U$, denoted $U^0$, is
+  \[\{y\in V': y(u)=0\ \forall u\in U\}.\]
+\end{defn}
+\begin{defn}
+  If $v_1,\ldots,v_n$ is a basis of $V$, then there exists a basis of
   elements $\varphi_j$ of $V'$, where $\varphi_j v_k$ is $1$ if $j=k$ and $0$
   otherwise.
 \end{defn}
-\begin{prop}
-  The dual basis of a basis of $V$ is a basis of $V'$.
-\end{prop}
+\begin{defn}
+  This basis is called the \emph{dual basis} of
+  $v-1,\ldots,v_n$.
+\end{defn}
 \begin{defn}
   The \emph{dual map} of $T$ is the linear map $T':W'\to V'$ defined by
   $T'\varphi=\varphi T$ for each $\varphi\in W'$.
@@ -185,14 +197,14 @@
   Let $T:V\to W$ be a linear transformation, where $V$ and $W$ are
   finite-dimensional. Pick bases $\{v_i\}$ and $\{w_i\}$ 
   of $V$ and $W$. The matrix of $T'$ with respect
-  to the dual bases of $\{v_i\}$ and $\{w_i\}$ 
+  to the dual bases of $\{w_i\}$ and $\{v_i\}$ 
   is the transpose of the matrix of $T$ with respect to $\{v_i\}$ and $\{w_i\}$.
 \end{prop}
 \begin{cor}
   The rank of a matrix equals the rank of its transpose.
 \end{cor}
 \begin{defn}
-  Let $U,V,W$ be finite-dimensional vector spaces, and let $A:U\to W$ and
+  Let $A:U\to W$ and
   $B:V\to W$ be linear maps. We \emph{augment} $A$ with $B$ to get the linear
   map
   \[(A|B):U\times V\to W,\ (A|B)(x,y)=Ax+By.\]
@@ -244,7 +256,7 @@
   \emph{Gaussian elimination}. It is efficient because
   multiplying by an elementary matrix has simple consequences:
   \begin{itemize}
-    \item An elementary matrix which has a nonzero entry on the main diagonal
+    \item An elementary matrix which has a changed entry on the main diagonal
       multiplies a row by a scalar.
     \item An elementary matrix which has a nonzero entry off the main diagonal
       adds a scalar multiple of one row to another. 
@@ -264,6 +276,58 @@
   \end{itemize}
 \end{prop}
 \begin{defn}
+  Let $T:V\to V$ be a linear transformation. A subspace $U$ of $V$ is called
+  \emph{invariant} under $T$ if $u\in U\implies Tu\in U$.
+
+  A nonzero vector $v\in V$ is called an \emph{eigenvector} of $T$ if there is
+  some $\lambda\in\Ff$ such that $Tv=\lambda v$. We call $\lambda$ an
+  \emph{eigenvalue} of $T$.
+\end{defn}
+\begin{prop}
+  $\lambda$ is an eigenvalue of $T$ if and only if $T-\lambda I$ is not
+  invertible.
+\end{prop}
+\begin{prop}
+  Any set of eigenvectors of $T$ with distinct eigenvalues is linearly
+  independent.
+\end{prop}
+\begin{defn}
+  Suppose $T:V\to V$ is linear, and $U$ is a subspace of $V$ invariant under
+  $T$. The \emph{restriction} $T|_U:U\to U$ is defined by $T|_U(u)=Tu$, while
+  the \emph{quotient} $T/U:V/U\to V/U$ is defined by $(T/U)(v+U)=Tv+U$.
+\end{defn}
+\begin{defn}
+  Suppose $T:V\to V$ is a linear transformation and
+  \[p(z)=\sum a_i z^i,\] where each $a_i\in\Ff$. Then $p(T)=\sum a_i T^i$.
+\end{defn}
+\begin{thm}
+  Every operator on a finite-dimensional nonzero complex vector space has an
+  eigenvalue.
+\end{thm}
+\begin{defn}
+  In defining the \emph{matrix} of an operator, we choose the same basis for the
+  domain and codomain.
+\end{defn}
+\begin{prop}
+  Suppose $V$ is a finite-dimensional vector space and $T:V\to V$ is an
+  operator. Then $T$ has an upper-triangular matrix with respect to some basis
+  of $V$.
+\end{prop}
+\begin{prop}
+  Suppose $T:V\to V$ has an upper-triangular matrix with respect to some basis
+  of $V$. Then the eigenvalues of $T$ are precisely the entries on the diagonal
+  of that matrix.
+\end{prop}
+\begin{defn}
+  An operator is \emph{diagonalisable} if it has a diagonal
+  matrix with respect to some basis of the space.
+\end{defn}
+\begin{prop}
+  Let $T:V\to V$ be an operator over a finite-dimensional vector space.
+  Then $T$ is diagonalisable iff $V$ has a basis
+  consisting of eigenvectors of $T$.
+\end{prop}
+\begin{defn}
   An \emph{inner product space} is a vector space $V$ over a field $\Ff$ which
   is either $\Rr$ or $\Cc$, together with a function
   $\langle\cdot,\cdot\rangle:V\times V\to\Ff$ satisfying
@@ -278,8 +342,12 @@
   \end{itemize}
 \end{defn}
 \begin{prop}
-  Any linear functional $f$ on a finite-dimensional inner product space can be
-  written as $f(x)=\langle x,v\rangle$ for some fixed vector $v$.
+  The dot product, defined by 
+  \[(a_1,\ldots,a_n)\cdot(b_1,\ldots,b_n)=\sum a_i\overline{b_i},\]
+  is an inner product over both $\Rr^n$ and $\Cc^n$.
+\end{prop}
+\begin{prop}[Cauchy-Schwarz]
+  $|\langle u,v\rangle|\le \|u\|\|v\|$.
 \end{prop}
 \begin{defn}
   A \emph{normed vector space} is a vector space $V$ over $\Rr$ or $\Cc$
@@ -305,12 +373,220 @@
   and is orthogonal to all other vectors in the set.
 \end{defn}
 \begin{prop}
-  Any finite-dimensional inner product space has an orthonormal basis.
+  Suppose $V$ is finite-dimensional. Then every orthonormal list of vectors in
+  $V$ can be extended to an orthonormal basis of $V$.
 \end{prop}
 \begin{rem}
   Thus, we may identify a finite-dimensional inner product space over $\Ff$ with
-  $\Ff^n$.
+  $\Ff^n$ under the usual dot product.
 \end{rem}
+\begin{thm}[Schur's Theorem]
+  An operator over a finite-dimensional inner product space has an
+  upper-triangular matrix with respect to an orthonormal basis of the space.
+\end{thm}
+\begin{thm}[Riesz Representation]
+  Any linear functional $f$ on a finite-dimensional inner product space can be
+  written as $f(x)=\langle x,v\rangle$ for some fixed vector $v$.
+\end{thm}
+\begin{defn}
+  Let $U$ be a finite-dimensional subspace of $V$. The \emph{orthogonal
+  projection} of $V$ onto $U$ is the operator $P_U:V\to V$ defined by $P_U v=u$
+  where $u\in U$ and $\langle v-u,x\rangle=0\ \forall x\in U$.
+\end{defn}
+\begin{prop}
+  The orthogonal projection is well defined, and satisfies
+  \[\|P_u v\|\le \|v\|.\] For any $u\in U$, we have
+  \[\|v-P_U v\|\le \|v-u\|.\]
+\end{prop}
+\begin{rem}
+  We may use this last result to solve minimisation problems, for example
+  least-squares regression.
+\end{rem}
+\begin{prop}
+  Let $T:V\to W$ be linear. There exists a unique function $T^*:W\to V$ such
+  that
+  \[\langle Tv,w\rangle=\langle v,T^* w\rangle\] for every $v\in V$ and every
+  $w\in W$. The function $T^*$ is linear.
+\end{prop}
+\begin{defn}
+  We call $T^*$ the \emph{adjoint} of $T$.
+\end{defn}
+\begin{prop}
+  Let $T:V\to W$ be linear, where $V$ and $W$ are real or complex vector spaces.
+  Let $\{v_i\}$ be an orthonormal basis for $V$, and
+  let $\{w_i\}$ be an orthonormal basis for $W$. Then, the matrix of $T^*$ with
+  respect to $\{w_i\}$ and $\{v_i\}$ is the conjugate transpose of the matrix of
+  $T$ with respect to $\{v_i\}$ and $\{w_i\}$.
+\end{prop}
+\begin{defn}
+  Let $T$ be an operator. If $T^*=T$, then $T$ is \emph{self-adjoint}. If
+  $TT^*=T^* T$, then $T$ is \emph{normal}.
+\end{defn}
+\begin{prop}
+  Every eigenvalue of a self-adjoint operator is real.
+\end{prop}
+% TODO: define bilinear and quadratic forms, prove eigenvalues characterisation
+\begin{thm}[Spectral Theorem]
+  Let $T:V\to V$ be normal, where $V$ is finite-dimensional. Then
+  $T$ has a diagonal matrix with respect to some orthonormal basis of $V$.
+\end{thm}
+\begin{rem}
+  Thus, we may write $T=UBU^*$, where $UU^*=U^*U=I$ and $B$ is diagonal.
+\end{rem}
+\begin{prop}
+  $T$ is positive semidefinite iff there exists an operator $R$ such that $T=R^*R$.
+\end{prop}
+\begin{defn}
+  An operator $F$ is a \emph{square root} of an operator $T$ if $R^2=T$.
+\end{defn}
+\begin{prop}
+  Every positive operator has a unique positive square root.
+\end{prop}
+\begin{defn}
+  If $T$ is a positive operator, then $\sqrt T$ denotes the unique positive
+  semidefinite square root of $T$.
+\end{defn}
+\begin{defn}
+  A linear transformation is an \emph{isometry} if it preserves norms. An
+  operator which is also an isometry is \emph{unitary}.
+\end{defn}
+\begin{prop}
+  An linear transformation $T$ is unitary iff $T^*T=I$.
+\end{prop}
+\begin{thm}[Polar Decomposition]
+  For each operator $T$, there exists a unitary operator $S$ such that
+  $T=S\sqrt{T^*T}$.
+\end{thm}
+\begin{defn}
+  The \emph{singular values} of $T$ are the eigenvalues of $\sqrt{T^*T}$,
+  where each eigenvalue $\lambda$ is counted the same number of times as the
+  dimension of its eigenspace.
+\end{defn}
+\begin{prop}
+  The nonzero singular values of $T$ and of $T^*$ coincide.
+\end{prop}
+\begin{thm}[Singular Value Decomposition]
+  Suppose $T:V\to W$ has singular values $s_1,\ldots,s_n$. Then there exist
+  orthonormal bases $e_1,\ldots,e_n$ of $V$ and $f_1,\ldots,f_n$ of $W$ such that
+  \[Tv=\sum_i s_i\langle v,e_i\rangle f_i\]
+  for all $v\in V$.
+\end{thm}
+\begin{prop}
+  Let $T:V\to W$ be a linear transformation. There exists a unique linear
+  transformation $T^+:W\to T$ such that
+  \begin{itemize}
+    \item $TT^+T=T$;
+    \item $T^+TT^+=T^+$;
+    \item $TT^+$ and $T^+T$ are self-adjoint.
+  \end{itemize}
+\end{prop}
+\begin{defn}
+  This transformation $T^+$ is known as the \emph{pseudoinverse} of $T$.
+\end{defn}
+\begin{defn}
+  A vector $v$ is called a \emph{generalised eigenvector} of $T$ corresponding
+  to an eigenvalue $\lambda$ if $v\ne 0$ and $(T-\lambda I)^j v=0$ for some
+  positive integer $j$.
+
+  The \emph{generalised eigenspace} of $T$ corresponding to $\lambda$ is the set
+  of all generalised eigenvectors of $T$ corresponding to $\lambda$, along with
+  the $0$ vector.
+\end{defn}
+\begin{prop}
+  For finite-dimensional $V$, 
+  $v$ is a generalised eigenvector of $T$ iff $(T-\lambda I)^{\dim V}v=0$.
+\end{prop}
+\begin{prop}
+  Generalised eigenvectors corresponding to distinct eigenvalues are linearly
+  independent.
+\end{prop}
+\begin{prop}
+  Suppose $V$ is a finite-dimensional complex vector space, and $T$ is an
+  operator on $V$. Then there is a basis of $V$ consisting of generalised
+  eigenvectors of $T$.
+\end{prop}
+\begin{defn}
+  The \emph{multiplicity} of an eigenvalue $\lambda$ of $T$ is the dimension of
+  the corresponding generalised eigenspace.
+\end{defn}
+\begin{prop}
+  Every operator on a nonzero finite-dimensional real vector space has an invariant
+  subspace of dimension $1$ or $2$.
+\end{prop}
+\begin{defn}
+  A \emph{block diagonal matrix} is a square matrix of the form
+  \[\begin{pmatrix} A_1&&0 \\ &\ddots& \\0&&A_m \end{pmatrix},\]
+  where each $A_i$ is a square matrix lying along the diagonal and all other
+  entries of the matrix are $0$.
+\end{defn}
+\begin{thm}[Jordan Form]
+  If $T$ is an operator on a finite-dimensional complex vector space, then there is a
+  basis such that the matrix of $T$ with respect to this basis is block diagonal
+  with blocks of the form
+  \[\begin{pmatrix} \lambda_i&1&&0 \\
+  &\ddots&\ddots& \\
+  &&\ddots&1 \\
+  0&&&\lambda_i\end{pmatrix},\]
+  where each $\lambda_i$ is a distinct eigenvalue of $T$.
+\end{thm}
+\begin{defn}
+  The \emph{trace} of a square matrix $A$ is the sum of the diagonal entries of
+  $A$.
+\end{defn}
+\begin{prop}
+  If $T$ is an operator over a finite-dimensional vector space $V$, and
+  $\{a_i\}$ and $\{b_i\}$ are two bases for $V$, then the trace of the matrix of
+  $T$ with respect to $\{a_i\}$ equals the trace of the matrix of $T$ with
+  respect to $\{b_i\}$.
+\end{prop}
+\begin{defn}
+  We call this quantity the \emph{trace} of $T$.
+\end{defn}
+\begin{prop}
+  The trace is additive.
+\end{prop}
+\begin{prop}
+  If $V$ is complex, then the trace of $T$ equals the sum of the eigenvalues of
+  $T$ counted according to multiplicity.
+\end{prop}
+\begin{defn}
+  If $\pi$ is a permutation of $\{1,2,\ldots,n\}$, the sign of $\pi$ is $-1^k$,
+  where $k=|\{(a,b)\in\{1,2,\ldots,n\}:a<b,\ \pi(a)>\pi(b)\}|$.
+\end{defn}
+% TODO: multilinear forms, alternating forms, determinant
+\begin{prop}
+  Let $A$ be $n\times n$. The determinant of the linear transformation defined
+  by $A$ equals
+  \[\sum_\pi\mathrm{sign}(\pi)\prod_{i=1}^n A_{\pi(i),i},\] 
+  where the sum is taken over all permutations $\pi$ of $\{1,2,\ldots,n\}$.
+\end{prop}
+\begin{defn}
+  We call this quantity the \emph{determinant} of $T$.
+\end{defn}
+\begin{prop}
+  The determinant is multiplicative.
+\end{prop}
+\begin{prop}
+  If $V$ is complex, then the determinant of $T$ equals the product of the
+  eigenvalues of $T$ counted according to multiplicity.
+\end{prop}
+% TODO: cofactor matrix, Cramer's rule, Silvester's criterion
+\begin{defn}
+  Let $T$ be an operator on a finite-dimensional vector space. The
+  \emph{characteristic polynomial} $p$ of $T$ is defined by
+  \[p(\lambda)=\det(T-\lambda I).\]
+\end{defn}
+\begin{prop}
+  If $T$ is an operator on a finite-dimensional complex vector space, then the
+  characteristic polynomial $p$ of $T$ satisfies
+  \[p(z)=\prod(z-\lambda_i),\]
+  where $\lambda_i$ are the eigenvalues of $T$ counted according to
+  multiplicity.
+\end{prop}
+\begin{thm}[Cayley-Hamilton]
+  Let $p$ be the characteristic polynomial of $T$. Then $p(T)=0$.
+\end{thm}
+% TODO: matrix norm; ergodic theorem
 \subsection*{References}
 \begin{itemize}
   \item \emph{Linear Algebra Done Wrong}, Treil
