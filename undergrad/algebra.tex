@@ -1,0 +1,470 @@
+\section{Algebra}
+\begin{prop}
+    If $G$ is a group, then
+    \begin{itemize}
+        \item The identity element of $G$ is unique.
+        \item Every $a\in G$ has a unique inverse in $G$.
+        \item For every $a\in G$, $(a^{-1})^{-1}=a$.
+        \item For every $a,b\in G$, $(ab)^{-1}=b^{-1}a^{-1}$.
+        \item For any $a_1,a_2,\ldots,a_n\in G$ the value of $a_1 a_2\cdots a_n$
+            is independent of how the expression is bracketed.
+    \end{itemize}
+\end{prop}
+\begin{prop}
+    A nonempty subset $H$ of $G$ is a subgroup of $G$ iff it is closed under
+    multiplication and inverses.
+\end{prop}
+\begin{prop}
+    If $H$ is a nonempty finite subset of $G$ which is closed under
+    multiplication, then $H$ is a subgroup of $G$.
+\end{prop}
+\begin{prop}
+    Let $\phi:G\to H$ be a homomorphism, and let $H'$ be a subgroup of $G$.
+    Then $\phi(G)$ and $\phi^{-1}(H')$ are subgroups
+    of $H$ and $G$ respectively.
+\end{prop}
+\begin{defn}
+    The \emph{kernel} of a homomorphism is the inverse image of the identity.
+\end{defn}
+\begin{defn}
+    The \emph{order} of a group $G$ is $|G|$.
+\end{defn}
+\begin{defn}
+    Let $H$ be a subgroup of $G$. For any $g\in G$, we let $gH=\{gh:h\in H\}$
+    and $Hg=\{hg:h\in H\}$, respectively called a \emph{left coset} and
+    \emph{right coset} of $H$.
+\end{defn}
+\begin{prop}
+    The sets of left and right cosets of $H$ form partitions of $G$ with equal
+    cardinality.
+\end{prop}
+\begin{defn}
+    This cardinality is the \emph{index} of $H$ in $G$, denoted $[G:H]$.
+\end{defn}
+\begin{prop}
+    Every left (resp.\ right) coset of $H$ has the same cardinality as $H$.
+\end{prop}
+\begin{cor}[Lagrange's Theorem]
+    $|G|=[G:H]|H|$. In particular, if $|G|$ is finite then $|H|\mid|G|$.
+\end{cor}
+\begin{cor}
+    If $G$ is a finite group, for any $x\in G$ we have $x^{|G|}=1$.
+\end{cor}
+\begin{prop}
+    Let $K\subseteq H\subseteq G$ be groups. Then, $[G:H][H:K]=[G:K]$.
+\end{prop}
+\begin{defn}
+    If $H$ and $K$ are subsets of $G$, let $HK=\bigcup\{hK:h\in H\}$.
+\end{defn}
+\begin{prop}
+    If $H$ and $K$ are subgroups of $G$, then $HK$ is a subgroup of $G$ iff $HK=KH$.
+\end{prop}
+\begin{prop}
+    If $H$ and $K$ are finite subgroups of $G$, then
+    \[|HK|=\frac{|H||K|}{|H\cap K|}.\]
+\end{prop}
+\begin{prop}
+    The set of permutations of a set $X$ is a group under composition.
+\end{prop}
+\begin{defn}
+    This group is denoted $S_X$, and any subgroup of it is a \emph{permutation
+    group}.
+
+    If $|X|=n$, then $S_n=A(\{1,2,\ldots,n\})$ is called the \emph{symmetric
+    group} of degree $n$.
+\end{defn}
+\begin{defn}
+    A \emph{cycle} is a nontrivial permutation $\varphi$ of a set $S$ such that for
+    any two elements $a,b\in S$ such that $\varphi(a)\ne a$ and $\varphi(b)\ne
+    b$, there is some $k$ for which $\varphi^k(a)=b$.
+\end{defn}
+\begin{prop}
+    Disjoint cycles commute.
+\end{prop}
+\begin{prop}
+    Every permutation can be uniquely expressed as a product of disjoint cycles.
+\end{prop}
+\begin{prop}
+    The function $\sign:S_n\to\{1,-1\}$ is a homomorphism; further, the sign of
+    any $2$-cycle is $-1$.
+\end{prop}
+\begin{defn}
+    The kernel of this homomorphism is $A_n$, the \emph{alternating group} of
+    degree $n$.
+\end{defn}
+\begin{defn}
+    A \emph{group action} of a group $G$ on a set $A$ is a map from $G\times A$
+    to $A$, written as $g\cdot a$, such that $g_1\cdot(g_2\cdot
+    a)=(g_1g_2)\cdot a$ and $1\cdot a=a$.
+\end{defn}
+\begin{defn}
+    A \emph{permutation representation} of $G$ is a homomorphism of $G$ into
+    $S_X$ for some $X$.
+\end{defn}
+\begin{prop}
+    For each $g$, the map $\sigma_g(a)=g\cdot a$ is a permutation on $A$.
+    The map $g\mapsto\sigma_g$ from $G$ to $S_A$ is a homomorphism.
+\end{prop}
+\begin{defn}
+    This homomorphism is the permutation representation \emph{induced} by this
+    group action.
+\end{defn}
+\begin{prop}
+    There is a bijection between the actions of $G$ on $A$ and the homomorphisms
+    of $G$ into $S_A$.
+\end{prop}
+\begin{defn}
+    If $G$ is a group acting on $S$ and $s$ is a fixed element of $S$, the
+    \emph{stabiliser} of $s$ is the set $G_s=\{g\in G:gs=s\}$.
+\end{defn}
+\begin{prop}
+    The stabiliser of an element is a subgroup of $G$.
+\end{prop}
+\begin{defn}
+    Let $G$ act on $\mathcal P(G)$ by \emph{conjugation}: that is, $g\cdot
+    A=gAg^{-1}$. The \emph{normaliser} $N_G(A)$ is the stabiliser of $A$ under
+    this action.
+\end{defn}
+\begin{prop}
+    If $H\subseteq N_G(K)$, $K\subseteq N_G(H)$, and $H\cap K=\{1\}$, then
+    $HK\cong H\times K$.
+\end{prop}
+\begin{defn}
+    In this case we call $HK$ the \emph{internal direct product} of $H$ and $K$.
+\end{defn}
+\begin{defn}
+    Let $N_G(A)$ act on $A$ by conjugation. The \emph{centraliser} $C_G(A)$ is the
+    kernel of this action.
+\end{defn}
+\begin{defn}
+    The \emph{centre} of $G$ is $Z(G)=C_G(G)$.
+\end{defn}
+\begin{defn}
+    A subgroup $N$ of $G$ is \emph{normal} if the normaliser of $N$ is $G$.
+\end{defn}
+\begin{prop}
+    If $K$ is a subgroup of $G$, then $H$ is normal in $K$ iff $K\subseteq
+    N_G(H)$.
+\end{prop}
+\begin{prop}
+    The subgroup $N$ of $G$ is normal iff the set of left cosets of $N$ equals
+    the set of right cosets.
+\end{prop}
+\begin{prop}
+    Let $G$ be a group, let $H$ be a subgroup of $G$ and let $G$ act by left
+    multiplication on the set $A$ of left cosets of $H$ in $G$. Then, $G$ acts
+    transitively on $A$, the stabiliser of $1H$ is $H$, and the kernel of the
+    action is the largest normal subgroup of $G$ contained in $H$.
+\end{prop}
+\begin{cor}[Cayley]
+    Every group is isomorphic to a permutation group.
+\end{cor}
+\begin{prop}
+    If $G$ is a finite group and $p$ is the smallest prime dividing $|G|$, then
+    any subgroup of index $p$ is normal.
+\end{prop}
+\begin{prop}
+    If $N$ is normal in $G$, the set of cosets of $N$ forms a group under
+    multiplication.
+\end{prop}
+\begin{defn}
+    This group is called the \emph{quotient group} of $G$ over $N$, denoted
+    $G/N$.
+\end{defn}
+\begin{prop}
+    The mapping $\pi$ from $G$ to $G/N$ defined by $\pi(x)=Nx$ is a
+    surjective homomorphism with kernel $N$.
+\end{prop}
+\begin{defn}
+    This mapping is called the \emph{natural projection} of $G$ onto $G/N$.
+\end{defn}
+\begin{defn}
+    Let $A,B,C$ be groups, and let $f:A\to B$ be a homomorphism. Then, we say
+    that $g:A\to C$ \emph{factors through} $f$ if there exists some $h:B\to C$
+    such that $g=hf$.
+\end{defn}
+\begin{prop}
+    Let $H$ be a subset of $G$, let $\phi$ be a homomorphism such that its
+    kernel contains $H$, and let $N$ be the intersection of all normal
+    subgroups containing $H$. Then, $\phi$ factors uniquely through the natural
+    projection of $G$ onto $G/N$.
+\end{prop}
+\begin{thm}[Isomorphism Theorems]
+    In the following statements, all quotients are well-defined.
+    \begin{enumerate}
+        \item If $\phi:G\to H$ is a homomorphism, then the image of $\phi$ is
+            isomorphic to $\phi/\ker\phi$.
+        \item Let $G$ be a group and let $A$ and $B$ be subgroups of $G$ such that
+        $A\subseteq N_G(B)$.
+        Then $AB/B\cong A/A\cap B$.
+        \item Let $G$ be a group and let $H$ and $K$ be normal subgroups of $G$
+            with $H\subseteq K$. Then $(G/H)/(K/H)\cong G/K$.
+        \item Let $N$ be normal in $A$. Then the natural projection defines a
+            bijection from the set of subgroups of $G$ which contain $N$ to the
+            set of subgroups of $G/N$.
+    \end{enumerate}
+\end{thm}
+\begin{lem}[Butterfly]
+    Let $G$ be a group with subgroups $A,B,C,D$ such that $B$ is a normal
+    subgroup of $A$ and $D$ is a normal subgroup of $C$. Then we have
+    \[{\frac
+    {(A\cap C)B}{(A\cap D)B}}\cong {\frac {(A\cap C)D}{(B\cap C)D}}.\]
+\end{lem}
+\begin{prop}
+    For any set $S$ there exists a group $F(S)$ containing $S$ such that for any
+    group $G$, any map $\varphi:S\to G$ can be extended to a unique
+    homomorphism. This group is unique up to isomorphism.
+\end{prop}
+\begin{defn}
+    This group is the \emph{free group} on $S$.
+\end{defn}
+\begin{thm}[Schreier]
+    Subgroups of a free group are free.
+\end{thm}
+\begin{defn}
+    Let $S$ be a subset of a group $G$. The subgroup of $G$ \emph{generated} by
+    $S$, denoted $\langle S\rangle$, is the image of the homomorphism $F(S)\to
+    G$ that fixes $S$.
+\end{defn}
+\begin{defn}
+    Let $S$ be a subset of a group $G$ that generates $G$. A \emph{presentation}
+    for $G$ is a pair $(S,R)$ such that the smallest normal subgroup containing
+    $R$ in $F(S)$ equals the kernel of the homomorphism $F(S)\to G$ that fixes
+    $S$. The
+    elements of $S$ are called \emph{generators} and those of $R$ are called
+    \emph{relations} of $G$.
+\end{defn}
+\begin{prop}
+    Let $G$ and $H$ be groups, let $S$ be a set of generators for $G$, and let
+    $\phi:F(S)\to G$ be the induced homomorphism. A set $H$ is a homomorphic
+    image of $G$ iff there is a homomorphism $\pi:F(S)\to H$ such that
+    $\ker\pi\subseteq\ker\phi$.
+\end{prop}
+\begin{defn}
+    A group $G$ is \emph{finitely generated} if there is a presentation $(S,R)$
+    such that $S$ is finite, and \emph{finitely presented} if there is a
+    presentation $(S,R)$ such that both $S$ and $R$ are finite.
+\end{defn}
+\begin{prop}
+    Every finite group is finitely presented.
+\end{prop}
+\begin{defn}
+    A group is \emph{cyclic} if it is generated by a single element.
+\end{defn}
+\begin{prop}
+    A group is cyclic iff it is isomorphic to $\Zz$ or to $\Zz/n\Zz$ for some
+    $n\in\Zz^+$.
+\end{prop}
+\begin{prop}
+    Every group of prime order is cyclic.
+\end{prop}
+\begin{thm}[Cauchy]
+    If $p$ is a prime dividing $|G|$, then $G$ has a subgroup of order $p$.
+\end{thm}
+\begin{defn}
+    Let $G$ be a group acting on $A$.
+    The set $Ga=\{g\cdot a:g\in G\}$ is called the \emph{orbit} of $a$ under $G$.
+
+    If there is only one orbit, then the action of $G$ on $A$ is called
+    \emph{transitive}.
+\end{defn}
+\begin{prop}
+    The set of orbits of $G$ partitions $A$.
+\end{prop}
+\begin{prop}
+    $|Gs|=[G:G_s]$.
+\end{prop}
+\begin{cor}
+    The number of conjugates of a subset $S$ in $G$ is $[G:N_G(S)]$. In
+    particular, the number of conjugates of an element $s$ of $G$ is
+    $[G:C_G(s)]$.
+\end{cor}
+\begin{cor}[Orbit decomposition formula]
+    Let $\{s_i\}$ be a set containing one element from each of the orbits of
+    $G$. If $S$ is finite, then we have
+    $|S|=\sum[G:G_{s_i}]$.
+\end{cor}
+\begin{cor}[Class equation]
+    Let $\{g_i\}$ be a set containing one element from each conjugacy class
+    which is not in the centre of $G$. Then,
+    $|G|=|Z(G)|+\sum[G:C_G(g_i)]$.
+\end{cor}
+\begin{cor}
+    A group of prime power order must have a nontrivial centre.
+\end{cor}
+\begin{cor}
+    If $|G|=p^2$ for some prime $P$, then either $p\cong\Zz/p^2\Zz$ or
+    $p\cong(\Zz/p\Zz)^2$.
+\end{cor}
+\begin{defn}
+    A \emph{partition} of $n$ is a set of positive integers whose sum is $n$.
+\end{defn}
+\begin{prop}
+    The number of conjugacy classes of $S_n$ equals the number of partitions of
+    $n$.
+\end{prop}
+\begin{defn}
+    A group $G$ is called \emph{simple} if $|G|>1$ and the only normal subgroups
+    of $G$ are $1$ and itself.
+\end{defn}
+\begin{prop}
+    The alternating group $A_n$ is simple for $n\ge 5$.
+\end{prop}
+\begin{prop}
+    If $G$ is a group, the set of automorphisms of $G$ is also a group.
+\end{prop}
+\begin{defn}
+    We denote this group by $\Aut(G)$.
+\end{defn}
+\begin{prop}
+    Let $H$ be a normal subgroup of $G$. 
+    The permutation representation of the action of $G$ on $H$ by conjugation
+    is a homomorphism of $G$ into $\Aut(H)$ with kernel $C_G(H)$.
+\end{prop}
+\begin{cor}
+    The permutation representation of the action of $G$ on itself by conjugation
+    is a homomorphism of $G$ into $\Aut(G)$ with kernel $Z(G)$.
+\end{cor}
+\begin{defn}
+    The image of this homomorphism is called the group of \emph{inner
+    automorphisms} of $G$, denoted $\Inn(G)$.
+\end{defn}
+\begin{defn}
+    A subgroup $H$ of a group $G$ is \emph{characteristic} in $G$ if every
+    automorphism of $G$ maps $H$ to itself.
+\end{defn}
+\begin{prop}
+    If $K$ is characteristic in $H$ and $H$ is normal in $G$, then $K$ is normal
+    in $G$.
+\end{prop}
+\begin{prop}
+    $\Aut(\Zz/n\Zz)\cong(\Zz/n\Zz)^\times$.
+\end{prop}
+\begin{prop}
+    For all $n\ne 6$ we have $\Aut(S_n)\cong S_n$. 
+\end{prop}
+\begin{defn}
+    A group of order $p^\alpha$ for some $\alpha\ge 1$ is called a
+    \emph{$p$-group}. If $G$ is a group of order $p^\alpha m$, where $p\nmid m$,
+    then a subgroup of order $p^\alpha$ is called a \emph{Sylow $p$-subgroup} of
+    $G$.
+\end{defn}
+\begin{thm}[Sylow]
+    Let $p^\alpha\||G|$.
+    \begin{enumerate}
+        \item Sylow $p$-subgroups of $G$ exist.
+        \item Any $p$-subgroup of $G$ is contained in a conjugate of any Sylow
+            $p$-subgroup of $G$.
+        \item The number of Sylow $p$-subgroups is $1\pmod p$ and divides $|G|$.
+    \end{enumerate}
+\end{thm}
+\begin{prop}[Frattini's Argument]
+    Let $G$ be a finite group, let $H$ be a normal subgroup of $G$ and let $P$
+    be a Sylow $p$-subgroup of $H$. Then $G=HN_G(P)$ and $[G:H]\mid |N_G(P)|$.
+\end{prop}
+\begin{prop}
+    In a finite group $G$, if the number of Sylow $p$-subgroups is not
+    $1\pmod{p^2}$, then there are distinct Sylow $p$-subgroups $P$ and $R$ of
+    $G$ such that $P\cap R$ is of index $p$ in both $P$ and $R$.
+\end{prop}
+\begin{prop}
+    Every proper subgroup of a $p$-group is a proper subgroup of its normaliser.
+    Every maximal subgroup of a $p$-group is of index $p$ and is normal.
+\end{prop}
+\begin{cor}
+    If $H$ is a normal subgroup of $G$ with order divisible by $p^k$, then $H$
+    has a subgroup of order $p^k$ that is normal in $G$.
+\end{cor}
+\begin{thm}[Fundamental Theorem of Finite Abelian Groups]
+    Every finite abelian group is uniquely isomorphic to the direct
+    product of cyclic groups, each of which has prime power order.
+\end{thm}
+\begin{defn}
+    In a group $G$, a sequence of subgroups
+    \[1=N_0\subseteq\cdots\subseteq N_k=G\]
+    is called a \emph{composition series} if each $N_i$ is normal in $N_{i+1}$
+    and $N_{i+1}/N_i$ is a simple group for all $i$. The quotient groups
+    $N_{i+1}/N_i$ are called \emph{composition factors} of $G$.
+\end{defn}
+\begin{thm}[Jordan---H\"older]
+    Let $G$ be a nontrivial finite group. Then, $G$ has a composition series and
+    the composition factors are unique up to permutation and isomorphism.
+\end{thm}
+\begin{defn}
+    A group is \emph{solvable} if its composition factors are abelian.
+\end{defn}
+\begin{thm}[Burnside]
+    If $|G|=p^a q^b$ for some primes $p$ and $q$, then $G$ is solvable.
+\end{thm}
+\begin{thm}[Hall]
+    If for all primes $p$, $G$ has a subgroup whose index equals the order of a
+    Sylow $p$-subgroup, then $G$ is solvable.
+\end{thm}
+\begin{defn}
+    The \emph{upper central series} of $G$ is a sequence of subgroups of $G$ such that
+    $Z_0(G)=1$ and $Z_{i+1}(G)$ is the preimage in $G$ of the centre of
+    $G/Z_i(G)$ under the natural projection. A group is \emph{nilpotent of class
+    $n$} if $n$ is minimal such that $Z_n(G)=G$.
+\end{defn}
+\begin{prop}
+    $Z_i(G)$ is characteristic in $G$ for all $i$.
+\end{prop}
+\begin{prop}
+    Every nilpotent group is solvable.
+\end{prop}
+\begin{thm}
+    If $G$ is finite, then the following are equivalent.
+    \begin{itemize}
+        \item $G$ is nilpotent;
+        \item Every proper subgroup of $G$ is a proper subgroup of its
+            normaliser in $G$;
+        \item Every Sylow subgroup is normal in $G$;
+        \item $G$ the direct product of its Sylow subgroups;
+        \item Every maximal proper subgroup is normal.
+    \end{itemize}
+\end{thm}
+\begin{defn}
+    Let $R$ be a ring. A nonzero element $a\in R$ is called a \emph{zero
+    divisor} if there is a nonzero element $b\in R$ such that $ab=0$ or $ba=0$.
+\end{defn}
+\begin{defn}
+    Let $R$ be a ring with unity. An element $u$ of $R$ is called a \emph{unit}
+    in $R$ if there is some $v\in R$ such that $uv=vu=1$. The set of units of
+    $R$ is denoted $R^\times$.
+\end{defn}
+\begin{defn}
+    A commutative ring with unity is called an \emph{integral domain} if it has
+    no zero divisors.
+\end{defn}
+\begin{prop}
+    A finite integral domain is a field.
+\end{prop}
+\begin{defn}
+    A ring with unity is called a \emph{division ring} if every nonzero element
+    is a unit.
+\end{defn}
+\begin{prop}
+    A finite division ring is a field.
+\end{prop}
+\begin{defn}
+    The \emph{characteristic} of a ring with unity is the order of the subgroup
+    generated by $1$, and $0$ if this subgroup is infinite.
+\end{defn}
+\begin{defn}
+    A nonempty subset $U$ or $R$ is an \emph{ideal} of $R$ if $U$ is a subgroup
+    under addition, and $UR=RU=U$.
+\end{defn}
+\begin{prop}
+    If $U$ is an ideal of $R$, then $U$ is normal in the additive and
+    multiplicative groups of $R$.
+\end{prop}
+% TODO: finish rings
+% TODO: fields
+% TODO: modules
+\subsection*{References}
+\begin{itemize}
+    \item Herstein, \emph{Topics in Algebra}
+    \item Artin, \emph{Algebra}
+    \item Dummit and Foote, \emph{Abstract Algebra}
+    \item Mac Lane and Birkhoff, \emph{Algebra}
+\end{itemize}

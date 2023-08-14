@@ -1,36 +1,37 @@
 \documentclass{amsbook}
 \usepackage{amsmath,amssymb,amsthm,tcolorbox,hyperref,booktabs,epigraph}
 \hypersetup{colorlinks=true}
-\theoremstyle{plain}
-  \newtheorem{thm}{Theorem}
-  \newtheorem{lem}[thm]{Lemma}
-  \newtheorem{prop}[thm]{Proposition}
-  \newtheorem{cor}[thm]{Corollary}
-  \newtheorem{axiom}{Axiom}
 \theoremstyle{definition}
-  \newtheorem{defn}[axiom]{Definition}
-\theoremstyle{remark}
-  \newtheorem{rem}[axiom]{Remark}
+    \newtheorem{thm}{Theorem}
+    \newtheorem{lem}[thm]{Lemma}
+    \newtheorem{prop}[thm]{Proposition}
+    \newtheorem{cor}[thm]{Corollary}
+    \newtheorem{axiom}[thm]{Axiom}
+    \newtheorem{defn}[thm]{Definition}
+    \newtheorem{rem}[thm]{Remark}
 \newcommand{\LHS}{\text{LHS}}
 \newcommand{\RHS}{\text{RHS}}
 \newcommand{\Zz}{\mathbb{Z}}
+\newcommand{\Nn}{\mathbb{N}}
 \newcommand{\Qq}{\mathbb{Q}}
 \newcommand{\Rr}{\mathbb{R}}
 \newcommand{\Cc}{\mathbb{C}}
 \newcommand{\Ff}{\mathbb{F}}
 \newcommand{\lcm}{\mathrm{lcm}}
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\Ker}{\mathrm{Ker}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\Inn}{\mathrm{Inn}}
+\newcommand{\tr}{\mathrm{tr}\ }
 \title{Learning Uni Maths}
-\author{gispisquared}
+\author{Andres Buritica Monroy}
 \begin{document}
 \maketitle
 \epigraph{If only I had the theorems! Then I should find the proofs easily
 enough.}{Bernhard Riemann}
 \tableofcontents
-\input{settheory.tex}
-\input{numbersystems.tex}
-\input{linalg.tex}
-\input{analysis.tex}
-\input{toc.tex}
+\input{undergrad/main.tex}
 \appendix
 \input{proofs/main.tex}
 \end{document}

@@ -1,4 +1,4 @@
-\chapter{Theory of Computation}
+\section{Theory of Computation}
 \begin{defn}
   A \emph{deterministic finite automaton (DFA)} is a $5$-tuple 
   \[(Q,\Sigma,\delta,q_0,F),\] where $Q$
@@ -6,15 +6,11 @@
   \emph{alphabet}, $\delta:Q\times\Sigma\to Q$ is the \emph{transition
   function}, $q_0\in Q$ is the \emph{start state}, and $F\subseteq Q$ is the
   set of \emph{accept states}.
-\end{defn}
-\begin{defn}
   We say that machine $M$ \emph{accepts} string $s=s_0s_1\cdots s_n$ if
   $\delta(\delta(\cdots\delta(\delta(q_0,s_0),s_1)\cdots,s_{n-1}),s_n)$ is an
   accept state.
-\end{defn}
-\begin{defn}
   The set $A$ of all strings that machine $M$ accepts is the \emph{language of
-  machine $M$}, notated $L(M)$. We say that $M$ \emph{recognises} $A$.
+  machine $M$}, notated $L(M)$. We also say that $M$ \emph{recognises} $A$.
 \end{defn}
 \begin{defn}
   A language is a \emph{regular language} if it is recognised by some finite
@@ -32,25 +28,6 @@
 \begin{defn}
   The \emph{empty string} is notated $\varepsilon$.
 \end{defn}
-\begin{rem}
-  Note that $\varepsilon\in A^*$ for all $A$.
-\end{rem}
-\begin{defn}
-  A \emph{nondeterministic finite automaton (NFA)} is a $5$-tuple
-  \[(Q,\Sigma,\delta,q_0,F),\] where $Q$ is a finite set of states, $\Sigma$ is a
-  finite alphabet, $\delta:Q\times(\Sigma\cup\{\varepsilon\})\to\mathcal P(Q)$
-  is the transition function, $q_0\in Q$ is the start state, and $F\subseteq Q$
-  is the set of accept states.
-\end{defn}
-\begin{defn}
-  Two machines are \emph{equivalent} if they describe the same language.
-\end{defn}
-\begin{prop}
-  Every NFA has an equivalent DFA\@.
-\end{prop}
-\begin{cor}
-  A language is regular iff some NFA recognises it.
-\end{cor}
 \begin{defn}
   Let $\Sigma$ be an alphabet. An \emph{atomic regular expression} is one of
   \begin{itemize}
@@ -67,31 +44,19 @@
   of $a$ and $\varepsilon$ with $\{a\}$ and $\{\varepsilon\}$, respectively, and
   then applying the regular operations. 
 \end{defn}
-\begin{defn}
-  A \emph{generalised nondeterministic finite automaton} (GNFA) is a $5$-tuple
-  $(Q,\Sigma,\delta,q_s,q_a)$, where $Q$ is a finite set of states, $\Sigma$ is
-  a finite input alphabet, $\delta:(Q-\{q_a\})\times(Q-\{q_s\})\to\mathcal R$ is
-  the transition function, and $q_s,q_a\in Q$ are the start and accept states
-  respectively.
-
-  A GNFA \emph{accepts} a string $w$ in $\Sigma^*$ if $w=w_1w_2\cdots w_k$,
-  where each $w_i$ is in $\Sigma^*$ and a sequence of states
-  $q_0,q_1,\ldots,q_k$ exists such that $q_0=q_s$, $q_k=q_a$ and for each $i$
-  we have $w_i\in L(\delta(q_{i-1},q_i))$.
-\end{defn}
-\begin{prop}
-  A language is regular iff some GNFA recognises it.
-\end{prop}
 \begin{thm}
   A language is regular iff some regular expression describes it.
 \end{thm}
-\begin{lem}[Pumping Lemma]
+\begin{prop}[Pumping Lemma]
   If $A$ is a regular language, then there is a positive integer $p$ such that
   if $s$ is any string in $A$ of length at least $p$, then $s$ may be divided
   into three pieces, $s=xyz$, where $y$ is nonempty, $|xy|\le p$ and $x\circ
   y^*\circ z\subseteq A$.
-\end{lem}
+\end{prop}
+% TODO
 \subsection*{References}
 \begin{itemize}
-  \item \emph{Introduction to the Theory of Computation}, Sipser
+  \item Sipser, \emph{Introduction to the Theory of Computation}
+  \item Boolos, Burgess and Jeffrey, \emph{Computability and Logic}
+  \item Cormen, Leiserson, Rivest and Stein, \emph{Introduction to Algorithms}
 \end{itemize}

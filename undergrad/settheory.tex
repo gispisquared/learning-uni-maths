@@ -1,11 +1,13 @@
-\chapter{Set Theory}
+\section{Set Theory}
+\begin{defn}
+    We define a \emph{set}, or \emph{collection}, as an object which has a
+    notion of \emph{elements} ---
+    for any set $A$ and any object $B$, either $B$ is an element of $A$ or it
+    isn't.
+\end{defn}
 \begin{axiom}[Existence]
   There exists a set.
 \end{axiom}
-\begin{rem}
-  This is implied by the Axiom of Infinity; however, we include it here so that
-  we may define the empty set which is included in the statement of that axiom.
-\end{rem}
 \begin{defn}
   Let $A$ and $B$ be sets.
   If every element of $A$ is an element of $B$, we say that $A$ is a
@@ -15,7 +17,7 @@
   If $A\subseteq B$ and $B\subseteq C$ then $A\subseteq C$.
 \end{prop}
 \begin{axiom}[Extensionality]
-  $A=B$ iff $A\subseteq B$ and $B\subseteq A$.
+    Let $A$ and $B$ be sets. We have $A\subseteq B$ and $B\subseteq A$ iff $A=B$.
 \end{axiom}
 \begin{defn}
   A \emph{sentence} is made by combining assertions of belonging (eg $x\in A$)
@@ -54,10 +56,6 @@
   The set $\{A,A\}$ is denoted $\{A\}$, and called the \emph{singleton} of
   $A$.
 \end{defn}
-\begin{rem}
-  When speaking of sets of sets, we sometimes call them \emph{collections} ---
-  this is just another name for a set.
-\end{rem}
 \begin{axiom}[Union]
   For any collection $X$ of sets there exists a set $Y$ such that for any $A$ in
   $X$, and any $a$ in $A$, $a$ is in $Y$.
@@ -152,6 +150,10 @@
   partition induced by an equivalence relation induces that relation.
 \end{prop}
 \begin{defn}
+    The \emph{natural projection} $\pi:X\to X/\sim$ sends every element to its
+    equivalence class.
+\end{defn}
+\begin{defn}
   For a relation $R$ from $X$ to $Y$ we define the \emph{inverse} relation
   $R^{-1}:Y\to X$ by $xRy\iff yR^{-1}x$.
 \end{defn}
@@ -159,6 +161,30 @@
   A \emph{function} $f:A\to B$ is a relation $f$ over $A$ and $B$ such that
   for each $a\in A$ there is exactly one $b\in B$ such that $afb$. We usually
   write this as $f(a)=b$.
+\end{defn}
+\begin{prop}
+    The set of functions from $A$ to $B$ exists.
+\end{prop}
+\begin{defn}
+    We denote it by $B^A$.
+\end{defn}
+\begin{prop}
+    Let $F:X\to Y$ be a function and let $\sim$ be an equivalence relation on
+    $X$. There is a function $G:X/\sim\to Y$ such that $F=G\pi$ iff the image of
+    every equivalence class is a singleton.
+\end{prop}
+\begin{defn}
+    In this case $G$ is the function \emph{induced} on $X/\sim$ by $F$.
+\end{defn}
+\begin{defn}
+  The \emph{identity} function $I_A:A\to A$ is defined by $I_A(a)=a$ for each
+  $a\in A$.
+\end{defn}
+\begin{defn}
+  Let $f:A\to B$ and $g:B\to A$ be functions. If $f\circ g=I_A$, then $f$ is a
+  \emph{left inverse} of $g$ and $g$ is a \emph{right inverse} of $f$. If both
+  $f\circ g=I_B$ and $g\circ f=I_B$, then $f$ is called the \emph{two-sided
+  inverse} or simply \emph{inverse} of $g$.
 \end{defn}
 \begin{defn}
   For a set $E\subseteq A$, we define the \emph{image} of $E$ under $f$ as
@@ -171,6 +197,17 @@
   $B$ there is at least one $a$ in $A$ such that $f(a)=b$. A function which is
   both injective and surjective is \emph{bijective}.
 \end{defn}
+\begin{prop}
+  A function whose domain is nonempty is injective iff it has a left inverse.
+\end{prop}
+\begin{prop}
+  A function is bijective iff it has an inverse, which equals any left- or
+  right-inverse of the function.
+\end{prop}
+\begin{defn}
+  If $A\subseteq B$ and $f:B\to C$, the \emph{restriction} of $f$ to $A$ is
+  $f|_A:A\to C,\ f|_A(x)=f(x)$.
+\end{defn}
 \begin{defn}
   For functions $f:W\to X$ and $g:Y\to Z$, where $Y\subseteq X$, we define the
   \emph{composite} $f\circ g:W\to Z$ as $(f\circ g)(x)=f(g(x))$ for all $x$.
@@ -179,9 +216,6 @@
   A function $x$ from a set $I$ (the \emph{index set}) to a set $X$ is called an
   \emph{indexed family} of $X$, and its range is an \emph{indexed set}. We
   notate the indexed set by $\{x_i\}_{i\in I}$.
-\end{defn}
-\begin{defn}
-  The set of families of a set $X$ indexed by a set $I$ is $X^I$.
 \end{defn}
 \begin{defn}
   For any set $X$ we define $X^+=X\cup\{X\}$.
@@ -206,6 +240,10 @@
   is a function $g:\omega\to X$ such that $u(0)=a$ and $u(n^+)=f(u(n))$ for all
   $n$ in $\omega$.
 \end{thm}
+\begin{prop}
+  The set $S^n$, defined by $S^1=S$ and $S^{n+1}=S^n\times S$, exists for each
+  $n\in\omega\setminus\{\emptyset\}$.
+\end{prop}
 \begin{defn}
   A \emph{partial order} is a binary relation $\le$ on a a set $A$ such that
   \begin{itemize}
@@ -282,6 +320,14 @@
   If $\alpha$ is an ordinal number then so is $\alpha^+$, and so is any element
   of $\alpha$.
 \end{prop}
+\begin{prop}
+    If $\alpha$ is an ordinal number, then either $\alpha=(\bigcup\alpha)^+$ or
+    $\alpha=\bigcup\alpha$.
+\end{prop}
+\begin{defn}
+    In the first case, $\alpha$ is a \emph{successor ordinal}; in the second, it
+    is a \emph{limit ordinal}.
+\end{defn}
 \begin{thm}
   If two ordinal numbers are similar, then they are equal.
 
@@ -315,31 +361,49 @@
   Every well-ordered set is similar to a unique ordinal number.
 \end{prop}
 \begin{prop}
-  If $a$ and $b$ are ordinals, let $A=\{(x,0):x\in a\}$ and $B=\{(y,1):y\in
-  b\}$, retaining the associated orders $\le_A$ and $\le_B$. Then the set $A\cup
-  B$ is well-ordered by $\le_A\cup\le_B\cup(A\times B)$.
+    If $S$ is an ordinal and $A$ is a family of ordinals indexed by $A$,
+    consider the set $T$ of ordered pairs $(s,a)$ such that $s\in S$ and $a\in
+    A_s$. We define the relation $(s_1,a_1)\le(s_2,a_2)$ if $s_1<s_2$
+    or $s_1=s_2$ and $a_1\le a_2$. This relation well-orders $T$.
 \end{prop}
 \begin{defn}
-  The ordinal corresponding to $A\cup B$ under this well-ordering is the
-  \emph{ordinal sum} of $a$ and $b$, denoted $a+b$.
+  The ordinal corresponding to $T$ under this well-ordering is the
+  \emph{ordinal sum} of $A$, denoted $\sum A$.
 \end{defn}
 \begin{prop}
-  If $A$ and $B$ are ordinals, the ordering on $A\times B$ where $(a,b)<(c,d)$
-  if either $b<d$ or $b=d$ and $a<c$ is a well-ordering on $A\times B$.
+    For any pair of ordinals $(a,b)$ with $a\le b$ there is an ordinal $c$ such
+    that $a+c=b$.
+\end{prop}
+\begin{cor}
+    If $a<b$ then for any $c$ we have $c+a<c+b$ and $a+c\le b+c$.
+\end{cor}
+\begin{prop}
+  If $A$ and $B$ are ordinals, the ordering on $A\times B$ where
+  $(a,b)\le (c,d)$ iff $b<d$ or both $b=d$ and $a\le c$
+  is a well-ordering on $A\times B$.
 \end{prop}
 \begin{defn}
   The ordinal corresponding to $A\times B$ under this well-ordering is the
   \emph{ordinal product} of $A$ and $B$, denoted $AB$ or $A\cdot B$.
 \end{defn}
 \begin{prop}
-  For every pair of ordinals $a,b$ there exists an ordinal $c$ and a unique
-  function $f_b:a^+\to c$ such that such that $f_b(\emptyset)=1$ and
-  \[f_b(x)=\begin{cases} f_b(\bigcup x)x&\bigcup x\ne x \\ \bigcup_{y\in
-  x}f_b(y)&\bigcup x=x\end{cases}.\]
+    If $a<b$ then for any $c$ we have $ca<cb$ and $ac\le bc$.
+\end{prop}
+\begin{prop}
+    For every family $\{a_i\}$ of ordinals indexed by an ordinal $b$,
+    there exists an ordinal $c$ and a unique function $f:b^+\to c$ such that
+    $f(\emptyset)=1$ and 
+    \[f(x)=\begin{cases} f(\bigcup x) a_x&\bigcup x\ne x \\ \bigcup_{y\in
+    x}f(y)&\bigcup x=x\end{cases}.\]
+    The graph of $f$ is the same no matter which ordinal $c$ is used.
 \end{prop}
 \begin{defn}
-  We define $a^b=f_b(a)$.
+  We define $\prod a_i=f(I)$. If all $a_i$ equal $a$, then we define $a^b=f(b)$.
 \end{defn}
+\begin{prop}
+    If $a\le b$, then for any $c$ we have $a^c\le b^c$. If additionally
+    $c>1$, then $c^a\le c^b$.
+\end{prop}
 \begin{prop}
   With ordinal sums, products and exponents as defined,
   \begin{align*}
@@ -347,12 +411,15 @@
     a+1=a^+ \\
     a+(b+c)=(a+b)+c \\
     a(bc)=(ab)c \\
-    a(b+c)=ab+ac \\
-    a^{b+c}=a^b a^c \\
+    a\sum B_i=\sum a{B_i} \\
+    a^{\sum B_i}=\prod a^{B_i} \\
     a^{bc}=(a^b)^c.
   \end{align*}
   However, ordinal addition and multiplication are not commutative and not
   right-distributive. Also, $(ab)^c$ is generally distinct from $a^c b^c$.
+\end{prop}
+\begin{prop}
+    For $c>1$ and $a\ge 1$, we have $c^a\ge a$.
 \end{prop}
 \begin{defn}
   Two sets $A$ and $B$ are said to have the same \emph{cardinality} (written
@@ -364,8 +431,8 @@
   A set $A$ has cardinality less than the cardinality of $B$ ($|A|<|B|$) if
   $|A|\le|B|$ and $|A|\ne|B|$.
 
-  A set $A$ is \emph{countable} if $|A|\le |\omega|$, and \emph{uncountable}
-  otherwise.
+  A set $A$ is \emph{enumerable} if $|A|=|\omega$, \emph{countable} if it is
+  finite or enumerable, and \emph{uncountable} otherwise.
 \end{defn}
 \begin{prop}
   If there exists a surjection $f:A\to B$ then $|B|\le|A|$.
@@ -377,9 +444,46 @@
   For any set $A$, $|\mathcal P(A)|>|A|$.
 \end{thm}
 \begin{defn}
+    A set $S$ is \emph{dense} if for any $a\in S$, the least upper bound of 
+    $s(a)$ is $a$. It is \emph{unbordered} if it has no least upper bound or
+    greatest lower bound.
+\end{defn}
+\begin{prop}
+    All enumerable unbordered dense totally ordered sets are similar.
+\end{prop}
+\begin{prop}
+    If $A$ and $B$ are collections of disjoint sets and $f:A\to B$ is a
+    bijection such that $|f(a)|=|a|$ for each $a\in A$, then
+    $\left|\bigcup A\right|=\left|\bigcup
+    B\right|$, and $\left|\prod A\right|=\left|\prod B\right|$.
+\end{prop}
+\begin{prop}
+    For any set $C$ and any indexed family of sets $A$ we have
+    \[\left|\prod C^{A_i}\right|=\left|C^{\bigcup A}\right|.\]
+\end{prop}
+\begin{defn}
+    We define $\sum|A_i|=\left|\bigcup A_i\right|$, $\prod|A_i|=\left|\prod
+    A_i\right|$, and $|A|^{|B|}=|A^B|$.
+\end{defn}
+\begin{prop}
+    For every set of cardinal numbers there is a cardinal number strictly
+    greater than all of them.
+\end{prop}
+\begin{thm}[K\"onig]
+    Let $\{A_i\}$ and $\{B_i\}$ be indexed families of disjoint sets, such that
+    for each $i$ we have $|A_i|<|B_i|$. Then, $\left|\bigcup
+    A_i\right|<\left|\bigcup B_i\right|$.
+\end{thm}
+\begin{defn}
   A \emph{cardinal number} is an ordinal number $\alpha$ such that for any
   ordinal number $\beta$ with $|\alpha|=|\beta|$ we have $\alpha\subseteq\beta$.
 \end{defn}
+\begin{prop}
+    If $a$ and $b$ are ordinals, then $|a+b|=|a|+|b|$, $|ab|=|a||b|$ and
+    $|a^b|=|a|^{|b|}$. 
+    Here, ordinal operations are used on the left side and cardinal operations are
+    used on the right.
+\end{prop}
 \begin{prop}
   Every element of $\omega$, as well as $\omega$ itself, is a cardinal number.
 \end{prop}
@@ -406,40 +510,29 @@
   A union of countably many countable sets is countable.
 \end{prop}
 \begin{prop}
-  If $A,B,C,D$ are sets such that $|A|=|B|$, $|C|=|D|$, and $A\cap C=B\cap
-  D=\emptyset$, then $|A\cup B|=|C\cup D|$, $|A\times B|=|C\times D|$ and
-  $|A^B|=|C^D|$.
-\end{prop}
-\begin{defn}
-  We define cardinal addition, multiplication and exponentiation as, for
-  disjoint sets $A$ and $B$,
-  \[|A|+|B|=|A\cup B|,\ |A|\times|B|=|A\times B|,\ |A|^{|B|}=|A^B|.\]
-\end{defn}
-\begin{prop}
-  If $a$ and $b$ are ordinals, then $|a+b|=|a|+|b|$, $|ab|=|a||b|$ and
-  $|a^b|=|a|^{|b|}$. 
-  ordinal operations are used on the left side and the cardinal operations are
-  used on the right.
-\end{prop}
-\begin{prop}
   If $a$ and $b$ are cardinal numbers such that $a\ge\omega$ and $a\ge b$,
   then $a+b=a\times b=a$. If $b$ is finite we also have $a^b=a$.
 \end{prop}
+\begin{cor}
+    If $b$ is infinite and $a=c^b$ for some $c$, then $a^b=a$.
+\end{cor}
+\begin{prop}
+    Let $\beta>1$ be an arbitrary ordinal. Every ordinal
+    can be represented uniquely as a finite sum
+    $\sum_i \beta^{\alpha_i}\gamma_i$, where all $\alpha_i$ are distinct and
+    each $\gamma_i$ is smaller than $\beta$.
+\end{prop}
 \begin{defn}
-  For each infinite cardinal $a$, consider the set $c(a)$ of all infinite
-  cardinals strictly less than $a$. It is well-ordered, so it has an ordinal
-  number $\alpha$. Then $a=\aleph_{\alpha}$.
+    For each infinite cardinal $a$, consider the set $c(a)$ of all infinite
+    cardinals strictly smaller than $a$. Since $c(a)$ is well-ordered, it is
+    similar to some ordinal $\alpha$; we write $a=\aleph_\alpha$.
 \end{defn}
-\begin{rem}
-  The \emph{Continuum Hypothesis}, proven to be independent from all of the
-  axioms of set theory we've mentioned, is that $\aleph_1=2^{\aleph_0}$.
-
-  The \emph{Generalised Continuum Hypothesis} extends this to 
-  \[\aleph_{\alpha+1}=2^{\aleph_\alpha}\] for all $\alpha$.
-
-  Both of these statements are independent of ZFC\@.
-\end{rem}
+\begin{prop}
+    The set of ordinals with cardinality $\aleph_\alpha$ has cardinality
+    $\aleph_{\alpha+1}$.
+\end{prop}
 \subsection*{References}
 \begin{itemize}
-  \item \emph{Naive Set Theory}, Halmos
+  \item Halmos, \emph{Naive Set Theory}
+  \item Kamke, \emph{Theory of Sets}
 \end{itemize}

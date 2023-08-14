@@ -1,0 +1,546 @@
+\section{Analysis}
+\begin{defn}
+    A \emph{topology} on a set $X$ is a collection $T$ of \emph{open sets} in
+    $X$ such that $\emptyset, X\in T$, and $T$ is closed under arbitrary unions
+    and finite intersections. A set for which a topology has been specified is a
+    \emph{topological space}. Given $x\in X$, a \emph{neighbourhood} of $x$ is
+    an element $U\in T$ such that $x\in U$.
+\end{defn}
+\begin{defn}
+    If $X$ is a set, a \emph{basis} for a topology on $X$ is a collection $B$ of
+    subsets of $X$ such that $\bigcup B=X$, and if $B_1,B_2\in B$ have nonempty
+    intersection then there is a $B_3\in B$ contained in their intersection.
+\end{defn}
+\begin{prop}
+    If $B$ is a basis for a topology on $X$, the collection of all unions of
+    elements of $B$ defines a topology on $X$.
+\end{prop}
+\begin{defn}
+    This is the topology \emph{generated} by $B$.
+\end{defn}
+\begin{prop}
+    Let $X$ be a topological space with topology $T$. If $Y$ is a subset of $X$,
+    the collection $T_Y=\{Y\cap U:U\in T\}$ is a topology on $Y$.
+\end{prop}
+\begin{defn}
+    This is the \emph{subspace topology}.
+\end{defn}
+\begin{defn}
+  Let $E$ be a subset of a topological space $M$.
+  \begin{itemize}
+    \item A point $p$ is a \emph{limit point} of $E$ if neighbourhood of $p$
+      contains a point $q\ne p$ such that $q\in E$.
+  \item A point $p$ is a \emph{condensation point} of $E$ if every neighbourhood
+      o f$p$ contains uncountably many points of $E$.
+    \item A point $p$ is an \emph{interior point} of $E$ if there is a
+        neighbourhood of $p$ which is a subset of $E$.
+    \item $E$ is \emph{closed} if every limit point of $E$ is a point of $E$.
+    \item $E$ is \emph{open} if every point of $E$ is an interior point of $E$.
+    \item $E$ is \emph{perfect} if $E$ is closed and every point of $E$ is a
+        limit point of $E$.
+    \item The \emph{complement} $E^c$ of a set $E$ is the set $M\setminus E$.
+    \item The \emph{interior} of $E$ is the set of interior points of $E$.
+    \item The \emph{boundary} $\partial E$ of $E$ is the set of points of $M$
+      that are limit points of both $E$ and $E^c$.
+  \item The \emph{closure} of $E$ is the set $\overline E=E\cup\partial E$.
+  \end{itemize}
+\end{defn}
+\begin{prop}
+  The interior and boundary of $E$ are disjoint, and their union is $E$.
+\end{prop}
+\begin{prop}
+  The following are equivalent:
+  \begin{itemize}
+    \item $E$ is its own interior.
+    \item $E\cap\partial E=\emptyset$.
+    \item $E^c$ contains its limit points.
+    \item $\partial E\subseteq E^c$.
+  \end{itemize}
+\end{prop}
+\begin{prop}
+  The closure of $E$ is closed; the interior of $E$ is open.
+
+  Any closed set which contains $E$ contains the closure of $E$. Any open set
+  which is contained in $E$ is contained in the interior of $E$.
+\end{prop}
+\begin{defn}
+  A sequence $\{a_n\}$ is \emph{convergent} if there is a point $L$ such that
+  every neighbourhood of $L$ contains all but finitely many $a_n$.
+  We write $\lim_{n\to\infty} a_n=L$, or $a_n\to L$ as $n\to\infty$.
+\end{defn}
+\begin{defn}
+    A set $E$ is \emph{connected} if the only subsets of $E$ that are both open
+    and closed in $E$ are the empty set and $E$ itself; otherwise, it is
+    \emph{disconnected}
+\end{defn}
+\begin{prop}
+    A topological space is disconnected iff it is the union of two 
+    disjoint nonempty open sets.
+\end{prop}
+\begin{defn}
+  We say that $f$ is \emph{continuous} at $p$ if for each neighbourhood $B$ of
+  $f(p)$, there is a neighbourhood $A$ of $p$ such that $f(A)\subseteq B$.
+
+  We say that $f$ is \emph{continuous} on $X$, or simply \emph{continuous},
+  if it is continuous at every point in $X$.
+\end{defn}
+\begin{prop}
+  A function is continuous iff the inverse image of every open set is open.
+\end{prop}
+\begin{prop}
+    A continuous image of a connected set is connected.
+\end{prop}
+\begin{prop}
+    A monotonic function $f:[a,b]\to\Rr$ has at most countably many
+    discontinuities.
+\end{prop}
+\begin{defn}
+  An \emph{open cover} of a topological space $E$ is a set of open sets whose union contains $E$.
+\end{defn}
+\begin{defn}
+    A set $E$ is said to be \emph{compact} if every open cover of $E$ contains a
+    finite subcover.
+\end{defn}
+\begin{prop}
+  Suppose $X\subseteq M$. A subset $E$ of $X$ is compact
+  relative to $X$ (under the subspace topology) iff $E$ is compact relative to $M$.
+\end{prop}
+\begin{prop}
+  If $S$ is a collection of closed subsets of a compact space such that any
+  finite intersection of elements of $S$ is nonempty, then $\bigcap S$ is
+  nonempty.
+\end{prop}
+\begin{prop}
+    A continuous image of a compact set is compact.
+\end{prop}
+\begin{defn}
+    A topological space is \emph{Hausdorff} if for every pair $(a,b)$ of
+    distinct points, there are disjoint neighbourhoods $A$ of $a$ and $B$ of $b$.
+\end{defn}
+\begin{prop}
+    If $f:X\to Y$ is a continuous bijection, $X$ is compact, and $Y$ is
+    Hausdorff, then $f^{-1}$ is continuous.
+\end{prop}
+\begin{defn}
+  A \emph{metric space} is a nonempty set $M$ together with a function
+  $d:M\times M\to\Rr$ (the \emph{metric}) such that
+  \begin{itemize}
+    \item $d(x,y)=0\iff x=y$,
+    \item $d(x,y)=d(y,x)$ (symmetry), 
+    \item $d(x,z)\le d(x,y)+d(y,z)$ (triangle inequality).
+  \end{itemize}
+\end{defn}
+\begin{defn}
+  In a metric space, the \emph{open ball} $B_r(x)$ with centre $x$ and radius $r$ is the
+  set of all points $y$ with $d(x,y)<r$.
+
+  The \emph{closed ball} $\overline{B_r(x)}$ with centre $x$ and radius $r$ is
+  the set of all points $y$ with $d(x,y)\le r$.
+\end{defn}
+\begin{prop}
+  In a normed vector space, the function $d(x,y)=\|x-y\|$ is a metric.
+\end{prop}
+\begin{defn}
+  We call this the \emph{induced metric}.
+\end{defn}
+\begin{prop}
+    The set of open balls on a metric space is a basis for a topology.
+\end{prop}
+\begin{prop}
+  Suppose $\{a_n\}$ and $\{b_n\}$ are sequences of complex numbers which
+  converge to $a$ and $b$ respectively. Then the sequences $\{a_n+b_n\},
+  \{a_n b_n\},\{\frac{a_n}{b_n}\}$ converge to $a+b,ab,\frac ab$
+  respectively (where in the last one we require $b_n\ne 0$ for each $n$, and
+  $b\ne 0$).
+\end{prop}
+\begin{defn}
+    Let $E$ be a subset of a metric space $X$.
+    \begin{itemize}
+        \item $E$ is \emph{bounded} if it is contained in some open ball.
+        \item $E$ is \emph{totally bounded} if for any $\varepsilon>0$ there are a
+            finite number of open balls of radius $\varepsilon$ which cover $E$.
+    \end{itemize}
+\end{defn}
+\begin{thm}[Monotone Convergence]
+    A monotonic sequence in $\Rr$ converges iff it is bounded.
+\end{thm}
+\begin{defn}
+  A sequence $\{p_n\}$ in a metric space is \emph{Cauchy} if for every
+  $\varepsilon>0$ there is an integer $N$ such that $d(p_n,p_m)<\varepsilon$ if
+  $m,n\ge N$.
+
+  A metric space is \emph{complete} if every Cauchy sequence converges.
+\end{defn}
+\begin{prop}
+  Every convergent sequence is Cauchy.
+\end{prop}
+\begin{prop}
+  A sequence in $\Rr^n$ or $\Cc^n$ converges iff it converges coordinatewise.
+\end{prop}
+\begin{cor}
+  $\Rr^n$ and $\Cc^n$ are complete.
+\end{cor}
+\begin{prop}
+    Let $M$ be a metric space. The following are equivalent:
+    \begin{itemize}
+        \item $M$ is compact.
+        \item $M$ is complete and totally bounded.
+        \item Every infinite set in $M$ contains a limit point.
+        \item Every sequence of open sets $S_1\subseteq S_2\subseteq\cdots$
+            fails to cover $M$.
+    \end{itemize}
+\end{prop}
+\begin{cor}[Weierstrass]
+  Every bounded infinite subset of $\Rr^n$ has a limit point.
+\end{cor}
+\begin{cor}[Extreme Value Theorem]
+    If the domain of $f$ is compact and the codomain of $f$ is $\Rr$, then the
+    image of $f$ is closed and bounded. In particular, $f$ attains its minimum
+    and maximum.
+\end{cor}
+\begin{prop}
+    Let $S\subseteq\Rr$. The following are equivalent:
+    \begin{itemize}
+        \item $S$ is connected.
+        \item If $a,b\in S$ and $a\le c\le b$ then $c\in S$.
+        \item There are real numbers $a,b$ such that $S$ contains all elements
+            $c$ with $a<c<b$ and no elements with $a>c$ or $b<c$.
+    \end{itemize}
+\end{prop}
+\begin{defn}
+    Such a set is called an \emph{interval}. 
+\end{defn}
+\begin{cor}[Intermediate Value Theorem]
+    If the domain of $f$ is connected and the codomain of $f$ is $\Rr$, then the
+    image of $f$ is an interval.
+\end{cor}
+\begin{prop}
+    For every uncountable subset $A$ of $\Rr^n$, the set $A'$ of its condensation
+    points is nonempty and perfect. Further, $A\setminus A'$ is at most
+    countable.
+\end{prop}
+\begin{prop}
+    There exists a perfect set in $\Rr$ which contains no segment.
+\end{prop}
+\begin{prop}
+    Every nonempty perfect set in $\Rr^n$ has cardinality $|\Rr|$.
+\end{prop}
+\begin{thm}[Baire]
+    To each countable ordinal $\alpha$, assign a closed set
+    $S_\alpha\subseteq\Rr^n$, such that if $\alpha<\beta$ then $S_\beta\subseteq S_\alpha$.
+    The intersection of all sets thus defined equals $S_\gamma$ for some
+    countable ordinal $\gamma$.
+\end{thm}
+\begin{cor}[Cantor-Bendixson]
+    Let $S$ be a closed set, and define $S^{(\alpha)}$ for every ordinal
+    $\alpha$ such that
+    \begin{itemize}
+        \item $S^{(0)}=S$
+        \item $S^{(\alpha+1)}$ is the set of limit points of $S^{(\alpha)}$
+        \item $S^{(\alpha)}$ is the intersection of all $S^{(\beta)}$ for
+            $\beta<\alpha$, if $\alpha$ is a limit ordinal.
+    \end{itemize}
+    Then there is an ordinal $\gamma$ which is at most countable such that
+    $S^{(\gamma)}$ is the set of condensation points of $S$.
+\end{cor}
+\begin{defn}
+  A function $f$ is \emph{uniformly continuous} if for every $\varepsilon>0$
+  there exists a $\delta>0$ such that if $d(a,b)<\delta$ then
+  $d(f(a),f(b))<\varepsilon$.
+\end{defn}
+\begin{thm}
+  Every continuous function on a compact metric space is uniformly continuous.
+\end{thm}
+\begin{defn}
+    Let $f:X\to X$ be a function such that for some $c<1$ and all $x,y\in X$ we
+    have $d(f(x),f(y))\le cd(x,y)$. Then, $f$ is said to be a \emph{contraction}
+    of $X$ into $X$.
+\end{defn}
+\begin{prop}[Contraction Principle]
+    A contraction on a complete metric space has a unique fixed point.
+\end{prop}
+\begin{defn}
+    Let $\{a_i\}$ be a sequence in $A$, where $A$ is a normed vector space.
+    If the limit on the right exists,
+    \[\sum_{i=1}^\infty a_i=\lim_{n\to\infty}\sum_{i=1}^n a_i.\]
+    Otherwise, the series \emph{diverges}.
+\end{defn}
+\begin{prop}
+    If $\sum a_n$ converges, then $\lim_{n\to\infty} a_n=0$.
+\end{prop}
+\begin{prop}
+    The series $\sum x^n$ converges iff $|x|<1$, in which case its value is
+    $\frac{1}{1-x}$.
+\end{prop}
+\begin{prop}[Comparison test]
+    If $\|a_n\|\le c_n$ for all sufficiently large $n$, and $\sum c_n$ converges,
+    then so does $\sum a_n$.
+\end{prop}
+\begin{cor}
+    If $\sum\|a_n\|$ converges then so does $\sum a_n$.
+\end{cor}
+\begin{defn}
+    Such a sequence is said to \emph{converge absolutely}.
+\end{defn}
+\begin{prop}[Cauchy condensation test]
+    If $\{a_n\}$ is nonincreasing, then $\sum a_n$ converges iff $\sum 2^n
+    a_{2^n}$ converges.
+\end{prop}
+\begin{cor}
+    $\sum n^{-s}$ converges iff $s>1$.
+\end{cor}
+\begin{prop}
+    $\sum\frac 1{n!}=\lim_{n\to\infty}\left(1+\frac 1n\right)^n$.
+\end{prop}
+\begin{defn}
+    We let this limit be $e$.
+\end{defn}
+\begin{defn}
+    We define the \emph{extended real number system} as
+    $\Rr\cup\{-\infty,\infty\}$ and extend the operations by
+    $x+\infty=\infty,x-\infty=-\infty,\frac x{\infty}=0$
+    and for $x>0$, $x\infty=\infty,x(-\infty)=-\infty$.
+
+    If $S\subseteq\Rr$ is unbounded above, then $\sup S=\infty$. If it is
+    unbounded below, then $\inf S=-\infty$.
+
+    We may regard the set $\{x\in\Rr:x>a\}$ as an open ball around $\infty$, and
+    $\{x\in\Rr:x<-a\}$ as an open ball around $-\infty$. Clearly, the set of
+    open balls still forms a basis for a topological vector space.
+\end{defn}
+\begin{defn}
+    We define \[\limsup_{n\to\infty}
+    s_n=\lim_{n\to\infty}\sup_{m\ge n} s_m.\]
+    We define $\liminf_{n\to\infty} s_n$ similarly.
+\end{defn}
+\begin{prop}[Root test]
+    Let $\alpha=\limsup_{n\to\infty}\sqrt[n]{|a_n|}$. If $\alpha<1$ then $\sum
+    a_n$ converges; if $\alpha_1$ then $\sum a_n$ diverges.
+\end{prop}
+\begin{prop}
+    If $\{a_i\}$ is a sequence of positive reals,
+\begin{align*}
+    \liminf_{n\to\infty}\frac{a_{n+1}}{a_n}&\le\liminf_{n\to\infty}\sqrt[n]{a_n} \\
+    \limsup_{n\to\infty}\frac{a_{n+1}}{a_n}&\ge\limsup_{n\to\infty}\sqrt[n]{a_n}.
+\end{align*}
+\end{prop}
+\begin{cor}[Ratio test]
+    Let $b_n=\frac{\|a_{n+1}\|}{\|a_n\|}$. If $\limsup_{n\to\infty} b_n<1$,
+    then $\sum a_n$ converges. If $\sum a_n$ converges, then $b_n<1$ for
+    infinitely many $n$.
+\end{cor}
+\begin{defn}
+    Given a sequence $\{c_n\}$ of complex numbers, the series
+    \[\sum_{n=0}^\infty c_n z^n\] is a \emph{power series} in a complex number
+    $z$.
+\end{defn}
+\begin{prop}
+    Let $\alpha=\limsup_{n\to\infty}\sqrt[n]{|c_n|}$. Then $\sum c_n z^n$
+    converges if $|z|<\frac1\alpha$ and diverges if $|z|>\frac1\alpha$.
+\end{prop}
+\begin{defn}
+    We call $\alpha$ the \emph{radius of convergence} for $\sum c_n z^n$.
+\end{defn}
+\begin{prop}
+    Suppose the partial sums of $\sum a_n$ are bounded, $\{b_n\}$ is decreasing,
+    and $\lim_{n\to\infty} b_n=0$. Then $\sum a_n b_n$ converges.
+\end{prop}
+\begin{cor}
+    If $\{c_i\}$ is decreasing and converges to $0$, $\sum c_n z^n$ has
+    radius of convergence $r$, and $|z|=r\ne z$, then $\sum c_n z^n$ converges.
+\end{cor}
+\begin{prop}
+    If $\sum a_n$ converges absolutely and $\sum b_n$ converges, then
+    \[\sum_n\sum_k a_k b_{n-k}=\left(\sum a_n\right)\left(\sum b_n\right).\]
+\end{prop}
+\begin{prop}
+    If $\sum a_n$ converges absolutely then so does $\sum b_n$, where $\{b_n\}$
+    is any permutation of $\{a_n\}$.
+\end{prop}
+\begin{prop}
+    If $\{a_n\}$ are real and $\sum a_n$ converges but does not converge
+    absolutely, then $\sum b_n$
+    can be made to diverge or converge to any value, where $\{b_n\}$ is a
+    permutation of $a_n$.
+\end{prop}
+\begin{defn}
+  Let $L$ be a linear transformation on an inner product space $V$. We say that
+  $L$ is \emph{bounded} if there is some real $K$ such that $\|Lx\|\le K\|x\|$
+  for all $x\in V$. The greatest lower bound of all such $K$ is denoted $\|L\|$.
+\end{defn}
+\begin{prop}
+  Let $V$ be a finite-dimensional inner product space. The function
+  $\|\cdot\|:\mathcal L(V,V)\to\Rr$ is a norm on $\mathcal L(V,V)$.
+\end{prop}
+\begin{prop}
+  Let $A$ be a self-adjoint linear map on an inner product space $V$, and let
+  $S=\{\langle Ax,x\rangle:\|x\|=1\}$. Then, $\|A\|=\max\{|\inf S|,|\sup
+  S|\}$.
+\end{prop}
+\begin{prop}[Min-Max Theorem]
+  Let $A$ be a self-adjoint linear map on an $n$-dimensional inner product space
+  $V$. Let $\lambda_1\ge\lambda_2\ge\cdots\ge\lambda_n$ be the eigenvalues of
+  $A$ according to multiplicity. Then for each $k$ we have
+  \[\lambda_k=\inf\{\|A|_U\|:\dim U=n-k+1\}.\]
+\end{prop}
+\begin{thm}[Ergodic Theorem]
+  If $U$ is an isometry on a finite-dimensional inner product space, and if $M$
+  is the subspace of all solutions of $Ux=x$, then the sequence
+  \[\frac1n(1+U+\cdots+U^{n-1})\] converges to $P_M$.
+\end{thm}
+\begin{prop}
+  Let $f(x)=\sum_{n=0}^\infty a_n x^n$ be a power series with radius of
+  convergence $r$. If $A$ is such that $\|A\|<r$, then $f(A)$ exists.
+\end{prop}
+\begin{prop}
+  Let $A$ be an operator on a finite-dimensional inner product space. Then,
+  $(1-A)\sum_{n=0}^\infty A^n=I$.
+\end{prop}
+\begin{defn}
+    Let $X$ and $Y$ be metric spaces. We define $Y^X$ as the space of
+    functions $f:X\to Y$, and give it the \emph{uniform metric}
+    $\|f\|=\sup_x\max(1,f(x))$.
+\end{defn}
+\begin{prop}
+    Under this definition, $Y^X$ is a normed vector space.
+\end{prop}
+\begin{prop}
+    If $Y$ is complete, then so is $Y^X$.
+\end{prop}
+\begin{defn}
+    Suppose $\{f_n\}$ is a sequence in $Y^X$ such that $\{f_n(x)\}$
+    converges for every $x$. We then say that $\{f_n\}$ \emph{converges
+    pointwise} to the function $f(x)=\lim f_n(x)$.
+
+    If $f=\lim f_n$, we say the sequence \emph{converges uniformly} to $f$.
+\end{defn}
+\begin{defn}
+  Let $f:X\to Y$ be a function, where $X$ and $Y$ are metric spaces.
+  Let $p$ be a limit point of $X$. We say that
+  \[\lim_{x\to p}f(x)=q\] if for every sequence $\{x_n\}$ which converges
+  to $p$ but does not contain $p$, $f(x_n)$ converges to $q$.
+\end{defn}
+\begin{prop}
+    Assume $\{f_n\}$ converges uniformly and $\lim_{t\to x}f_n(t)$ is defined for
+    all $n$. Then, $\lim_{t\to x}\lim_{n\to\infty}
+    f_n(x)=\lim_{n\to\infty}\lim_{t\to x}f_n(x)$.
+\end{prop}
+\begin{prop}
+    If $X$ and $Y$ are compact, then every sequence in $Y^X$ has a subsequence
+    that converges pointwise.
+\end{prop}
+\begin{cor}
+    The limit of a uniformly convergent sequence of continuous functions is
+    continous.
+\end{cor}
+\begin{defn}
+    A sequence $\{f_n\}\in Y^X$ is said to be \emph{equicontinuous} if for
+    every $\varepsilon>0$ there exists a $\delta>0$ such that if $d(a,b)<\delta$
+    then $d(f_n(a),f_n(b))<\varepsilon$ for all $n$.
+\end{defn}
+\begin{prop}
+    If $X$ is compact and $\{f_n\}$ converges uniformly, then $\{f_n\}$ is
+    equicontinuous.
+\end{prop}
+\begin{prop}
+    If $X$ and $Y$ are compact, then every equicontinuous sequence in
+    $Y^X$ has a convergent subsequence.
+\end{prop}
+\begin{defn}
+    Let $A\subseteq \Rr^K$ be an algebra. If for
+    each $x_1,x_2\in K$ there is a function $f\in A$ such that $f(x_1)\ne
+    f(x_2)$, then $A$ is said to \emph{separate points}. If for each $x\in
+    K$ there is an $f\in A$ such that $f(x)\ne 0$, then $A$ is said to
+    \emph{vanish at no point}.
+\end{defn}
+\begin{thm}[Stone-Weierstrass]
+    Let $A\subseteq \Rr^K$ be an algebra of continuous functions on a
+    compact set $K$ which separates points and vanishes at no point. Then the
+    closure of $A$ is the set of real continuous functions on $K$.
+\end{thm}
+\begin{cor}
+    Let $A$ be an algebra of complex continuous functions
+    on a compact set $K$, such that $A$ separates points and vanishes at no
+    point. If $A$ is closed under complex conjugation, the closure of $A$ is the
+    set of complex continuous functions on $K$.
+\end{cor}
+\begin{cor}[Weierstrass]
+    Every continuous function $f:D\to\Cc$, where $D$ is a compact subset of
+    $\Rr$, is a limit of a sequence of polynomials.
+\end{cor}
+\begin{defn}
+    An \emph{analytic function} is a function of the form \[f(x)=\sum c_n
+    (x-a)^n,\] where the radius of convergence is positive (and possibly
+    infinite).
+\end{defn}
+\begin{prop}
+    If $\varepsilon>0$ and $f$ is analytic with radius of convergence $R$, then
+    $\sum c_n (x-a)^n$ converges uniformly for $x\in B_{R-\varepsilon}(a)$.
+\end{prop}
+\begin{thm}[Abel]
+    An analytic function is continuous.
+\end{thm}
+\begin{cor}
+    Assuming all three sums converge,
+    \[\sum_n\sum_k a_k b_{n-k}=\left(\sum a_n\right)\left(\sum b_n\right).\]
+\end{cor}
+\begin{thm}[Taylor]
+    If $f$ is analytic with radius $R$ around $0$, and $a<R$, then $f$ is
+    analytic with radius at least $|R|-|a|$ around $a$.
+\end{thm}
+\begin{prop}
+    If two analytic functions are equal on a set $S$ which
+    has a limit point, then they are equal.
+\end{prop}
+\begin{defn}
+    If $A$ is a complete normed commutative algebra over $\Rr$, we define the \emph{exponential}
+    \[\exp(z)=\sum_{n=0}^\infty\frac{z^n}{n!}.\]
+\end{defn}
+\begin{prop}
+    We have $\exp(z+w)=\exp(z)\exp(w)$
+    and $\exp(a/b)=\sqrt[b]{e^a}$ for any integer $a$ and positive integer $b$.
+\end{prop}
+\begin{thm}[Fundamental Theorem of Algebra]
+    For all $P\in\Cc[x]\setminus\Cc$, there is a complex number $z$ such that
+    $P(z)=0$.
+\end{thm}
+\begin{prop}
+  Let $A$ be an operator on a complex finite-dimensional inner product space.
+  The eigenvalues of $\exp A$, together with their multiplicities, are
+  equal to the exponentials of the eigenvalues of $A$.
+\end{prop}
+\begin{prop}
+  Let $A$ and $B$ be operators on a finite-dimensional inner product space such
+  that $AB=BA$. Then, $\exp(A+B)=\exp A\exp B$.
+\end{prop}
+\begin{prop}
+    The function $\exp|_\Rr$ has image $\Rr^+$ and is strictly increasing.
+\end{prop}
+\begin{defn}
+    We define the \emph{natural logarithm} $\ln:\Rr^+\to\Rr$ as the left-inverse
+    of $\exp|_\Rr$.
+\end{defn}
+\begin{prop}
+    The function $\exp(ix)|_\Rr$ attains exactly the values on the unit circle.
+\end{prop}
+\begin{defn}
+    We let $\pi$ be the smallest positive real such that $\exp(i\pi)=-1$. We let
+    $\cos(x)=\frac{\exp(ix)+\exp(-ix)}2$,
+    $\sin(x)=\frac{\exp(ix)-\exp(-ix)}{2i}$, and
+    $\tan(x)=\frac{\sin(x)}{\cos(x)}$.
+\end{defn}
+\begin{prop}
+    The functions $\sin$ and $\cos$ have image $[-1,1]$; the function $\tan$ has
+    image $\Rr$. The functions $\sin|_{[-\pi/2,\pi/2]}$, $\cos|_{[0,\pi]}$ and
+    $\tan|_{(-\pi/4,\pi/4)}$ have the same images and are injective.
+\end{prop}
+\begin{defn}
+    The left-inverses of these three functions are denoted $\arcsin$,
+    $\arccos$ and $\arctan$.
+\end{defn}
+\subsection*{References}
+\begin{itemize}
+    \item Burkhill, \emph{A First Course in Mathematical Analysis}
+    \item Hardy, \emph{Pure Mathematics}
+    \item Rudin, \emph{Principles of Mathematical Analysis}
+\end{itemize}

@@ -1,4 +1,4 @@
-\chapter{Linear Algebra}
+\section{Linear Algebra}
 \begin{defn}
   Let $\Ff$ be a field. A \emph{vector space over} $\Ff$ is an abelian group
   $V$ (of \emph{vectors})
@@ -15,8 +15,7 @@
   Let $S$ be a subset of $V$. A \emph{linear combination} of elements of $S$ is
   a vector of the form \[\sum_{i=1}^n a_i s_i,\] where each $s_i$ is a
   distinct element of $S$.
-\end{defn}
-\begin{defn}
+
   A \emph{basis} of a vector space $V$ is a set $S\subseteq V$ such that each
   element of $V$ can be uniquely represented as a linear combination of elements
   of $S$.
@@ -28,8 +27,8 @@
 \begin{thm}
   Let $V$ be a vector space.
   \begin{itemize}
-    \item $V$ has a basis.
-    \item Any two bases of $V$ have the same cardinality.
+    \item $V$ has a Hamel basis.
+    \item Any two Hamel bases of $V$ have the same cardinality.
   \end{itemize}
 \end{thm}
 \begin{defn}
@@ -50,13 +49,26 @@
       multiplication).
   \end{itemize}
 \end{prop}
+\begin{prop}
+  The intersection of any collection of subspaces of $V$ is again a subspace of
+  $V$.
+\end{prop}
 \begin{defn}
-  The \emph{span} of a subset $S$ of $V$ is the set of linear combinations of
-  elements of $S$.
+  The \emph{span} of a subset $S$ of $V$ is the intersection of all subspaces of
+  $V$ which contain $S$.
 \end{defn}
 \begin{prop}
-  The span of $S$ is the intersection of all subsets of $V$ that contain $S$.
-  It is also a subspace of $V$.
+  The span of $S$ is the set of all linear combinations of $S$.
+\end{prop}
+\begin{defn}
+  Given two subspaces $X$ and $Y$ of $V$, their \emph{sum} $X+Y$ is the
+  intersection of all subspaces of $V$ which contain both $X$ and $Y$.
+
+  If $X+Y=V$ and $X\cap Y=\{0\}$ then $X$ is said to be a \emph{complement} of
+  $Y$.
+\end{defn}
+\begin{prop}
+  $X+Y=\{x+y:x\in X,y\in Y\}$.
 \end{prop}
 \begin{defn}
   A subset $S$ of $V$ is \emph{linearly independent} if any linear combination
@@ -86,56 +98,69 @@
   from $\mathcal L(W,U)$ to $\mathcal L(W,V)$.
 \end{prop}
 \begin{defn}
-  The \emph{null space} of a linear map $T$ is the subset of its domain that $T$
-  maps to 0.
+    An \emph{algebra} is a set $A$ over a field $K$ with operations of addition,
+    multiplication and scalar multiplication which is both a vector space and a
+    ring, such that multiplication is bilinear.
 \end{defn}
 \begin{prop}
-  Let $V$ be finite-dimensional, and
-  let $T:V\to W$ be a linear transformation. Then the null space of $T$ is a
-  subspace of $V$, the image of $T$ is a subspace of $W$, and the sum of the
-  dimensions of these two subspaces equals $\dim V$.
+    The set of operators from a vector space to itself is an algebra.
 \end{prop}
 \begin{defn}
-  A linear map $T:V\to W$ is \emph{invertible} if there is a linear map $S:W\to
-  V$ such that $ST$ is the identity on $V$ and $TS$ is the identity on $W$. In
-  this case, $S$ is called an \emph{inverse} of $T$.
+    The \emph{null space} of a linear map $T$ is the subset of its domain that $T$
+    maps to 0.
 \end{defn}
 \begin{prop}
-  Two vector spaces over $\Ff$ are isomorphic iff they have
-  the same dimension.
+    The null space and image of a linear map are both vector spaces.
 \end{prop}
 \begin{prop}
-  Suppose $V$ and $W$ are finite-dimensional and isomorphic,
-  and $T$ is a linear transformation from $V$
-  to $W$. The following are equivalent:
-  \begin{itemize}
-    \item $T$ is invertible.
-    \item $T$ is injective.
-    \item $T$ is surjective.
-  \end{itemize}
+    The null space of a linear map is $\{0\}$ iff the map is injective.
+\end{prop}
+\begin{prop}
+    If a linear map is injective, then its left inverse is linear. If a linear
+    map is surjective, then it has a linear right inverse.
+\end{prop}
+\begin{prop}
+    Let $V$ be finite-dimensional.
+    A linear map $T:V\to V$ is injective iff it is surjective.
 \end{prop}
 \begin{defn}
   The \emph{product} of vector spaces is the Cartesian product, where addition
   and scalar multiplication are defined componentwise.
 \end{defn}
 \begin{prop}
+  The product of a collection $S$ of vector spaces
+  is a vector space whose dimension is the sum of the dimensions of the elements
+  of $S$.
+\end{prop}
+\begin{cor}
+  The product $\Ff^n=\Ff\times\Ff\times\cdots\times\Ff$ is a vector space over
+  $\Ff$.
+\end{cor}
+\begin{prop}
   Suppose $U$ is a subspace of $V$. Define the relation $a\sim b\iff b-a\in V$.
-  Then $\sim$ is an equivalence relation, and addition and scalar multiplication
-  are invariant under it. The partition induced by this relation is a vector
-  space.
+  Then $\sim$ is an equivalence relation compatible with addition and scalar
+  multiplication. The partition induced by this relation is a vector
+  space. If $V$ is finite-dimensional, this vector space has dimension $\dim
+  V-\dim U$.
 \end{prop}
 \begin{defn}
   This vector space is called the \emph{quotient space} of $V$ over $U$, denoted
   $V/U$.
 \end{defn}
 \begin{prop}
-  Suppose $T$ is a linear transformation with domain $V$, and let $U$ be the null space of $T$.
-  Then $T$ is an isomorphism from $V/U$ to the range of $T$.
+  Suppose $T$ is a linear transformation with domain $V$, and let $U$ be the
+  null space of $T$.
+  Then $T$ induces an isomorphism from $V/U$ to the image of $T$.
 \end{prop}
+\begin{cor}[Rank-Nullity]
+  Let $V$ be finite-dimensional, and
+  let $T:V\to W$ be a linear transformation. Then the null space of $T$ is a
+  subspace of $V$, the image of $T$ is a subspace of $W$, and the sum of the
+  dimensions of these two subspaces equals $\dim V$.
+\end{cor}
 \begin{defn}
   A \emph{linear functional} on $V$ is a linear map from $V$ to $\Ff$.
-\end{defn}
-\begin{defn}
+
   The space of linear functionals on $V$ is the \emph{dual space} of $V$,
   denoted $V'$.
 \end{defn}
@@ -143,32 +168,45 @@
   If $V$ is infinite-dimensional, $\dim V'>\dim V$.
 \end{prop}
 \begin{prop}
-  If $V$ is finite-dimensional, $\dim V'=\dim V$.
-\end{prop}
-\begin{rem}
-  This construction, applied twice, yields a canonical isomorphism between $V''$
-  and $V$, so they are often identified.
-\end{rem}
-\begin{defn}
-  For $U\subseteq V$, the \emph{annihilator} of $U$, denoted $U^0$, is
-  \[\{y\in V': y(u)=0\ \forall u\in U\}.\]
-\end{defn}
-\begin{defn}
-  If $v_1,\ldots,v_n$ is a basis of $V$, then there exists a basis of
+  If $v_1,\ldots,v_n$ is a finite basis of $V$, then there exists a basis of $n$
   elements $\varphi_j$ of $V'$, where $\varphi_j v_k$ is $1$ if $j=k$ and $0$
   otherwise.
-\end{defn}
+\end{prop}
 \begin{defn}
   This basis is called the \emph{dual basis} of
-  $v-1,\ldots,v_n$.
+  $v_1,\ldots,v_n$.
 \end{defn}
+\begin{prop}
+  If $V$ is finite-dimensional, then for every $z\in (V')'$ there is an $x\in V$
+  such that for every $y\in V'$ we have $z(y)=y(x)$. The correspondence $x\to z$
+  is an isomorphism.
+\end{prop}
+\begin{rem}
+  Thus, $(V')'$ and $V$ are often identified for finite-dimensional vector
+  spaces.
+\end{rem}
+\begin{defn}
+  For $U\subseteq V$, the \emph{annihilator} of $U$ is
+  \[U^0=\{\varphi\in V': \varphi(u)=0\ \forall u\in U\}.\]
+\end{defn}
+\begin{prop}
+  $\dim U+\dim U^0=\dim V$.
+\end{prop}
+\begin{prop}
+  $(U^0)^0=U$.
+\end{prop}
+\begin{prop}
+  If $M$ and $N$ are complementary subspaces of $V$, then $M^0$ and $N^0$ are
+  complementary subspaces of $V'$. The restriction $|_M$ is an isomorphism
+  between $N^0$ and $M'$.
+\end{prop}
 \begin{defn}
   The \emph{dual map} of $T$ is the linear map $T':W'\to V'$ defined by
   $T'\varphi=\varphi T$ for each $\varphi\in W'$.
 \end{defn}
 \begin{prop}
-  $T'$ is a linear map. The dimensions of the range of $T'$ and the range of $T$
-  coincide.
+    The image of $T'$ is the annihilator of the null space of $T$. The null
+    space of $T'$ is the annihilator of the image of $T$.
 \end{prop}
 \begin{defn}
   Suppose $V$ and $W$ have finite bases $\{v_i\}_1^m$ and $\{w_i\}_1^n$
@@ -180,12 +218,14 @@
   $\Ff^n$.
 \end{defn}
 \begin{prop}
-  This defines a bijection between the space of $m\times n$ matrices and the space
-  of linear transformations $\Ff^n\to \Ff^m$.
+  This defines a bijection between the space of $m\times n$ matrices and
+  $\mathcal L(\Ff^n,\Ff^m)$.
 \end{prop}
 \begin{defn}
   Thus, we identify the two, and can therefore talk of the image, null space,
   etc of a matrix.
+  Matrix addition and multiplication are defined in the same way as addition and
+  multiplication of linear transformations.
 \end{defn}
 \begin{defn}
   The \emph{rank} of a matrix is the dimension of its image.
@@ -200,8 +240,11 @@
   to the dual bases of $\{w_i\}$ and $\{v_i\}$ 
   is the transpose of the matrix of $T$ with respect to $\{v_i\}$ and $\{w_i\}$.
 \end{prop}
+\begin{prop}
+    The image of $A$ equals the image of $AA^T$.
+\end{prop}
 \begin{cor}
-  The rank of a matrix equals the rank of its transpose.
+    The ranks of the matrices $A$, $A^T$, $AA^T$ and $A^T A$ are equal.
 \end{cor}
 \begin{defn}
   Let $A:U\to W$ and
@@ -221,13 +264,24 @@
   Let $T$ and $S$ be linear maps from $V$ to $W$. The following are equivalent:
   \begin{itemize}
     \item The null spaces of $T$ and $S$ are the same.
-    \item The images of $T'$ and $S'$ coincide.
+    \item The images of $T'$ and $S'$ are the same.
     \item There is an invertible linear map $A:V\to V$ such that $AT=S$.
   \end{itemize}
 \end{prop}
 \begin{defn}
   Such linear maps are called \emph{equivalent}.
 \end{defn}
+\begin{defn}
+  A linear transformation $T:V\to V$ is a \emph{projection} onto $U$ if $U$ is
+  its image and $Tu=u$ for each $u\in U$.
+\end{defn}
+\begin{prop}
+  Every linear transformation is equivalent to a projection.
+\end{prop}
+\begin{cor}
+  Every linear transformation $T$ is a sum of $r$ transformations of rank one,
+  where $r$ is the rank of $T$.
+\end{cor}
 \begin{defn}
   A \emph{pivot} is the first nonzero entry in a row of a matrix.
 
@@ -242,30 +296,17 @@
 \begin{prop}
   Every matrix is equivalent to a unique matrix in RREF\@.
 \end{prop}
-\begin{defn}
-  An \emph{elementary matrix} is a matrix that differs from the identity 
-  in exactly one entry, where that entry is nonzero in the elementary matrix.
-\end{defn}
-\begin{prop}
-  A matrix is invertible iff it is a product of elementary matrices.
+\begin{prop}[$LU$ Factorisation]
+    If a matrix $A$ is square, then there are a permutation matrix $P$, an
+    invertible lower-triangular matrix $L$ and a matrix $U$ in REF
+    such that $PA=LU$.
 \end{prop}
 \begin{rem}
-  The null space of a matrix in RREF is easy to find.
-  Thus, to find the null space of a matrix, we left-multiply by elementary
-  matrices to find an equivalent matrix in RREF\@. This process is known as
-  \emph{Gaussian elimination}. It is efficient because
-  multiplying by an elementary matrix has simple consequences:
-  \begin{itemize}
-    \item An elementary matrix which has a changed entry on the main diagonal
-      multiplies a row by a scalar.
-    \item An elementary matrix which has a nonzero entry off the main diagonal
-      adds a scalar multiple of one row to another. 
-  \end{itemize}
-  Most authors add a third (redundant) type of row operation and elementary
-  matrix: swapping two rows.
-
-  The next proposition shows that Gaussian elimination also helps us find bases
-  for the span of a set of vectors.
+    The null space of a matrix in REF is easy to find by
+    \emph{back-substitution}.
+    Thus, to find the null space of a matrix, we factorise it into into
+    $P^{-1}LU$ and find the null space of $U$. This process is known as
+    \emph{Gaussian elimination}.
 \end{rem}
 \begin{prop}
   Let $T$ be a matrix which is equivalent to a matrix $S$ in REF\@. Then,
@@ -276,9 +317,10 @@
   \end{itemize}
 \end{prop}
 \begin{defn}
-  Let $T:V\to V$ be a linear transformation. A subspace $U$ of $V$ is called
-  \emph{invariant} under $T$ if $u\in U\implies Tu\in U$.
-
+    Let $T:V\to V$ be a linear transformation. A subspace $U$ of $V$ is called
+    \emph{invariant} under $T$ if $u\in U\implies Tu\in U$.
+\end{defn}
+\begin{defn}
   A nonzero vector $v\in V$ is called an \emph{eigenvector} of $T$ if there is
   some $\lambda\in\Ff$ such that $Tv=\lambda v$. We call $\lambda$ an
   \emph{eigenvalue} of $T$.
@@ -291,10 +333,13 @@
   Any set of eigenvectors of $T$ with distinct eigenvalues is linearly
   independent.
 \end{prop}
+\begin{prop}
+  Suppose $T:V\to V$ is linear, $U$ is a subspace of $V$ invariant under
+  $T$, and $\pi:V\to V/U$ is the natural projection. There is a linear map $T/U:V/U\to
+  V/U$ such that $T/U\circ\pi=\pi\circ T$.
+\end{prop}
 \begin{defn}
-  Suppose $T:V\to V$ is linear, and $U$ is a subspace of $V$ invariant under
-  $T$. The \emph{restriction} $T|_U:U\to U$ is defined by $T|_U(u)=Tu$, while
-  the \emph{quotient} $T/U:V/U\to V/U$ is defined by $(T/U)(v+U)=Tv+U$.
+    This map is the \emph{quotient map} $T/U$.
 \end{defn}
 \begin{defn}
   Suppose $T:V\to V$ is a linear transformation and
@@ -372,7 +417,7 @@
   A set of vectors is \emph{orthonormal} if each vector in the set has norm 1
   and is orthogonal to all other vectors in the set.
 \end{defn}
-\begin{prop}
+\begin{prop}[Gram-Schmidt]
   Suppose $V$ is finite-dimensional. Then every orthonormal list of vectors in
   $V$ can be extended to an orthonormal basis of $V$.
 \end{prop}
@@ -380,7 +425,7 @@
   Thus, we may identify a finite-dimensional inner product space over $\Ff$ with
   $\Ff^n$ under the usual dot product.
 \end{rem}
-\begin{thm}[Schur's Theorem]
+\begin{thm}[Schur]
   An operator over a finite-dimensional inner product space has an
   upper-triangular matrix with respect to an orthonormal basis of the space.
 \end{thm}
@@ -388,29 +433,26 @@
   Any linear functional $f$ on a finite-dimensional inner product space can be
   written as $f(x)=\langle x,v\rangle$ for some fixed vector $v$.
 \end{thm}
-\begin{defn}
-  Let $U$ be a finite-dimensional subspace of $V$. The \emph{orthogonal
-  projection} of $V$ onto $U$ is the operator $P_U:V\to V$ defined by $P_U v=u$
-  where $u\in U$ and $\langle v-u,x\rangle=0\ \forall x\in U$.
-\end{defn}
-\begin{prop}
-  The orthogonal projection is well defined, and satisfies
-  \[\|P_u v\|\le \|v\|.\] For any $u\in U$, we have
-  \[\|v-P_U v\|\le \|v-u\|.\]
-\end{prop}
 \begin{rem}
-  We may use this last result to solve minimisation problems, for example
-  least-squares regression.
+  Thus, on a finite-dimensional inner product space we may canonically identify
+  the dual space with the space itself.
 \end{rem}
 \begin{prop}
   Let $T:V\to W$ be linear. There exists a unique function $T^*:W\to V$ such
   that
   \[\langle Tv,w\rangle=\langle v,T^* w\rangle\] for every $v\in V$ and every
-  $w\in W$. The function $T^*$ is linear.
+  $w\in W$. The function $T^*$ is linear, and we have $(T^*)^*=T$.
 \end{prop}
 \begin{defn}
   We call $T^*$ the \emph{adjoint} of $T$.
 \end{defn}
+\begin{prop}
+    The images of $T$ and $TT^*$ are the same; the images of $T^*$ and $T^* T$
+    are the same.
+\end{prop}
+\begin{cor}
+    The ranks of $T$ and $T^*$ are the same.
+\end{cor}
 \begin{prop}
   Let $T:V\to W$ be linear, where $V$ and $W$ are real or complex vector spaces.
   Let $\{v_i\}$ be an orthonormal basis for $V$, and
@@ -425,8 +467,7 @@
 \begin{prop}
   Every eigenvalue of a self-adjoint operator is real.
 \end{prop}
-% TODO: define bilinear and quadratic forms, prove eigenvalues characterisation
-\begin{thm}[Spectral Theorem]
+\begin{thm}[Spectral]
   Let $T:V\to V$ be normal, where $V$ is finite-dimensional. Then
   $T$ has a diagonal matrix with respect to some orthonormal basis of $V$.
 \end{thm}
@@ -434,24 +475,132 @@
   Thus, we may write $T=UBU^*$, where $UU^*=U^*U=I$ and $B$ is diagonal.
 \end{rem}
 \begin{prop}
-  $T$ is positive semidefinite iff there exists an operator $R$ such that $T=R^*R$.
+  If $A$ is normal, then $B$ commutes with $A$ iff $B$ commutes with $A^*$.
+\end{prop}
+\begin{defn}
+  Let $U$ and $V$ be vector spaces over $\Ff$. A function $w:U\times V\to\Ff$
+  is called a \emph{bilinear form} if $w(u,v_0)$ and $w(u_0,v)$ are linear for
+  fixed $u_0$ and $v_0$.
+\end{defn}
+\begin{prop}
+  The dimension of the space of bilinear forms on $U\times V$ is the product of
+  the dimensions of $U$ and $V$.
+\end{prop}
+\begin{prop}
+    For any two vector spaces $V$ and $W$ there is a unique (up to isomorphism)
+    vector space $V\otimes W$ and a map $\otimes:V\times W\to V\otimes W$
+    such that for any bilinear function $h:V\times W\to Z$ there is a linear
+    function $\bar h:V\otimes W\to Z$ such that $h(v,w)=\bar h(v\otimes w)$.
+\end{prop}
+\begin{defn}
+    The space $U\otimes V$ is the \emph{tensor product} of $U$ and $V$, and for
+    $u\in U$ and $v\in V$ we call $u\otimes v$ the \emph{tensor product} of $u$
+    and $v$.
+\end{defn}
+\begin{prop}
+    If $X$ and $Y$ are bases in $U$ and $V$, then the set $\{x\otimes y:x\in
+    X,y\in Y\}$ is a basis in $U\otimes V$.
+\end{prop}
+\begin{prop}
+    Let $U$ and $V$ be finite-dimensional vector spaces.
+    There is an isomorphism $f:\mathcal
+    L(U)\otimes\mathcal L(V)\to\mathcal L(U\otimes V)$ satisfying
+    \[f(A\otimes B)(u\otimes v)=Au\otimes Bv.\]
+\end{prop}
+\begin{defn}
+    Thus, we identify these two spaces and speak of the \emph{tensor product} of
+    two operators as an operator on the tensor product of the underlying spaces.
+\end{defn}
+\begin{prop}
+  For each bilinear form $f$ on a finite-dimensional inner product space
+  there is a unique linear map $A$
+  such that $Q(x,y)=\langle Ax,y\rangle$ for all $x,y\in V$. The form $f$ is
+  conjugate symmetric --- that is, $f(x,y)=\overline{f(y,x)}$ --- iff $A$ is
+  self-adjoint.
+\end{prop}
+\begin{defn}
+  A \emph{quadratic form} $Q$ on $V$ is defined by $Q(x)=f(x,x)$, where
+  $f:V\times V\to\Ff$ is bilinear.
+\end{defn}
+\begin{prop}
+  If $Q$ is a quadratic form on a complex vector space such that its image is
+  contained in $\Rr$, then there exists a unique conjugate symmetric bilinear
+  form $f$ such that $Q(x)=f(x,x)$.
+\end{prop}
+\begin{defn}
+  Two self-adjoint linear maps $X$ and $Y$ are \emph{congruent} if there is some
+  invertible linear map $S$ such that $X=SYS^*$.
+\end{defn}
+\begin{prop}
+  If $Q=\langle Ax,x\rangle$ and $R(y)=\langle By,y\rangle$ are two quadratic
+  forms on $V$, then there is an invertible linear map $L$ such that
+  $Q(Lx)=R(x)$ iff $A$ and $B$ are congruent.
+\end{prop}
+\begin{prop}[Sylvester's Law of Inertia]
+  If two diagonal matrices are congruent, the numbers of positive, negative, and
+  zero entries are equal in each.
+\end{prop}
+\begin{defn}
+  A quadratic form $Q(x)=f(x,x)$ on an inner product space, where $f$ is
+  conjugate symmetric, is called
+  \begin{itemize}
+    \item \emph{Positive definite} if $Q(x)>0$ for all $x\ne 0$;
+    \item \emph{Positive semidefinite} if $Q(x)\ge 0$ for all $x$;
+    \item \emph{Negative definite} if $Q(x)<0$ for all $x\ne 0$;
+    \item \emph{Negative semidefinite} if $Q(x)\le 0$ for all $x$; and
+    \item \emph{Indefinite} otherwise.
+  \end{itemize}
+  A self-adjoint linear map $A$ is called \emph{positive definite} (etc) if the
+  corresponding quadratic form $\langle Ax,x\rangle$ is positive definite (etc).
+\end{defn}
+\begin{prop}
+  $T$ is positive semidefinite iff there exists an operator $R$ such that
+  $T=R^*R$. The matrix $R$ may be taken to be upper triangular, and is
+  invertible iff $T$ is positive definite.
 \end{prop}
 \begin{defn}
   An operator $F$ is a \emph{square root} of an operator $T$ if $R^2=T$.
 \end{defn}
 \begin{prop}
-  Every positive operator has a unique positive square root.
+  Every positive semidefinite operator has a unique positive semidefinite square root.
 \end{prop}
 \begin{defn}
-  If $T$ is a positive operator, then $\sqrt T$ denotes the unique positive
+  If $T$ is a positive semidefinite operator, then $\sqrt T$ denotes the unique positive
   semidefinite square root of $T$.
 \end{defn}
+\begin{defn}
+  Let $U$ be a finite-dimensional subspace of $V$. The \emph{orthogonal
+  projection} of $V$ onto $U$ is the operator $P_U:V\to V$ defined by $P_U v=u$
+  where $u\in U$ and $\langle v-u,x\rangle=0\ \forall x\in U$.
+\end{defn}
+\begin{prop}
+  The orthogonal projection is well defined, and satisfies
+  \[\|P_u v\|\le \|v\|.\] For any $u\in U$, we have
+  \[\|v-P_U v\|\le \|v-u\|.\]
+\end{prop}
+\begin{prop}
+    Let $A$ be injective. Then $A^* A$ is invertible, and the projection
+    onto the image of $A$ is $A(A^* A)^{-1}A^*$.
+\end{prop}
+\begin{cor}[Least Squares Regression]
+    For any vector $b$, the vector $x$ that minimises $\|b-Ax\|$ is $(A^*
+    A)^{-1} A^* b$.
+\end{cor}
 \begin{defn}
   A linear transformation is an \emph{isometry} if it preserves norms. An
   operator which is also an isometry is \emph{unitary}.
 \end{defn}
 \begin{prop}
-  An linear transformation $T$ is unitary iff $T^*T=I$.
+    An linear map $T$ is an isometry iff $T^*T=I$.
+\end{prop}
+\begin{thm}[QR Decomposition]
+    Let $A:V\to W$ be linear, and pick orthonormal bases on $V$ and $W$. There
+    There exists a unitary operator $Q$ and an upper triangular matrix $R$ such
+    that $A=QR$.
+\end{thm}
+\begin{prop}
+    If $A=QR$ as above and $A$ is injective, then $(A^* A)x=A^*b$ implies $Rx=Q^*
+    b$.
 \end{prop}
 \begin{thm}[Polar Decomposition]
   For each operator $T$, there exists a unitary operator $S$ such that
@@ -473,7 +622,7 @@
 \end{thm}
 \begin{prop}
   Let $T:V\to W$ be a linear transformation. There exists a unique linear
-  transformation $T^+:W\to T$ such that
+  transformation $T^+:W\to V$ such that
   \begin{itemize}
     \item $TT^+T=T$;
     \item $T^+TT^+=T^+$;
@@ -483,6 +632,12 @@
 \begin{defn}
   This transformation $T^+$ is known as the \emph{pseudoinverse} of $T$.
 \end{defn}
+\begin{prop}
+    If $T$ is injective, then $T^+T=I$. If $T$ is surjective, then $TT^+=I$.
+\end{prop}
+\begin{prop}
+    The perpendicular projection onto the image of $T$ is $TT^+$.
+\end{prop}
 \begin{defn}
   A vector $v$ is called a \emph{generalised eigenvector} of $T$ corresponding
   to an eigenvalue $\lambda$ if $v\ne 0$ and $(T-\lambda I)^j v=0$ for some
@@ -510,8 +665,33 @@
   the corresponding generalised eigenspace.
 \end{defn}
 \begin{prop}
+  If $T$ is diagonalisable, then the multiplicity of $\lambda$ equals the number
+  of times that $\lambda$ appears in the diagonal matrix of $T$ with respect to
+  any basis.
+\end{prop}
+\begin{prop}
   Every operator on a nonzero finite-dimensional real vector space has an invariant
   subspace of dimension $1$ or $2$.
+\end{prop}
+\begin{defn}
+  A linear transformation $T$ is \emph{nilpotent} if $T^q=0$ for some positive
+  integer $q$. The least positive integer $q$ such that this is true is called
+  the \emph{index} of $T$.
+\end{defn}
+\begin{defn}
+  If $X$ is a complement of $Y$, and $X$ and $Y$ are both invariant under $T$,
+  then $T$ is said to be \emph{decomposed} by $X$ and $Y$.
+\end{defn}
+\begin{prop}
+  For every linear transformation $A$ on a finite-dimensional vector space $V$,
+  there are unique subspaces $X$ and $Y$ on $V$ such that $A$ is decomposed by
+  $X$ and $Y$, $A|_X$ is nilpotent, and $A|_Y$ is invertible.
+\end{prop}
+\begin{prop}
+  If $A$ is nilpotent with index $q$ on a finite-dimensional vector space $V$,
+  then there exist positive integers $r,q=q_1\ge\cdots\ge q_r$ and vectors
+  $x_1,\ldots,x_r$ such that $\{A^j x_i:1\le i\le r,j<q_r\}$ is a basis for $V$
+  and $A^{q_i}x_i=0$ for all $i$.
 \end{prop}
 \begin{defn}
   A \emph{block diagonal matrix} is a square matrix of the form
@@ -543,53 +723,121 @@
   We call this quantity the \emph{trace} of $T$.
 \end{defn}
 \begin{prop}
-  The trace is additive.
+  The trace is additive; further, the traces of $AB+kI$ and of $BA+kI$ are equal.
 \end{prop}
 \begin{prop}
   If $V$ is complex, then the trace of $T$ equals the sum of the eigenvalues of
   $T$ counted according to multiplicity.
 \end{prop}
 \begin{defn}
-  If $\pi$ is a permutation of $\{1,2,\ldots,n\}$, the sign of $\pi$ is $-1^k$,
-  where $k=|\{(a,b)\in\{1,2,\ldots,n\}:a<b,\ \pi(a)>\pi(b)\}|$.
+  Let $\{V_i\}_1^k$ be vector spaces over $\Ff$. A \emph{$k$-linear form} is a
+  function $f:\prod_1^k V_i\to\Ff$ such that, if all except for one argument is
+  kept fixed, then the function is linear in the remaining argument. If all
+  $V_i$ are equal to $V$, then $f$ is a \emph{$k$-linear form on $V$}.
 \end{defn}
-% TODO: multilinear forms, alternating forms, determinant
+\begin{defn}
+  A $k$-linear form $f$ on $V$ is \emph{alternating} if $f(x_1,\ldots,x_k)=0$
+  whenever two of the $x_i$s are equal.
+\end{defn}
 \begin{prop}
-  Let $A$ be $n\times n$. The determinant of the linear transformation defined
-  by $A$ equals
-  \[\sum_\pi\mathrm{sign}(\pi)\prod_{i=1}^n A_{\pi(i),i},\] 
-  where the sum is taken over all permutations $\pi$ of $\{1,2,\ldots,n\}$.
+  If $x_1,\ldots,x_k$ are linearly dependent vectors and $w$ is an alternating
+  $k$-linear form, then $w(x_1,\ldots,x_k)=0$.
+\end{prop}
+\begin{prop}
+  If $V$ is an $n$-dimensional vector space for $n>0$, then the vector space of
+  alternating $n$-linear forms on $V$ is one-dimensional.
+\end{prop}
+\begin{prop}
+  Let $A$ be an operator on $V$. To each nonzero alternating $n$-linear form $w$
+  on $V$ we associate the form $\bar Aw$ defined by $(\bar Aw)(x_1,\ldots,x_n)
+  =w(Ax_1,\ldots,Ax_n)$. Then there exists a scalar $|A|\in\Ff$ such that
+  $\bar Aw=|A|w$.
 \end{prop}
 \begin{defn}
-  We call this quantity the \emph{determinant} of $T$.
+  We call this scalar $|A|$ the \emph{determinant} of $A$, also denoted $\det
+  A$.
 \end{defn}
 \begin{prop}
   The determinant is multiplicative.
 \end{prop}
+\begin{cor}
+  $A$ is invertible iff $\det A\ne 0$.
+\end{cor}
 \begin{prop}
-  If $V$ is complex, then the determinant of $T$ equals the product of the
+    $\det A=\det A'$.
+\end{prop}
+\begin{prop}
+    Let $a,b\in\Rr^3$. There exists a unique vector $a\times b$ such that for
+    for any vector $c$, $(a\times b)\cdot c$ is the determinant of the operator
+    which sends the standard basis to $a,b,c$.
+\end{prop}
+\begin{defn}
+    This vector is the \emph{cross product} of $a$ and $b$.
+\end{defn}
+\begin{prop}
+    We have the following identities:
+    \begin{itemize}
+        \item $a\times b+b\times a=0$
+        \item $a\times(b\times c)+b\times(c\times a)+c\times(a\times b)=0$.
+    \end{itemize}
+\end{prop}
+\begin{defn}
+  If $\pi$ is a permutation of $\{1,2,\ldots,n\}$, the sign of $\pi$ is $-1^k$,
+  where $k=|\{(a,b)\in\{1,2,\ldots,n\}:a<b,\ \pi(a)>\pi(b)\}|$.
+\end{defn}
+\begin{prop}
+  Let $A$ be $n\times n$. The determinant of the linear transformation defined
+  by $A$ equals
+  \[\sum_\pi\sign(\pi)\prod_{i=1}^n A_{\pi(i),i},\] 
+  where the sum is taken over all permutations $\pi$ of $\{1,2,\ldots,n\}$.
+\end{prop}
+\begin{defn}
+  For an $n\times n$ matrix $A$, let $A_{j,k}$ denote the $(n-1)\times(n-1)$
+  matrix obtained from $A$ by crossing out row number $j$ and column number $k$.
+  The numbers $C_{j,k}=(-1)^{j+k}\det A_{j,k}$ are the \emph{cofactors} of $A$.
+  Let $C$ be the matrix whose entries are the cofactors of a given matrix $A$.
+\end{defn}
+\begin{thm}[Cofactor expansion]
+  $AC^T=(\det A)I$.
+\end{thm}
+\begin{cor}[Cramer's rule]
+  For an invertible matrix $A$, the entry number $k$ of the solution of the
+  equation $Ax=b$ is given by
+  \[x_k=\frac{\det B_k}{\det A},\]
+  where the matrix $B_k$ is obtained from $A$ by replacing column number $k$ of
+  $A$ by $B$.
+\end{cor}
+\begin{prop}
+  If $V$ is a complex vector space, then the determinant of $T$ equals the product of the
   eigenvalues of $T$ counted according to multiplicity.
 \end{prop}
-% TODO: cofactor matrix, Cramer's rule, Silvester's criterion
 \begin{defn}
   Let $T$ be an operator on a finite-dimensional vector space. The
   \emph{characteristic polynomial} $p$ of $T$ is defined by
   \[p(\lambda)=\det(T-\lambda I).\]
 \end{defn}
-\begin{prop}
-  If $T$ is an operator on a finite-dimensional complex vector space, then the
-  characteristic polynomial $p$ of $T$ satisfies
-  \[p(z)=\prod(z-\lambda_i),\]
-  where $\lambda_i$ are the eigenvalues of $T$ counted according to
-  multiplicity.
-\end{prop}
 \begin{thm}[Cayley-Hamilton]
   Let $p$ be the characteristic polynomial of $T$. Then $p(T)=0$.
 \end{thm}
-% TODO: matrix norm; ergodic theorem
+\begin{prop}
+  If $T$ is an operator on a finite-dimensional complex vector space, then the
+  characteristic polynomial $p$ of $T$ satisfies
+  \[p(z)=\prod(\lambda_i-z),\]
+  where $\lambda_i$ are the eigenvalues of $T$ counted according to
+  multiplicity.
+\end{prop}
+\begin{cor}
+  All eigenvalues of $A$ are positive iff $A$ is positive definite.
+\end{cor}
+\begin{prop}[Sylvester's Criterion]
+  Let $A$ be self-adjoint. Then $A$ is positive definite iff 
+    for each $k$, the determinant of the top-left $k\times k$ submatrix of
+      $A$ is positive.
+\end{prop}
 \subsection*{References}
 \begin{itemize}
-  \item \emph{Linear Algebra Done Wrong}, Treil
-  \item \emph{Linear Algebra Done Right}, Axler
-  \item \emph{Finite-Dimensional Vector Spaces}, Halmos
+    \item Strang, \emph{Linear Algebra and its Applications}
+    \item Treil, \emph{Linear Algebra Done Wrong}
+    \item Axler, \emph{Linear Algebra Done Right}
+    \item Halmos, \emph{Finite-Dimensional Vector Spaces}
 \end{itemize}
