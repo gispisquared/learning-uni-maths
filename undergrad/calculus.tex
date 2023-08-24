@@ -3,7 +3,7 @@
     Let $f:E\to Y$ be a function. If there exists a linear map $A:X\to Y$ such that
     \[\lim_{h\to 0}\frac{\|f(x+h)-f(x)-Ah\|}{\|h\|}=0,\]
     then $f$ is said to be \emph{differentiable at} $x$, $A$ is said to be the
-    \emph{derivative} of $f$ at $x$, and we write $f'(x)=A$.
+    \emph{derivative} of $f$ at $x$, and we write $f'(x)=A$ or $DF_x=A$.
     If $f$ is differentiable at every $x\in E$, we say that $f$ is
     \emph{differentiable}.
 \end{defn}
@@ -16,28 +16,6 @@
 \begin{prop}[Chain Rule]
     Let $f:E\to F$ and $g:F\to G$ be such that $f$ is differentiable at $x$ and $g$
     is differentiable at $f(x)$. Then \[(g\circ f)'(x)=g'(f(x))f'(x).\]
-\end{prop}
-\begin{prop}
-    Suppose $\{f_n'\}$ converges uniformly and $\{f_n(x_0)\}$ converges. Then
-    \[\left(\lim_{n\to\infty} f_n\right)'=\lim_{n\to\infty} f_n'.\]
-\end{prop}
-\begin{prop}
-    Let $f:[a,b]\to\Rr$ be differentiable. Then the image of $f'$ contains
-    $[f'(a),f'(b)]$.
-\end{prop}
-\begin{defn}
-    The \emph{directional derivative} $D_u f$ is defined as
-    \[D_u f(x)=\lim_{t\to 0}\frac{f(x+tu)-f(x)}{t}.\]
-\end{defn}
-\begin{prop}[Mean Value Theorem]
-    Let $f:X\to\Ff$, and let $x,y\in X$ such that the line
-    segment joining $x$ and $y$ lies in $X$ and $D_{y-x}f$ exists everywhere on
-    that line. Then there exists a point $c$ on
-    this line segment such that $D_{y-x}(c)=\frac{f(y)-f(x)}{\|y-x\|}$.
-\end{prop}
-\begin{prop}
-    Suppose $X$ is convex and $\|f'(x)\|\le M$ for all $x\in X$. Then, for $a,b\in E$ we have
-    $\|f(b)-f(a)\|\le M\|b-a\|$.
 \end{prop}
 \begin{prop}[Sum Rule]
     $(f+g)'=f'+g'$.
@@ -66,37 +44,80 @@
         \item $\arctan'(x)=\frac 1{1+x^2}$
     \end{itemize}
 \end{prop}
+\begin{prop}
+    Suppose $\{f_n'\}$ converges uniformly and $\{f_n(x_0)\}$ converges. Then
+    \[\left(\lim_{n\to\infty} f_n\right)'=\lim_{n\to\infty} f_n'.\]
+\end{prop}
+\begin{prop}
+    Let $f:[a,b]\to\Rr$ be differentiable. Then the image of $f'$ contains
+    $[f'(a),f'(b)]$.
+\end{prop}
+\begin{defn}
+    The \emph{directional derivative} $D_u f$ is defined as
+    \[D_u f(x)=\lim_{t\to 0}\frac{f(x+tu)-f(x)}{t}.\]
+\end{defn}
+\begin{prop}
+    The derivative $Df$ exists and is continuous iff $D_u f$ exists and is
+    continuous for every $u$. In this case we have $D_u f(x)=f'(x)u$.
+\end{prop}
+\begin{prop}[Mean Value Theorem]
+    Let $f:X\to\Ff$, and let $x,y\in X$ such that the line
+    segment joining $x$ and $y$ lies in $X$ and $D_{y-x}f$ exists everywhere on
+    that line. Then there exists a point $c$ on
+    this line segment such that $D_{y-x}(c)=\frac{f(y)-f(x)}{\|y-x\|}$.
+\end{prop}
+\begin{prop}
+    Suppose $X$ is convex and $\|f'(x)\|\le M$ for all $x\in X$. Then, for $a,b\in E$ we have
+    $\|f(b)-f(a)\|\le M\|b-a\|$.
+\end{prop}
+\begin{prop}[L'H\^opital's Rule]
+    Let $a$ be a limit point of an open subset $L$ of the extended real number
+    system, let $f,g:L\to\Rr$ be differentiable, and suppose $g'\ne 0$ on
+    $L$. If $\frac{f'(x)}{g'(x)}\to A$ as $x\to a$, and either
+    \begin{itemize}
+        \item $f(x),g(x)\to 0$ as $x\to a$, or
+        \item $g(x)\to\pm\infty$ as $x\to a$,
+    \end{itemize}
+    then $\frac{f(x)}{g(x)}\to A$ as $x\to a$.
+\end{prop}
 \begin{defn}
     A continuous function is $C^0$. If the derivative of a function exists and
-    is $C^n$, then the function is $C^{n+1}$.
+    is $C^n$, then the function is $C^{n+1}$. If a function is $C^n$ for all
+    $n$, it is $C^\infty$.
+\end{defn}
+\begin{defn}
+    We use the notation $d^n f_x$ for the $n$th order derivative of $f$ at $x$,
+    defining $d^0 f_x=x$.
 \end{defn}
 \begin{prop}
     If $f$ and $g$ are $C^n$, then so are $f+g$, $f\cdot g$ and $f/g$ (assuming
     the codomains match).
 \end{prop}
 \begin{prop}
-    The function $f$ is $C^1$ iff $D_u f$ exists and is continuous for every $u$.
-\end{prop}
-\begin{prop}
     If $D_v f$, $D_u f$ and $D_v D_u f$ exist in an open ball containing $x$,
     and if $D_v D_u f$ is continuous at $x$, then $D_u D_v f(x)=D_v D_u f(x)$.
 \end{prop}
 \begin{cor}
-    If $f$ is $C^2$, then $D_u D_v f = D_v D_u f$.
+    If $f$ is $C^n$, then $f^{(n)}(x)$ (the $n$th derivative) is a symmetric
+    multilinear map.
 \end{cor}
+\begin{defn}
+    An open set $D$ is \emph{star-shaped} with respect to $A\in D$ if
+    for every $B\in D$ the segment $AB$ is in $D$.
+\end{defn}
 \begin{thm}[Taylor]
-    Let $f$ be $n$-times differentiable and defined on an open convex set.
-    There exists a unique polynomial $P_n$ of degree $n$
-    such that the first $n$ derivatives of $f$ at $a$ equal the first $n$ derivatives
-    of $P$ at $a$. Let $R_{n+1}(x)=f(x)-P_n(x)$; then we have
-    \[\lim_{x\to a}\frac{R_{n+1}(x)}{\|x-a\|^n}=0.\]
+    Let $D$ be star-shaped with respect to $A$, and let $f:D\to V$ be $n$-times
+    differentiable. Let \[R_{n+1}(x)=f(a+x)-\sum_{i=0}^n \frac{d^i
+    f_a(x,x,\ldots,x)}{i!}.\]
 
-    Further, if $f$ is $(n+1)$-times differentiable and its codomain is $\Rr$,
-    let $\gamma(t)=a+(x-a)t$. We have the following expressions for the remainder:
+    We have \[\lim_{x\to a}\frac{R_{n+1}(x)}{\|x-a\|^n}=0.\] 
+
+    If $f$ is $(n+1)$-times differentiable and its codomain is $\Rr$,
+    we have the following expressions for the remainder:
     \begin{itemize}
         \item There is a $t\in[0,1]$ such that
-            $R(x)=P_{n+1}(\gamma(t))-P_n(\gamma(t))$.
-        \item If $g(t)=f(\gamma(t))$, then
+            $R(x)=\frac{d^{n+1}f_a(tx)}{(n+1)!}$.
+        \item If $g(t)=f(a+(x-a)t)$, then
             \[R(x)=\frac 1{n!}\int_0^1 (1-t)^n g^{(n+1)}(t)\mathrm dt.\]
     \end{itemize}
 \end{thm}
@@ -112,6 +133,24 @@
             is positive (resp.\ negative) semidefinite.
     \end{itemize}
 \end{prop}
+\begin{defn}
+    A collection $\{g_i:M\to[0,1]\}$ of $C^\infty$ functions is a \emph{partition of
+    unity} if
+    \begin{itemize}
+        \item each $g_i$ has compact support,
+        \item each $x\in M$ has a neighbourhood $V_x$ such that all but finitely
+            many $g_i$ are $0$ on $V_x$, and
+        \item $\sum g_i=1$ everywhere on $M$.
+    \end{itemize}
+
+    A partition of unity $\{g_i\}$ is \emph{subordinate} to an open cover
+    $\{U_j\}$ of $m$ if for every $i$ the support of $g_i$ is contained in some
+    $U_j$.
+\end{defn}
+\begin{thm}
+    Let $\{U_i\}$ be an open covering of $M$. There exists a partition of unity
+    $\{g_i\}$ subordinate to $\{U_i\}$.
+\end{thm}
 \begin{defn}
     A \emph{$k$-cell} $S$ is a product of $k$ closed intervals. Its \emph{volume} is
     $v(S)$, the product of the lengths of the intervals.
@@ -192,6 +231,21 @@
     \[\int_C\lim_{n\to\infty} f_n(x)\mathrm dx=\lim_{n\to\infty}\int_C
     f_n(x)\mathrm dx.\]
 \end{prop}
+\begin{thm}[Fundamental Theorem of Calculus]
+    If $f:[a,b]\to\Rr$ is integrable, define
+    \[F(x)=\int_a^x f(t)\mathrm dt.\]
+    If $f$ is continuous at $c\in[a,b]$, then $F$ is differentiable at $c$, and
+    $F'(c)=f(c)$.
+
+    If $F:[a,b]\to\Rr$ is differentiable, define $f(x)=F'(x)$. If $f$ is
+    integrable on $[a,b]$, then \[F(x)=F(a)+\int_a^x f(t)\mathrm dt.\]
+\end{thm}
+\begin{thm}[Integration by Parts]
+    Let $F$ and $G$ be differentiable on $[a,b]$ such that $F'=f$ and $G'=g$ are
+    integrable. Then,
+    \[\int_a^b F(x)g(x)\mathrm dx=F(b)G(b)-F(a)G(a)-\int_a^b f(x)G(x)\mathrm
+    dx.\]
+\end{thm}
 \begin{thm}[Fubini]
     Let $A$ and $B$ be $k$-cells, and let $f:A\times B\to\Rr$ be such that
     $f(x,b)$ is integrable for each $b\in B$ and $f(a,x)$ is integrable for each
@@ -210,21 +264,6 @@
     \[f'(s)=\int_a^b D_{(0,1)}f(x,s)\mathrm dx\]
     for each $s\in(c,d)$.
 \end{thm}
-\begin{thm}[Fundamental Theorem of Calculus]
-    If $f:[a,b]\to\Rr$ is integrable, define
-    \[F(x)=\int_a^x f(t)\mathrm dt.\]
-    If $f$ is continuous at $c\in[a,b]$, then $F$ is differentiable at $c$, and
-    $F'(c)=f(c)$.
-
-    If $F:[a,b]\to\Rr$ is differentiable, define $f(x)=F'(x)$. If $f$ is
-    integrable on $[a,b]$, then \[F(x)=F(a)+\int_a^x f(t)\mathrm dt.\]
-\end{thm}
-\begin{thm}[Integration by Parts]
-    Let $F$ and $G$ be differentiable on $[a,b]$ such that $F'=f$ and $G'=g$ are
-    integrable. Then,
-    \[\int_a^b F(x)g(x)\mathrm dx=F(b)G(b)-F(a)G(a)-\int_a^b f(x)G(x)\mathrm
-    dx.\]
-\end{thm}
 \begin{prop}
     We have:
     \begin{itemize}
@@ -239,12 +278,12 @@
     V$. We associate to each partition $P=\{x_i\}$ of $[a,b]$ the number
     $L(P)=\sum\|\gamma(x_i)-\gamma(x_{i-1})\|$. If these numbers have a
     supremum, then this supremum is the \emph{length} of $\gamma$ and $\gamma$
-    is \emph{rectifiable}. We say that $\gamma$ is \emph{piecewise smooth} if
+    is \emph{rectifiable}. We say that $\gamma$ is \emph{piecewise $C^n$} if
     its domain can be divided into a finite number of intervals such that
-    $\gamma$ is $C^1$ on each interval.
+    $\gamma$ is $C^n$ on each interval.
 \end{defn}
 \begin{prop}
-    If $\gamma$ is piecewise smooth, then $\gamma$ is rectifiable. For each
+    If $\gamma$ is piecewise $C^1$, then $\gamma$ is rectifiable. For each
     $x\in[a,b]$, the length of $\gamma([a,x])$ is
     \[s(x)=\int_a^x\|\gamma'(t)\|\mathrm dt.\]
 \end{prop}
@@ -258,12 +297,12 @@
 \end{defn}
 \begin{defn}
     Let $D$ be an open subset of an inner product space $V$, and let $F:D\to V$
-    be continuous. Let $C:[a,b]\to D$ be piecewise smooth.
+    be continuous. Let $C:[a,b]\to D$ be piecewise $C^1$.
     The \emph{line integral} of $F$ along $C$ is
     \[\int_C F\cdot\mathrm ds=\int_c^d F(C(t))\cdot C'(t)\mathrm dt.\]
 \end{defn}
 \begin{prop}
-    The line integral of a curve is independent of parametrisation.
+    The line integral is independent of parametrisation.
 \end{prop}
 \begin{prop}
     Let $D$ be an open subset of $V$, where $V$ is an inner product space over $\Rr$.
@@ -284,88 +323,294 @@
     then for some $\lambda$ we have $\nabla f=\lambda\nabla g$.
 \end{cor}
 \begin{thm}[Fundamental Theorem of Line Integrals]
-    Let $f:D\to\Rr$ be $C^1$, and let $\gamma:[a,b]\to D$ be a piecewise smooth
+    Let $f:D\to\Rr$ be $C^1$, and let $\gamma:[a,b]\to D$ be a piecewise $C^1$
     curve such that $\gamma(a)=X_0$ and $\gamma(b)=X_1$. Then,
     \[\int_C\nabla f\cdot\mathrm ds=f(X_1)-f(X_0).\]
 \end{thm}
 \begin{defn}
     A vector field $F:D\to V$ is \emph{conservative} if $\int_C F\cdot\mathrm ds=0$
-    whenever $C$ is a closed curve.
+    whenever $C$ is a closed rectifiable curve.
 \end{defn}
 \begin{cor}
     A vector field over a connected open set is conservative iff it is the
     gradient of some function.
 \end{cor}
-\begin{defn}
-    An $n$-dimensional \emph{patch} is a subset $S$ of an vector space $V$ such
-    that there are vector spaces $X$ and $Y$, an isomorphism $\phi:V\to
-    X\times Y$, an open subset $E$ of $X$,
-    and a function $f:E\to Y$ such that $X$ is $n$-dimensional and
-    the graph of $f$ is $\phi(S)$. It is \emph{smooth} if $f$ is $C^1$.
-
-    An $n$-dimensional \emph{manifold} is a subset $S$ of a vector space $V$ such
-    that for each $x\in S$, there is an open set $E$ containing $x$ such $S\cap
-    E$ is an $n$-dimensional patch. If all these patches are smooth, then $S$ is
-    \emph{smooth}.
-\end{defn}
-\begin{defn}
-    A collection $\{g_i:M\to[0,1]\}$ of $C^\infty$ functions is a \emph{partition of
-    unity} if
-    \begin{itemize}
-        \item each $g_i$ has compact support,
-        \item each $x\in M$ has a neighbourhood $V_x$ such that all but finitely
-            many $g_i$ are $0$ on $V_x$, and
-        \item $\sum g_i=1$ everywhere on $M$.
-    \end{itemize}
-
-    A partition of unity $\{g_i\}$ is \emph{subordinate} to an open cover
-    $\{U_i\}$ of $m$ if for every $j$ the support of $g_j$ is contained in some
-    $U_i$.
-\end{defn}
-\begin{thm}
-    Let $\{U_i\}$ be an open covering of $M$. There exists a partition of unity
-    $\{g_i\}$ subordinate to $\{U_i\}$.
-\end{thm}
 \begin{thm}[Inverse Function]
-    Let $f:X\to X$, and let $a$ be such that $f$ is $C^1$ in an open ball
+    Let $f:X\to X$, and let $a$ be such that $f$ is $C^k$ in an open ball
     containing $a$ and $f'(a)$ is invertible.
     Then there is an open ball $E$ containing $a$ and such that $f$ is injective on
-    $E$, $F(E)$ is open, and $(F|_E)^{-1}$ is $C^1$.
+    $E$, $F(E)$ is open, and $(F|_E)^{-1}$ is $C^k$.
 \end{thm}
+\begin{defn}
+    A \emph{homeomorphism} between two topological spaces is a continuous
+    function with continuous inverse.
+\end{defn}
 \begin{cor}
-    If $f:X\to X$ is $C^1$, then it sends open sets to open sets.
+    If $f:X\to X$ is differentiable and $|f'|$ is always nonzero, then $f$ is a
+    homeomorphism.
 \end{cor}
 \begin{thm}[Implicit Function]
-    Let $\phi:X\times Y\to Y$ be $C^1$ in an open set containing $(x,y)$, and
+    Let $\phi:X\times Y\to Y$ be $C^k$ in an open set containing $(x,y)$, and
     assume $\phi(x,y)=0$. Let $\phi'(x,y)=A(x)+B(y)$, and assume $B$ is invertible.
     Then there is an open set $E$ containing $x$ and an open set $F$ containing
     $y$ such that for each $e\in E$ there is a unique $f\in F$ such that
-    $\phi(e,f)=0$. The function $e\mapsto f$ is differentiable.
+    $\phi(e,f)=0$. The function $e\mapsto f$ is $C^k$.
 \end{thm}
+\begin{defn}
+    The \emph{half-space} $\Hh^k$ is defined as $\Rr^{k-1}\times\Rr_{\ge 0}$.
+\end{defn}
+\begin{defn}
+    Let $U$ and $V$ be normed vector spaces.
+    Let $f:S\to V$, where $S\subseteq U$. We say that $f$ is $C^r$ on $S$ if
+    there is an open set $W$ containing $U$ and a function $g:W\to V$ such that
+    the restriction of $g$ to $S$ is $f$.
+\end{defn}
+\begin{prop}
+    Let $U$ be open in $\Hh^k$, and let $\alpha:U\to V$ be $C^r$. If $\beta_1$
+    and $\beta_2$ are extensions of $\alpha$ to open sets in $\Rr^k$ containing
+    $U$, then $\beta_1'=\beta_2'$ on $U$.
+\end{prop}
+\begin{defn}
+    Thus, we define $\alpha'=\beta'$ on $U$ for any such extension.
+\end{defn}
+\begin{defn}
+    A subset $M$ of $\Rr^n$ is a $k$-dimensional \emph{manifold with boundary}
+    if for each $p\in M$, there is an open subset $V$ of $M$ containing $p$, a
+    set $U$ that is open in $\Hh^k$, and a $C^\infty$ homeomorphism $\alpha:U\to
+    V$ such that $\alpha'$ has rank $k$ everywhere. Such an $\alpha$ is a
+    \emph{patch} around $p$. It is a \emph{manifold} if these
+    patches can be chosen such that each $U$ is open in $\Rr^k$.
+\end{defn}
+\begin{rem}
+    In general, one may drop the smoothness condition for $\alpha$ and the
+    full-rank condition for $\alpha'$. However, these conditions make doing
+    calculus on manifolds more convenient.
+\end{rem}
+\begin{prop}
+    If $(U_1,h_1)$, $(U_2,h_2)$ and $(U_1\cap U_2,h_3)$ are $n$-dimensional
+    charts, then $h_1(U_1\cap U_2)$ and $h_2(U_1\cap U_2)$ are
+    open in $\Hh^n$ and the function $h_1\circ h_2^{-1}$ is continuous.
+\end{prop}
+\begin{defn}
+    A point $p$ in a $k$-manifold with boundary $M$ is said to lie on the
+    \emph{boundary} $\partial M$ of $M$ if no subset of $M$ containing $p$ is a
+    $k$-manifold, and in the \emph{interior} $M-\partial M$ otherwise.
+\end{defn}
+\begin{prop}
+    If $M$ is a $k$-manifold with boundary and $\partial M$ is nonempty, then
+    $\partial M$ is a $(k-1)$-manifold.
+\end{prop}
 \begin{thm}[Rank Theorem]
     Let $A$ be an open set in $V$, let $r<\dim W$ be an integer, and let
-    $F:A\to W$ be $C^1$ such that the rank of $F'$ is $r$ at every point in $A$.
-    Then for each point $a\in A$ there is an open set $B$ containing $a$ such
-    that $F(B)$ is an $r$-dimensional manifold in $W$.
+    $F:A\to W$ be $C^\infty$ such that the rank of $F'$ is $r$ at every point in $A$.
+    Then $F(A)$ is an $r$-dimensional smooth manifold in $W$.
 \end{thm}
-% TODO: general stokes' theorem
+\begin{defn}
+    Given $x\in V$, we define a \emph{tangent vector} at $x$ to be a pair
+    $(x,v)$ where $v\in V$. The \emph{tangent space} to $V$ at $x$, denoted
+    $\mathcal T_x(V)$, is the set of
+    all tangent vectors, with the operations $(x,v_1)+(x,v_2)=(x,v_1+v_2)$ and
+    $a(x,v)=(x,av)$. Given an inner product and an orientation of $V$, we define
+    an \emph{induced} inner product and orientation on $\mathcal T_x(V)$ in the
+    obvious way.
+\end{defn}
+\begin{defn}
+    Let $A$ be open in $W$, and let $f:A\to V$ be differentiable. We define
+    $f_*:\mathcal T_x(W)\to\mathcal T_{f(x)}(V)$ by 
+    $f_*(x,v)=(f(x),D_v f(x))$. 
+\end{defn}
+\begin{prop}
+    Let $M\subseteq W$ be a manifold with boundary, and let $p\in M$. Choose a chart
+    $(U,\varphi)$ around $p$, and let $f=\varphi^{-1}$.
+    The set $f_*(\mathcal T_{\varphi(p)}(V))$ is a subspace of $T_p(W)$
+    independent of the choice of chart.
+\end{prop}
+\begin{defn}
+    This space is the \emph{tangent space} to $M$ at $p$, denoted $\mathcal
+    T_p(M)$. The dual space $(T_x(M))^*$ is the \emph{cotangent space} to $M$ at
+    $x$, denoted $T_x^*(M)$.
+\end{defn}
+\begin{defn}
+    A $k$-\emph{tensor field} on a manifold with boundary $M$ is a function assigning,
+    to each $x\in M$, an element of $\otimes^k \mathcal T_x^*(M)$. A
+    \emph{differential form} of order $k$ is a $k$-tensor field such that every
+    element of its image is alternating. The \emph{wedge product} of two
+    differential forms is taken pointwise.
+\end{defn}
+\begin{rem}
+    Note that a function from $M$ to $\Ff$ is a differential $0$-form.
+\end{rem}
+\begin{prop}
+    If $f$ and $g$ are $C^n$ differential forms defined on an open set, then so
+    is $f\wedge g$.
+\end{prop}
+\begin{defn}
+    Let $M_1$ and $M_2$ be manifolds with boundary, and let $\varphi:M_1\to M_2$ be
+    continuous. We say that two charts $(U_1,\alpha_1)$ and $(U_2,\alpha_2)$ are
+    \emph{compatible} under $\varphi$ if $\varphi(U_1)\subseteq U_2$.
+\end{defn}
+\begin{defn}
+    A continuous function $\varphi:M_1\to M_2$ is \emph{differentiable}
+    if for any compatible charts
+    $(U_1,\alpha_1)$ and $(U_2,\alpha_2)$, the map
+    $\alpha_2\circ\varphi\circ\alpha_1^{-1}$ is differentiable.
+\end{defn}
+\begin{prop}
+    If $\varphi$ is differentiable, there is a unique function $\varphi_*$
+    such that for any compatible charts
+    $(U_1,\alpha_1)$ and $(U_2,\alpha_2)$ we have
+    \[\varphi_*\circ(\alpha_1^{-1})_*=(\alpha_2^{-1})_*\circ
+    (\alpha_2\circ\varphi\circ\alpha_1^{-1})_*.\]
+\end{prop}
+\begin{defn}
+    For a differential $k$-form $\omega$ on $M_2$ and a differentiable map 
+    $f:M_1\to M_2$, we define the \emph{pullback} 
+    $f^*\omega=(\wedge^k f_*)\omega$.
+\end{defn}
+\begin{prop}
+    The function $f^*$ commutes with the operations $+$, $\cdot$ and $\wedge$.
+\end{prop}
+\begin{defn}
+    If $f$ is a differential $k$-form defined on an open set, we define the
+    \emph{exterior derivative} $df$ as $df(p)=\Alt(f'(p))$.
+\end{defn}
+\begin{prop}
+    Let $p$ be a point on a manifold with boundary $M$, and let $\omega$ be a differential
+    form defined on $M$. Let $(U,\varphi)$ be a chart defined on a neighbourhood of
+    $p$, and let $f=\varphi^{-1}$. Then,
+    \[\varphi^*(df^*(\omega))(p)\] is independent of the choice of $\varphi$.
+\end{prop}
+\begin{defn}
+    We define this expression to be the \emph{exterior derivative} $d\omega(p)$.
+\end{defn}
+\begin{prop}
+    The exterior derivative has the following properties:
+    \begin{itemize}
+        \item If $f$ is a $0$-form, then $df=f'$.
+        \item If $f$ is a $C^k$ differential $n$-form, then $df$ is a $C^{k-1}$
+            differential $(n+1)$-form.
+        \item Let $\omega$ be a $k$-differential form. Then,
+            $d(\omega\wedge\nu)=d\omega\wedge\nu+(-1)^k\omega\wedge d\nu$.
+        \item $d(f^*\omega)=f^*(d\omega)$.
+    \end{itemize}
+\end{prop}
+\begin{defn}
+    A form $\omega$ is called \emph{closed} if $d\omega=0$ and \emph{exact} if
+    $\omega=d\nu$ for some $\nu$.
+    Let $M$ be a manifold, and $\Omega^k(M)$ be the set of $k$-differential forms
+    on $M$. Let $C^k(M)$ and $E^k(M)$ be the sets of closed and exact forms on
+    $M$, respectively.
+\end{defn}
+\begin{prop}
+    We have $E^k(M)\subseteq C^k(M)\subseteq\Omega^k(M)$, and each of these sets
+    is a vector space.
+\end{prop}
+\begin{defn}
+    The \emph{deRham cohomology group} $H^k(M)$ is the
+    quotient space $C^k(M)/E^k(M)$.
+\end{defn}
+\begin{thm}[Poincar\'e Lemma]
+    The deRham cohomology group of a star-shaped set is trivial for $k\ge 1$.
+\end{thm}
+\begin{prop}
+    Let $\omega$ be a differential $k$-form in an open $D\subseteq V$, where $V$
+    is $k$-dimensional, and let $p$ be a point in $D$. Let $O$ be an orientation
+    on $V$. For any orthonormal basis $\{b_i\}$ of $\mathcal T_p(V)$, the expression
+    \[k!O(\{b_i\})\omega(\{b_i\})\] is independent of $b_i$.
+\end{prop}
+\begin{defn}
+    We call the value of this expression $\rho^\omega(p)$, and define
+    \[\int_D \omega=\int_D\rho^\omega(p)\mathrm dV.\]
+\end{defn}
+\begin{defn}
+    Let $M_1$ and $M_2$ be two manifolds with boundary, and define $\mu_1(p)$ to be an
+    orientation of $\mathcal T_p(M_1)$ for each $p\in M_1$. Define $\mu_2$
+    similarly on $M_2$. Then a differentiable map $f:M_1\to M_2$ is
+    \emph{orientation-preserving} if $\mu_2\circ f_*=\mu_1$. A manifold $M_1$ is
+    \emph{oriented} if $\mu_1$ is defined such that for each chart
+    $(U,\varphi)$, an orientation can be chosen on the codomain of $\varphi$
+    such that $\varphi$ is orientation-preserving.
+\end{defn}
+\begin{prop}
+    Let $\omega$ be a $k$-form defined on an oriented $k$-manifold with boundary
+    $M$ which has support $S$. For any orientation-preserving chart $\varphi$
+    defined on a superset of $S$, \[\int_{\varphi(S)}\varphi^*(\omega)\]
+    is uniquely defined.
+\end{prop}
+\begin{defn}
+    We define this value, if it exists, to equal $\int_M\omega$.
+\end{defn}
+\begin{prop}
+    Let $\omega$ be a $k$-form defined on a $k$-manifold with boundary $M$. Let
+    $\{(U_i,\varphi_i)\}$ be an atlas of $M$, and let $\{g_j\}$ be a partition
+    of unity subordinate to $\{U_i\}$. If
+    \[\sum_j\int_M g_j\omega\]
+    converges for some choice of $\{g_j\}$, then it converges to the same value
+    for all choices.
+\end{prop}
+\begin{defn}
+    We define this value, if it exists, to be $\int_M\omega$.
+\end{defn}
+\begin{prop}
+    At each point $p\in\partial M$, there are exactly two unit vectors $n_1,n_2$
+    in $\mathcal T_M(P)$ which are perpendicular to all vectors in
+    $\mathcal T_{\partial M}(P)$. If $\varphi:M\to\Hh^k$ is a patch, then
+    $\varphi_*(n_1)$ and $\varphi_*(n_2)$ differ only in the sign of the last
+    component; one of them always has positive sign, and the other always has
+    negative sign irrespective of the choice of $\varphi$.
+\end{prop}
+\begin{defn}
+    We let the \emph{outward unit normal} at $p$ be whichever of $n_1$ and $n_2$
+    has this sign negative.
+\end{defn}
+\begin{prop}
+    Let $M$ be an oriented manifold with boundary, and let $p\in\partial M$.
+    Let $n(p)$ denote the outward unit normal at $p$, and let $\mu(p)$ be the
+    orientation of $M$ at $p$. The function $\nu(p)$ defined by
+    \[\nu(p)(v_2,\ldots,v_k)=\mu(n,v_2,\ldots,v_k)\] orients $\partial M$.
+\end{prop}
+\begin{defn}
+    This is the \emph{induced orientation} on $\partial M$.
+\end{defn}
+\begin{thm}[Stokes]
+    If $D$ is a $C^\infty$ manifold with boundary of dimension $n$ and $\omega$ is
+    a $C^1$ differential $(n-1)$-form, then
+    \[\int_D d\omega=\int_{\partial D}\omega.\]
+\end{thm}
 \begin{defn}
     Let $f:V\to V$. The \emph{divergence} of $f$ is $\nabla\cdot f=\tr f'$.
 \end{defn}
-% TODO: n-dimensional divergence theorem
+\begin{defn}
+    Let $S\subseteq\Rr^n$ be an $(n-1)$-dimensional manifold. For any function
+    $f:\Rr^n\to\Rr^n$, we define a differential $(n-1)$-form $\omega$ by letting
+    $\omega(p)(V)$ be the determinant of the linear map which
+    takes the standard basis to $(V,f(p))$. Then the \emph{surface integral} of
+    $f$ over $S$ is defined as
+    \[\int_S f\cdot\mathrm dA=\int_S\omega.\]
+\end{defn}
+\begin{thm}[Gauss' Divergence]
+    Let $S\subseteq\Rr^n$ be an $n$-dimensional
+    manifold with boundary. Then, for any $C^1$ function $f$, we have
+    \[\int_S \nabla\cdot f\mathrm dV=\int_{\partial S}f\cdot\mathrm dA.\]
+\end{thm}
 \begin{prop}
     Let $F:V\to V$ be $C^1$, where $V\subseteq\Rr^3$. At each point $(t,F(t))$
-    there exists a unique vector $\nabla\times f$ such that for all $y$ we have
-    \[(F'(X)-F'(X)^T)y=(\nabla\times f)\times y.\]
+    there exists a unique vector $\nabla\times F$ such that for all $y$ we have
+    \[(F'(X)-F'(X)^T)y=(\nabla\times F)\times y.\]
 \end{prop}
 \begin{defn}
     This vector $\nabla\times F$ is the \emph{curl} of $F$.
 \end{defn}
-% TODO: 3d stokes' theorem
+\begin{thm}[Stokes]
+    Let $M\subseteq\Rr^3$ be an oriented $2$-manifold with boundary, and let
+    $\partial M$ have the induced orientation. Let $F:\Rr^3\to\Rr^3$ be $C^1$.
+    Then, \[\int_M (\nabla\times F)\cdot \mathrm dA=\int_{\partial
+    M}f\cdot\mathrm ds.\]
+\end{thm}
 \subsection*{References}
 \begin{itemize}
-  \item Loomis and Sternberg, \emph{Advanced Calculus}
-  \item Nickerson, Spencer and Steenrod, \emph{Advanced Calculus}
   \item Spivak, \emph{Calculus on Manifolds}
   \item Munkres, \emph{Analysis on Manifolds}
+  \item Loomis and Sternberg, \emph{Advanced Calculus}
+  \item Nickerson, Spencer and Steenrod, \emph{Advanced Calculus}
 \end{itemize}

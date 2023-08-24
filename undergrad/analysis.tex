@@ -71,8 +71,18 @@
 \begin{defn}
     A set $E$ is \emph{connected} if the only subsets of $E$ that are both open
     and closed in $E$ are the empty set and $E$ itself; otherwise, it is
-    \emph{disconnected}
+    \emph{disconnected}. It is \emph{path-connected} if for all $x,y\in E$ there
+    is a continuous function $f:[0,1]\to E$ such that $f(0)=x$ and $f(1)=y$.
+    It is \emph{contractible} if there is a continuous map $f:[0,1]\times E\to E$
+    such that $f(0,x)=x$ and $f(1,x)$ is constant.
 \end{defn}
+\begin{prop}
+    \begin{itemize}
+        \item Every open connected set is path-connected.
+        \item Every path-connected set is connected.
+        \item Every contractible set is path-connected.
+    \end{itemize}
+\end{prop}
 \begin{prop}
     A topological space is disconnected iff it is the union of two 
     disjoint nonempty open sets.
@@ -249,12 +259,12 @@
   $d(f(a),f(b))<\varepsilon$.
 \end{defn}
 \begin{thm}
-  Every continuous function on a compact metric space is uniformly continuous.
+    Every continuous function on a compact metric space is uniformly continuous.
 \end{thm}
 \begin{defn}
-    Let $f:X\to X$ be a function such that for some $c<1$ and all $x,y\in X$ we
-    have $d(f(x),f(y))\le cd(x,y)$. Then, $f$ is said to be a \emph{contraction}
-    of $X$ into $X$.
+  It is \emph{Lipschitz continuous} if for every
+  there is a real constant $K$ such that $d(f(a),f(b))\le Kd(a,b)$ for all $a$
+  and $b$. If $K<1$ then $f$ is a \emph{contraction}.
 \end{defn}
 \begin{prop}[Contraction Principle]
     A contraction on a complete metric space has a unique fixed point.
@@ -364,16 +374,24 @@
     permutation of $a_n$.
 \end{prop}
 \begin{defn}
-  Let $L$ be a linear transformation on an inner product space $V$. We say that
+    Two norms on a vector space are said to be \emph{equivalent} if they induce
+    the same topology.
+\end{defn}
+\begin{prop}
+    Any two norms on a finite-dimensional vector space are equivalent.
+\end{prop}
+\begin{defn}
+  Let $L$ be a linear transformation on a normed vector space $V$. We say that
   $L$ is \emph{bounded} if there is some real $K$ such that $\|Lx\|\le K\|x\|$
   for all $x\in V$. The greatest lower bound of all such $K$ is denoted $\|L\|$.
 \end{defn}
 \begin{prop}
-  Let $V$ be a finite-dimensional inner product space. The function
-  $\|\cdot\|:\mathcal L(V,V)\to\Rr$ is a norm on $\mathcal L(V,V)$.
+  Let $V$ and $W$ be finite-dimensional normed vector spaces. The function
+  $\|\cdot\|:\mathcal L(V,W)\to\Rr$ is a norm on $\mathcal L(V,W)$; any two such
+  norms are equivalent.
 \end{prop}
 \begin{prop}
-  Let $A$ be a self-adjoint linear map on an inner product space $V$, and let
+  Let $A$ be a self-adjoint linear map on a normed vector space $V$, and let
   $S=\{\langle Ax,x\rangle:\|x\|=1\}$. Then, $\|A\|=\max\{|\inf S|,|\sup
   S|\}$.
 \end{prop}
@@ -393,8 +411,8 @@
   convergence $r$. If $A$ is such that $\|A\|<r$, then $f(A)$ exists.
 \end{prop}
 \begin{prop}
-  Let $A$ be an operator on a finite-dimensional inner product space. Then,
-  $(1-A)\sum_{n=0}^\infty A^n=I$.
+  Let $A$ be a contractive operator on a finite-dimensional normed vector space. Then,
+  $(I-A)\sum_{n=0}^\infty A^n=I$.
 \end{prop}
 \begin{defn}
     Let $X$ and $Y$ be metric spaces. We define $Y^X$ as the space of
@@ -439,7 +457,8 @@
     then $d(f_n(a),f_n(b))<\varepsilon$ for all $n$.
 \end{defn}
 \begin{prop}
-    If $X$ is compact and $\{f_n\}$ converges uniformly, then $\{f_n\}$ is
+    If $X$ is compact, all $\{f_n\}$ are continuous, and
+    $\{f_n\}$ converges uniformly, then $\{f_n\}$ is
     equicontinuous.
 \end{prop}
 \begin{prop}
@@ -500,17 +519,13 @@
     We have $\exp(z+w)=\exp(z)\exp(w)$
     and $\exp(a/b)=\sqrt[b]{e^a}$ for any integer $a$ and positive integer $b$.
 \end{prop}
-\begin{thm}[Fundamental Theorem of Algebra]
-    For all $P\in\Cc[x]\setminus\Cc$, there is a complex number $z$ such that
-    $P(z)=0$.
-\end{thm}
 \begin{prop}
-  Let $A$ be an operator on a complex finite-dimensional inner product space.
+  Let $A$ be an operator on a complex finite-dimensional normed vector space.
   The eigenvalues of $\exp A$, together with their multiplicities, are
   equal to the exponentials of the eigenvalues of $A$.
 \end{prop}
 \begin{prop}
-  Let $A$ and $B$ be operators on a finite-dimensional inner product space such
+  Let $A$ and $B$ be operators on a finite-dimensional normed vector space such
   that $AB=BA$. Then, $\exp(A+B)=\exp A\exp B$.
 \end{prop}
 \begin{prop}
@@ -540,7 +555,6 @@
 \end{defn}
 \subsection*{References}
 \begin{itemize}
-    \item Burkhill, \emph{A First Course in Mathematical Analysis}
-    \item Hardy, \emph{Pure Mathematics}
     \item Rudin, \emph{Principles of Mathematical Analysis}
+    \item Tao, \emph{Analysis II}
 \end{itemize}

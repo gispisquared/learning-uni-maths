@@ -162,14 +162,14 @@
   A \emph{linear functional} on $V$ is a linear map from $V$ to $\Ff$.
 
   The space of linear functionals on $V$ is the \emph{dual space} of $V$,
-  denoted $V'$.
+  denoted $V^*$.
 \end{defn}
 \begin{prop}
-  If $V$ is infinite-dimensional, $\dim V'>\dim V$.
+  If $V$ is infinite-dimensional, $\dim V^*>\dim V$.
 \end{prop}
 \begin{prop}
   If $v_1,\ldots,v_n$ is a finite basis of $V$, then there exists a basis of $n$
-  elements $\varphi_j$ of $V'$, where $\varphi_j v_k$ is $1$ if $j=k$ and $0$
+  elements $\varphi_j$ of $V^*$, where $\varphi_j v_k$ is $1$ if $j=k$ and $0$
   otherwise.
 \end{prop}
 \begin{defn}
@@ -177,17 +177,17 @@
   $v_1,\ldots,v_n$.
 \end{defn}
 \begin{prop}
-  If $V$ is finite-dimensional, then for every $z\in (V')'$ there is an $x\in V$
-  such that for every $y\in V'$ we have $z(y)=y(x)$. The correspondence $x\to z$
+  If $V$ is finite-dimensional, then for every $z\in (V^*)^*$ there is an $x\in V$
+  such that for every $y\in V^*$ we have $z(y)=y(x)$. The correspondence $x\to z$
   is an isomorphism.
 \end{prop}
 \begin{rem}
-  Thus, $(V')'$ and $V$ are often identified for finite-dimensional vector
+  Thus, $(V^*)^*$ and $V$ are often identified for finite-dimensional vector
   spaces.
 \end{rem}
 \begin{defn}
   For $U\subseteq V$, the \emph{annihilator} of $U$ is
-  \[U^0=\{\varphi\in V': \varphi(u)=0\ \forall u\in U\}.\]
+  \[U^0=\{\varphi\in V^*: \varphi(u)=0\ \forall u\in U\}.\]
 \end{defn}
 \begin{prop}
   $\dim U+\dim U^0=\dim V$.
@@ -197,12 +197,12 @@
 \end{prop}
 \begin{prop}
   If $M$ and $N$ are complementary subspaces of $V$, then $M^0$ and $N^0$ are
-  complementary subspaces of $V'$. The restriction $|_M$ is an isomorphism
-  between $N^0$ and $M'$.
+  complementary subspaces of $V^*$. The restriction $|_M$ is an isomorphism
+  between $N^0$ and $M^*$.
 \end{prop}
 \begin{defn}
-  The \emph{dual map} of $T$ is the linear map $T':W'\to V'$ defined by
-  $T'\varphi=\varphi T$ for each $\varphi\in W'$.
+  The \emph{dual map} of $T$ is the linear map $T':W^*\to V^*$ defined by
+  $T'\varphi=\varphi T$ for each $\varphi\in W^*$.
 \end{defn}
 \begin{prop}
     The image of $T'$ is the annihilator of the null space of $T$. The null
@@ -334,12 +334,12 @@
   independent.
 \end{prop}
 \begin{prop}
-  Suppose $T:V\to V$ is linear, $U$ is a subspace of $V$ invariant under
-  $T$, and $\pi:V\to V/U$ is the natural projection. There is a linear map $T/U:V/U\to
-  V/U$ such that $T/U\circ\pi=\pi\circ T$.
+  Suppose $T:V\to W$ is linear, $U$ is a subspace of $V$, and $\pi_1:V\to V/U$ and
+  $\pi_2:W\to W/T(U)$ are natural projections. There is a unique linear map
+  $T/U:V/U\to W/T(U)$ such that $T/U\circ\pi_1=\pi_2\circ T$.
 \end{prop}
 \begin{defn}
-    This map is the \emph{quotient map} $T/U$.
+    This map is the \emph{quotient map}.
 \end{defn}
 \begin{defn}
   Suppose $T:V\to V$ is a linear transformation and
@@ -433,10 +433,6 @@
   Any linear functional $f$ on a finite-dimensional inner product space can be
   written as $f(x)=\langle x,v\rangle$ for some fixed vector $v$.
 \end{thm}
-\begin{rem}
-  Thus, on a finite-dimensional inner product space we may canonically identify
-  the dual space with the space itself.
-\end{rem}
 \begin{prop}
   Let $T:V\to W$ be linear. There exists a unique function $T^*:W\to V$ such
   that
@@ -488,8 +484,8 @@
 \end{prop}
 \begin{prop}
     For any two vector spaces $V$ and $W$ there is a unique (up to isomorphism)
-    vector space $V\otimes W$ and a map $\otimes:V\times W\to V\otimes W$
-    such that for any bilinear function $h:V\times W\to Z$ there is a linear
+    vector space $V\otimes W$ and a bilinear map $\otimes:V\times W\to V\otimes W$
+    such that for any bilinear function $h:V\times W\to Z$ there is a unique linear
     function $\bar h:V\otimes W\to Z$ such that $h(v,w)=\bar h(v\otimes w)$.
 \end{prop}
 \begin{defn}
@@ -498,17 +494,25 @@
     and $v$.
 \end{defn}
 \begin{prop}
+    The following spaces are canonically isomorphic:
+    \begin{itemize}
+        \item $U^*\otimes V^*$
+        \item $(U\otimes V)^*$
+        \item The space of bilinear functions on $U\times V$.
+    \end{itemize}
+\end{prop}
+\begin{prop}
     If $X$ and $Y$ are bases in $U$ and $V$, then the set $\{x\otimes y:x\in
     X,y\in Y\}$ is a basis in $U\otimes V$.
 \end{prop}
 \begin{prop}
     Let $U$ and $V$ be finite-dimensional vector spaces.
-    There is an isomorphism $f:\mathcal
+    There is a unique isomorphism $f:\mathcal
     L(U)\otimes\mathcal L(V)\to\mathcal L(U\otimes V)$ satisfying
     \[f(A\otimes B)(u\otimes v)=Au\otimes Bv.\]
 \end{prop}
 \begin{defn}
-    Thus, we identify these two spaces and speak of the \emph{tensor product} of
+    Thus, we identify these two spaces and speak of the tensor product of
     two operators as an operator on the tensor product of the underlying spaces.
 \end{defn}
 \begin{prop}
@@ -730,42 +734,72 @@
   $T$ counted according to multiplicity.
 \end{prop}
 \begin{defn}
-  Let $\{V_i\}_1^k$ be vector spaces over $\Ff$. A \emph{$k$-linear form} is a
-  function $f:\prod_1^k V_i\to\Ff$ such that, if all except for one argument is
-  kept fixed, then the function is linear in the remaining argument. If all
-  $V_i$ are equal to $V$, then $f$ is a \emph{$k$-linear form on $V$}.
+    We define $\otimes^k V^*$ to be the $n$-times tensor product of $V^*$
+    with itself, identifying it with the space of functions on $V^k$ which are
+    linear in each element. Its elements are called \emph{$k$-linear forms}.
 \end{defn}
 \begin{defn}
-  A $k$-linear form $f$ on $V$ is \emph{alternating} if $f(x_1,\ldots,x_k)=0$
-  whenever two of the $x_i$s are equal.
+    A $k$-linear form on $V$ is \emph{alternating} if its value is $0$ whenever
+    two of its arguments are equal. The set of alternating $k$-linear forms on
+    $V$ is denoted $\wedge^k V^*$.
 \end{defn}
 \begin{prop}
-  If $x_1,\ldots,x_k$ are linearly dependent vectors and $w$ is an alternating
-  $k$-linear form, then $w(x_1,\ldots,x_k)=0$.
-\end{prop}
-\begin{prop}
-  If $V$ is an $n$-dimensional vector space for $n>0$, then the vector space of
-  alternating $n$-linear forms on $V$ is one-dimensional.
-\end{prop}
-\begin{prop}
-  Let $A$ be an operator on $V$. To each nonzero alternating $n$-linear form $w$
-  on $V$ we associate the form $\bar Aw$ defined by $(\bar Aw)(x_1,\ldots,x_n)
-  =w(Ax_1,\ldots,Ax_n)$. Then there exists a scalar $|A|\in\Ff$ such that
-  $\bar Aw=|A|w$.
+    If $x_1,\ldots,x_k$ are linearly dependent vectors and $w$ is an alternating
+    $k$-linear form, then $w(x_1,\ldots,x_k)=0$.
 \end{prop}
 \begin{defn}
-  We call this scalar $|A|$ the \emph{determinant} of $A$, also denoted $\det
-  A$.
+    We define $Alt(f)=\frac 1{k!}\sum_\pi\sign(\pi)f\circ\pi$ and $\Alt=\frac
+    1{k!}Alt$.
 \end{defn}
 \begin{prop}
-  The determinant is multiplicative.
+    The function $\Alt$ is a projection from the space of
+    $k$-linear forms to the space of alternating $k$-linear forms.
+\end{prop}
+\begin{prop}
+    If $\Alt(f_1)=\Alt(f_2)$ and $\Alt(g_1)=\Alt(g_2)$ then $\Alt(f_1\otimes
+    g_1)=\Alt(f_2\otimes g_2)$.
+\end{prop}
+\begin{defn}
+    We define
+    the \emph{wedge product} as $\Alt(f)\wedge \Alt(g)=\Alt(f\otimes g)$.
+\end{defn}
+\begin{rem}
+    Conventions differ here; some instead define $Alt(f)\wedge Alt(g)=Alt(f\otimes
+    g)$. This is nicer for some applications (especially integration)
+    since the wedge product of a dual
+    basis $\{b_i^*\}$, evaluated on the basis $\{b_i\}$, gives $1$ instead of
+    $\frac 1{n!}$.
+\end{rem}
+\begin{prop}
+    A subset of $V^*$ is linearly independent iff its wedge product (taken in any
+    order) is nonzero.
+\end{prop}
+\begin{prop}
+    If $V$ is an $n$-dimensional vector space for $n>0$, then $\wedge^n V^*$ has
+    dimension $\binom mn$.
+\end{prop}
+\begin{prop}
+    Let $A:V\to W$ be linear, and let $n$ be fixed. There is a unique operator
+    $\wedge^n A:\wedge^n W^*\to\wedge^n V^*$ such that for each $p\in\wedge^n
+    W^*$ we
+    have $p(Av_1,\ldots,Av_n)=\wedge^n Ap(v_1,\ldots,v_n)$. We have $\wedge^n
+    AB=\wedge^n A\wedge^n B$.
+\end{prop}
+\begin{defn}
+    If $V=W$ has dimension $n$,
+    then $\wedge^n A$ must be equivalent to multiplication by some scalar.
+    We call this scalar $|A|$ the \emph{determinant} of $A$, also denoted $\det
+    A$.
+\end{defn}
+\begin{prop}
+  $A$ is invertible iff $\det A\ne 0$.
+\end{prop}
+\begin{prop}
+    $\det A=\det A'=\det A^*$.
 \end{prop}
 \begin{cor}
-  $A$ is invertible iff $\det A\ne 0$.
+    If $A$ is unitary, then $\det A=\pm 1$.
 \end{cor}
-\begin{prop}
-    $\det A=\det A'$.
-\end{prop}
 \begin{prop}
     Let $a,b\in\Rr^3$. There exists a unique vector $a\times b$ such that for
     for any vector $c$, $(a\times b)\cdot c$ is the determinant of the operator
@@ -782,8 +816,8 @@
     \end{itemize}
 \end{prop}
 \begin{defn}
-  If $\pi$ is a permutation of $\{1,2,\ldots,n\}$, the sign of $\pi$ is $-1^k$,
-  where $k=|\{(a,b)\in\{1,2,\ldots,n\}:a<b,\ \pi(a)>\pi(b)\}|$.
+    If $\pi$ is a permutation of $\{1,2,\ldots,n\}$, the sign of $\pi$ is $-1^k$,
+    where $k=|\{(a,b)\in\{1,2,\ldots,n\}:a<b,\ \pi(a)>\pi(b)\}|$.
 \end{defn}
 \begin{prop}
   Let $A$ be $n\times n$. The determinant of the linear transformation defined
@@ -791,6 +825,12 @@
   \[\sum_\pi\sign(\pi)\prod_{i=1}^n A_{\pi(i),i},\] 
   where the sum is taken over all permutations $\pi$ of $\{1,2,\ldots,n\}$.
 \end{prop}
+\begin{defn}
+    Let $V$ be finite-dimensional. An \emph{orientation} of $V$ is a function
+    $f$ from the set of bases of $V$ to $\{-1,1\}$ such that
+    $f(\{u_i\})f(\{v_i\})$ has the same sign as the determinant of the
+    linear map that takes each $u_i$ to the corresponding $v_i$.
+\end{defn}
 \begin{defn}
   For an $n\times n$ matrix $A$, let $A_{j,k}$ denote the $(n-1)\times(n-1)$
   matrix obtained from $A$ by crossing out row number $j$ and column number $k$.
@@ -801,10 +841,10 @@
   $AC^T=(\det A)I$.
 \end{thm}
 \begin{cor}[Cramer's rule]
-  For an invertible matrix $A$, the entry number $k$ of the solution of the
+  For an invertible matrix $A$, the $k$th component of the solution of the
   equation $Ax=b$ is given by
   \[x_k=\frac{\det B_k}{\det A},\]
-  where the matrix $B_k$ is obtained from $A$ by replacing column number $k$ of
+  where the matrix $B_k$ is obtained from $A$ by replacing the $k$th column of
   $A$ by $B$.
 \end{cor}
 \begin{prop}

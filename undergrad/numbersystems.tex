@@ -1,73 +1,87 @@
 \section{Number Systems}
-  \begin{defn}
-    A \emph{binary operation} on $A$ is a function $\cdot:A\times A\to A$. We
+\begin{defn}
+    For a nonnegative integer $n$, we define an \emph{operation of arity} $n$ on
+    a set $S$ as a function $f:S^n\to S$. We use the convention $S^0=1=\{0\}$,
+    so an operation of arity $0$ selects an element of $S$.
+\end{defn}
+\begin{defn}
+    A \emph{binary operation} $\cdot$ is an operation of arity $2$. We
     usually write $\cdot(a,b)=c$ as $a\cdot b=c$.
 
     It is \emph{associative} if $(a\cdot b)\cdot c=a\cdot(b\cdot
     c)$ for any $a,\ b,\ c$ in $A$.
 
     It is \emph{commutative} if $a\cdot b=b\cdot a$ for any $a,\ b$ in $A$.
-  \end{defn}
-  \begin{defn}
+\end{defn}
+\begin{defn}
       An \emph{algebraic structure} is an ordered pair $(S,O)$ where $S$ is a
-      set and $O$ is an indexed set of binary operations on $S$.
-  \end{defn}
-  \begin{defn}
+      set and $O$ is an indexed set of operations on $S$.
+\end{defn}
+\begin{defn}
     A \emph{semigroup} is a set $A$ together with an associative binary
     operation on $A$.
-  \end{defn}
-  \begin{defn}
-    A partial order $\le$ and a binary operation $\cdot$ are said to be
-    \emph{compatible} if $x\le y$ implies $ax\le ay$ and $xa\le ya$.
-  \end{defn}
-  \begin{defn}
-    An element $e\in A$ is called an \emph{identity} for $\cdot$ if for each $x$
-    we have $x\cdot e=e\cdot x=x$.
-  \end{defn}
-  \begin{rem}
+\end{defn}
+\begin{rem}
     There are two main notations for semigroups. These are
     \begin{itemize}
-      \item 
-        Multiplicative notation, in which the operation is notated $a\cdot b$ or
+        \item Multiplicative notation, in which the operation is notated $a\cdot b$ or
         simply $ab$, and the identity element (if it exists) is $1$; and
-      \item Additive notation, in which the operation is notated $a+b$ and the
+        \item Additive notation, in which the operation is notated $a+b$ and the
         identity element (if it exists) is $0$.
     \end{itemize}
-  \end{rem}
-  \begin{defn}
-    A monoid is a semigroup with an identity.
-  \end{defn}
-  \begin{defn}
-      Let $X$ be a monoid. The sets $X_{\ge 0}$ and $X_{>0}=X^+$ are defined as
-      $\{x\in X:x\ge 0\}$ and $X_{\ge 0}\setminus\{0\}$.
-  \end{defn}
-  \begin{defn}
-    A \emph{group} is a monoid $A$ such that for each element $a$ of $A$
-    there is an element $b$ of $A$ such that
-    $ab=1=ba$.
+\end{rem}
+\begin{defn}
+    An element $e\in A$ is called an \emph{identity} for $\cdot$ if for each $x$
+    we have $x\cdot e=e\cdot x=x$.
+\end{defn}
+\begin{defn}
+      A \emph{monoid} is a semigroup with a nullary operation that selects
+      an identity.
+\end{defn}
+\begin{defn}
+    A partial order $\le$ and a binary operation $\cdot$ are said to be
+    \emph{compatible} if $x\le y$ implies $ax\le ay$ and $xa\le ya$.
+\end{defn}
+\begin{defn}
+    Let $X$ be a monoid with a compatible partial order $\ge$.
+    The sets $X_{\ge 0}$ and $X_{>0}=X^+$ are defined as
+    $\{x\in X:x\ge 0\}$ and $X_{\ge 0}\setminus\{0\}$.
+\end{defn}
+\begin{defn}
+    A \emph{group} is a monoid $A$ with a unary operation $\cdot^{-1}$ such that
+    for each $a\in A$ we have $aa^{-1}=a^{-1}a=1$.
     
-    A group is \emph{abelian} if the operation is commutative.
-  \end{defn}
-  \begin{defn}
-    A \emph{ring} is set $A$ together with two operations $+$ and $\cdot$ such
-    that $(A,+)$ is an
-    abelian group, $(A,\cdot)$ is a semigroup, and the
+    A group is \emph{abelian} if its binary operation is commutative.
+\end{defn}
+\begin{defn}
+    A \emph{rng} is an (additive) abelian group $A$ with a binary operation
+    $\cdot$ such that $(A,\cdot)$ is a semigroup, and the
     \emph{distributive laws} hold:
     \[a\cdot(b+c)=ab+ac\quad\text{and}\quad (a+b)\cdot c=ac+bc.\]
 
     It is \emph{commutative} if $\cdot$ is commutative.
 
-    It is \emph{ordered} if there is an order $\le$ on $A$ compatible with $+$
-    such that if $0\le a$ and $0\le b$ then $0\le ab$.
+    It is \emph{ordered} if there is a total order $\le$ on $A$ compatible with
+    $+$ such that $A_{\ge 0}$ is closed under $\cdot$.
 
-    It is a \emph{ring with unity} if $\cdot$ has an identity.
+    It is a \emph{ring} if $(A,\cdot)$ is a monoid.
+  \end{defn}
+  \begin{rem}
+      Some authors use ``ring'' for what we call a rng, and ``ring with
+      identity'' or similar for what we call a ring.
+  \end{rem}
+  \begin{defn}
+    A \emph{field} is a ring $(A,+,\cdot)$ such that $(A\setminus
+    \{0\},\cdot)$ is an abelian group.
+
+    An \emph{ordered field} is a field that is also an ordered ring.
   \end{defn}
   \begin{defn}
     Let $(A,X)$ and $(B,Y)$ be algebraic structures such that $X$ and $Y$ are
     indexed by the same set.
 
     A function $\varphi:A\to B$ is said
-    to be a \emph{homomorphism}, or \emph{morphism}, with respect to these operations if
+    to be a \emph{homomorphism}, or \emph{morphism}, if
     for every $a,b\in A$ and every $i$ we have
     have \[\varphi(a X_i b)=\varphi(a) Y_i \varphi(b).\]
 \end{defn}
@@ -93,117 +107,128 @@
       \emph{extension} of $S$.
   \end{defn}
   \begin{prop}
-      The intersection of any collection of sub[group ring etc]s of $G$ is again
+      The intersection of any collection of sub[group, ring, etc]s of $G$ is again
       a sub[group, ring, etc] of $G$.
   \end{prop}
 \begin{defn}
-    The \emph{direct product} of an indexed set $G_i$ of algebraic structures is
-    the set of sequences $g_i$ such that each $g_i$ is in $G_i$, with operations
+    The \emph{direct product} of an indexed set $\{G_i\}_{i\in I}$ of algebraic structures is
+    the set of sequences $\{g_i\}_{i\in I}$ such that each $g_i$ is in $G_i$, with operations
     defined componentwise.
 \end{defn}
 \begin{prop}
     The direct product of a set of [groups, rings, etc]\footnote{except for
     fields} is again a [group, ring, etc].
 \end{prop}
-  \begin{prop}
-      Let $R$ be a commutative ring with unity and let $x\not\in R$.
-      There exists a unique ring extension $R[x]$ of $R$ up to isomorphism such
-      that for every ring extension $S$ of $R$ and every element $y$ of $S$,
-      there is a unique ring homomorphism $f_y:R[x]\to S$ which fixes $R$ and
-      sends $x$ to $y$.
-  \end{prop}
-  \begin{defn}
-      This ring is called the \emph{polynomial ring} over $R$; if $p\in R[x]$,
-      we define $p$ to be a function on $S$ by $f_y(p)=p(y)$.
-  \end{defn}
-  \begin{defn}
-      An equivalence relation $\sim$ and a binary operation $\cdot$, both over $A$, are said
-      to be \emph{compatible} if $a_1\sim a_2$ and $b_1\sim b_2$ imply $a_1\cdot
-      b_1\sim a_2\cdot b_2$. In this case, we may define the operation
-      $\cdot$ \emph{induced} on $A/\sim$ by $\cdot$ as $[a]\cdot[b]=[a\cdot b]$.
-  \end{defn}
-  \begin{prop}
-      If $A$ is a [monoid, group, etc] and $\sim$ is a nontrivial equivalence relation compatible with
-      all of its operations, then $A/\sim$ is a [monoid, group, etc] under the operations
-      induced on it.
-  \end{prop}
-  \begin{defn}
-    A \emph{field} is a ring $(A,+,\cdot)$ such that $(A\setminus
-    \{0\},\cdot)$ is an abelian group.
-
-    An \emph{ordered field} is a field that is also an ordered ring.
-  \end{defn}
-  \begin{defn}
+\begin{prop}
+    Let $R$ be a commutative ring and let $x\not\in R$.
+    There exists a unique ring extension $R[x]$ of $R$ up to isomorphism such
+    that for every ring extension $S$ of $R$ and every element $y$ of $S$,
+    there is a unique ring homomorphism $f_y:R[x]\to S$ which fixes $R$ and
+    sends $x$ to $y$.
+\end{prop}
+\begin{defn}
+    This ring is called the \emph{polynomial ring} over $R$; if $p\in R[x]$,
+    we define $p$ to be a function on $S$ by $f_y(p)=p(y)$.
+\end{defn}
+\begin{prop}
+    Every element in $R[x]$ can be uniquely written as $\sum_{i=1}^\infty r_i
+    x^i$, where all but finitely many $r_i$s are $0$.
+\end{prop}
+\begin{defn}
+    The \emph{degree} of a polynomial is the largest $i$ such that $r_i\ne 0$.
+\end{defn}
+\begin{defn}
+    An equivalence relation $\sim$ and a binary operation $\cdot$, both over $A$, are said
+    to be \emph{compatible} if $a_1\sim a_2$ and $b_1\sim b_2$ imply $a_1\cdot
+    b_1\sim a_2\cdot b_2$. In this case, we may define the operation
+    $\cdot$ \emph{induced} on $A/\sim$ by $\cdot$ as $[a]\cdot[b]=[a\cdot b]$.
+\end{defn}
+\begin{prop}
+    If $A$ is a [monoid, group, etc] and $\sim$ is a nontrivial equivalence relation compatible with
+    all of its operations, then $A/\sim$ is a [monoid, group, etc] under the operations
+    induced on it.
+\end{prop}
+\begin{defn}
     A partially ordered set $S$ is \emph{complete} if every nonempty subset that has
     an upper bound in $S$ has a least upper bound in $S$.
-  \end{defn}
-  \begin{prop}
+\end{defn}
+\begin{prop}
     Let $S$ be a complete partially ordered set. Every nonempty subset that
     has a lower bound in $S$ has a greatest lower bound in $S$.
-  \end{prop}
-  \begin{thm}
-      There are structures $\omega=\Zz_{\ge
-      0}\subseteq\Zz\subseteq\Qq\subseteq\Rr$ satisfying the
-      following properties:
-      \begin{itemize}
-          \item If $M$ is a monoid and $a\in M$, there is a unique homomorphism
-              $f:\Zz_{\ge 0}\to M$ such that $f(1)=a$.
-          \item If $R$ is a ring with unity, there is a unique homomorphism
+\end{prop}
+\begin{thm}
+    There are structures $\Zz\subseteq\Qq\subseteq\Rr$ satisfying the
+    following properties:
+    \begin{itemize}
+        \item $\Zz$ is a ring, and if $R$ is a ring, there is a unique homomorphism
               $f:\Zz\to R$.
-          \item If $F$ is a field containing $\Zz$, there is a unique homomorphism $f:\Qq\to F$.
-          \item $\Rr$ is a complete totally ordered field.
-      \end{itemize}
-      Moreover, each of these properties defines the corresponding structure up to unique isomorphism.
-  \end{thm}
-  \begin{defn}
-      The structures thus defined are the \emph{nonnegative integers},
-      \emph{integers}, \emph{rational numbers} and \emph{real numbers}
-      respectively.
-  \end{defn}
-  \begin{rem}
-      We avoid the symbol $\Nn$ and the term \emph{natural numbers},
-      since some sources take it to mean $\Zz_{>0}$ and others take it to mean
-      $\Zz_{\ge 0}$.
-  \end{rem}
-  \begin{defn}
-      We define the \emph{complex numbers} $\Cc$ as $\Rr[x]/\sim$, where $\sim$
-      is the equivalence relation given by $a\sim b\iff\exists c:a=b+c(x^2+1)$.
-  \end{defn}
-  \begin{prop}
-      There is a unique nontrivial automorphism of $\Cc$ fixing $\Rr$.
-  \end{prop}
-  \begin{defn}
-      This automorphism is called \emph{complex conjugation}; the image of $a$
-      is denoted $\overline a$.
-  \end{defn}
-  \begin{prop}
-      If $a\in\Cc$, then $a\overline a\in\Rr_{\ge 0}$.
-  \end{prop}
-  \begin{prop}
+        \item $\Qq$ is a field, and if $F$ is a field containing $\Zz$, there
+              is a unique homomorphism $f:\Qq\to F$.
+        \item $\Rr$ is a complete totally ordered field.
+    \end{itemize}
+    Moreover, each of these properties defines the corresponding structure up
+    to unique isomorphism.
+\end{thm}
+\begin{prop}
+    There are unique orders on $\Zz$ and $\Qq$ compatible with $+$ such that
+    $1\ge 0$.
+\end{prop}
+\begin{prop}[Principle of Mathematical Induction]
+    If $S\subseteq\Zz^+$ such that $1\in S$ and if $x\in S$ then $x+1\in S$,
+    then $S=\Zz^+$.
+\end{prop}
+\begin{defn}
+    The structures thus defined are the \emph{nonnegative integers},
+    \emph{integers}, \emph{rational numbers} and \emph{real numbers}
+    respectively.
+\end{defn}
+\begin{rem}
+    We avoid the symbol $\Nn$ and the term \emph{natural numbers},
+    since some sources take it to mean $\Zz_{>0}$ and others take it to mean
+    $\Zz_{\ge 0}$.
+\end{rem}
+\begin{defn}
+    We define the \emph{complex numbers} $\Cc$ as $\Rr[x]/\sim$, where $\sim$
+    is the equivalence relation given by $a\sim b\iff\exists c:a=b+c(x^2+1)$.
+    The equivalence class of $x$ is denoted $i$.
+\end{defn}
+\begin{prop}
+    There is a unique nontrivial automorphism of $\Cc$ fixing $\Rr$.
+\end{prop}
+\begin{defn}
+    This automorphism is called \emph{complex conjugation}; the image of $a$
+    is denoted $\overline a$.
+\end{defn}
+\begin{prop}
+    If $a\in\Cc$, then $a\overline a\in\Rr_{\ge 0}$.
+\end{prop}
+\begin{prop}
     Let $b\in\Rr_{\ge 0}$. There exists a unique $x\in\Rr_{\ge 0}$ such that
     $x\cdot x=b$. 
-  \end{prop}
-  \begin{defn}
+\end{prop}
+\begin{defn}
     We call $x$ the \emph{square root} of $b$, denoted $\sqrt b$.
-  \end{defn}
-  \begin{defn}
+\end{defn}
+\begin{defn}
     We call $\sqrt{a\overline a}$ the \emph{modulus} of $a$, denoted $|a|$.
-  \end{defn}
-  \begin{prop}[Triangle Inequality]
+\end{defn}
+\begin{prop}[Triangle Inequality]
     If $a$ and $b$ are complex numbers, then $|a+b|\le|a|+|b|$.
-  \end{prop}
-  \begin{thm}[Fundamental Theorem of Algebra]
+\end{prop}
+\begin{thm}[Fundamental Theorem of Algebra]
       For all $P\in\Cc[x]\setminus\Cc$, there is a complex number $z$ such that
       $P(z)=0$.
-  \end{thm}
-  \begin{rem}
+\end{thm}
+\begin{rem}
       We assume this theorem for now, and prove it in the section on complex
       analysis.
-  \end{rem}
-  \begin{thm}
+\end{rem}
+\begin{thm}
     $|\Zz^+|=|\Zz_{\ge 0}|=|\Zz|=|\Qq|=\omega$, but $|\Rr|=|\Cc|=|\mathcal
     P(\omega)|$.
-  \end{thm}
-  \begin{prop}
-      $|\Rr^\Zz|=|\Zz^\Zz|$.
-  \end{prop}
+\end{thm}
+\subsection*{References}
+\begin{itemize}
+    \item Landau, \emph{Foundations of Analysis}
+    \item Birkhoff and Mac Lane, \emph{A Survey of Modern Algebra}
+\end{itemize}
